@@ -347,12 +347,12 @@ footer{border-top:2px solid var(--ink);padding:2rem;text-align:center;font-famil
 
 <header role="banner">
   <div class="hdr">
-    <a class="logo" onclick="history.pushState(null,'','#'); nav('home')" href="#" aria-label="Matt &amp; Nick's Stupid Adventure — go to home"><span class="logo-line">Matt &amp; Nick's</span><span class="logo-line logo-accent">Stupid Adventure</span></a>
+    <a class="logo" onclick="location.hash=''; nav('home')" href="#" aria-label="Matt &amp; Nick's Stupid Adventure — go to home"><span class="logo-line">Matt &amp; Nick's</span><span class="logo-line logo-accent">Stupid Adventure</span></a>
     <div style="display:flex;align-items:center;gap:1.5rem">
       <nav aria-label="Main navigation">
-        <a onclick="history.pushState(null,'','#'); nav('home')" id="nav-home" class="active" aria-current="page">Home</a>
-        <a onclick="history.pushState(null,'','#ranking'); nav('ranking')" id="nav-ranking">Rankings</a>
-        <a onclick="history.pushState(null,'','#about'); nav('about')" id="nav-about">About</a>
+        <a onclick="location.hash=''; nav('home')" id="nav-home" class="active" aria-current="page">Home</a>
+        <a onclick="location.hash='ranking'; nav('ranking')" id="nav-ranking">Rankings</a>
+        <a onclick="location.hash='about'; nav('about')" id="nav-about">About</a>
       </nav>
       <button id="theme-btn" onclick="toggleTheme()" aria-label="Override theme — currently following system preference" title="Toggle dark/light mode"><span class="theme-icon"><svg class="theme-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="2" width="14" height="10" rx="1.5"></rect><line x1="5" y1="14" x2="11" y2="14"></line><line x1="8" y1="12" x2="8" y2="14"></line></svg></span><span class="theme-label">Auto</span></button>
     </div>
