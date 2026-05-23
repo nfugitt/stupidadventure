@@ -867,6 +867,58 @@ function nav(page) {
 function goBack() { nav(prevPage); }
 
 
+function handleRouting() {
+  const hash = location.hash.replace('#', '');
+
+  // Review routes
+  if(hash.startsWith('review-')) {
+    const rank = parseInt(hash.replace('review-', ''), 10);
+
+    if(!isNaN(rank)) {
+      showReview(rank, true);
+      return;
+    }
+  }
+
+  // Main pages
+  if(hash === 'ranking') {
+    nav('ranking');
+    return;
+  }
+
+  if(hash === 'about') {
+    nav('about');
+    return;
+  }
+
+  // Default
+  nav('home');
+}
+
+window.addEventListener('hashchange', handleRouting);
+
+if(document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', handleRouting);
+} else {
+  handleRouting();
+}
+
+function handleAdminAccess() {
+  const params = new URLSearchParams(window.location.search);
+
+  if(params.get('panel') === 'purplemonkeydishwasher') {
+    nav('admin');
+    adminUpdateCount();
+    adminLoadCreds();
+  }
+}
+
+if(document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', handleAdminAccess);
+} else {
+  handleAdminAccess();
+}
+
 // ── FOOTNOTE DATA ──
 const footnotes = {
   12: '* We believe this drink changed its formula. C4 denied any change and sent us a case — that batch was better, but probably still not enough to justify its current placement.',
@@ -979,58 +1031,6 @@ function updateThemeBtn() {
     label.textContent = 'Auto';
     t.setAttribute('aria-label', 'Override theme — currently following system preference');
   }
-}
-
-function handleRouting() {
-  const hash = location.hash.replace('#', '');
-
-  // Review routes
-  if(hash.startsWith('review-')) {
-    const rank = parseInt(hash.replace('review-', ''), 10);
-
-    if(!isNaN(rank)) {
-      showReview(rank, true);
-      return;
-    }
-  }
-
-  // Main pages
-  if(hash === 'ranking') {
-    nav('ranking');
-    return;
-  }
-
-  if(hash === 'about') {
-    nav('about');
-    return;
-  }
-
-  // Default
-  nav('home');
-}
-
-window.addEventListener('hashchange', handleRouting);
-
-if(document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', handleRouting);
-} else {
-  handleRouting();
-}
-
-function handleAdminAccess() {
-  const params = new URLSearchParams(window.location.search);
-
-  if(params.get('panel') === 'purplemonkeydishwasher') {
-    nav('admin');
-    adminUpdateCount();
-    adminLoadCreds();
-  }
-}
-
-if(document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', handleAdminAccess);
-} else {
-  handleAdminAccess();
 }
 
 // ── ADMIN ──────────────────────────────────────────────────
