@@ -2369,6 +2369,17 @@
   },
   {
     "rank": 215,
+    "name": "Bum Energy Cola",
+    "brand": "Bum Energy",
+    "date": "06/19/2026",
+    "redo": false,
+    "notes": [],
+    "msl": "OK we need to catch up on some stuff, and we both decided that BUM Energy Cola is probably going to be the one we care about the least, because seemingly all of these are just “mediocre cokes”.  But hey, BUM has had some good stuff and maybe they will surprise us.  I am not judging before having it!!!  OK.  Maybe I am a little.  But I have an open mind it’ll be good!\n\nThis drink is CLEAR and that surprises me.  Who makes a CLEAR cola???  I guess BUM does.  This has been in the fridge for a while but it’s definitely still good.  No real smell.  Bottoms up!\n\nYeah about what I expected.  It’s a light cola.  Not bad, but not amazing either.  Better than some of the other cola variants maybe?  Yeah.  It’s just too light of a Cola taste for my liking.  I don’t think this is bad, but dude - just get a Coke.  Get a freaking Pepsi even.  In fact, I was about to have a Diet Pepsi before I decided we should do a drink.  And even though this is an easily finish-able drink to me, I just don’t think I’m gonna do it.  \n\nMy review might come off harsh here.  It’s not THAT bad.  But I dunno.  Don’t come at the king and then miss with these pitiful attempts.",
+    "nf": "Matt and I stood at the fridge, trying to decide which drink to pick next, and we solemnly resigned ourselves to our fate. The Science and our journalistic integrity demands that we do this, but we don’t have to be thrilled. Not that I expect it to be disgusting, I just know what to expect with these energy drink colas by now. It’s clear, which even if this is your first cola energy drink is a major party foul and indication that something may be up. \n\nMy expectations were low and Bum somehow landed below that. I see carbonation in my glass, but I sure as shit don’t detect it. That greatly blows the flavor profile up, as you’re left with a pale imitation of diet cola. If I had to guess why these companies keep trying to make an energy drink cola, the only thing I can think of is that there’s health nuts and crunchy types out there that miss their Diet Coke but won’t drink it because of toxins and GMOs and whatever insane shit the MAHA crowd is into these days. But maybe they’ll be open to something sold in GNC or The Vitamin Shoppe? I dunno, do they drink caffeine? Anyway, this sucks, just get Coke Zero or Diet Pepsi if you want a caffeinated diet cola.",
+    "caffeine": 112
+  },
+  {
+    "rank": 216,
     "name": "OxyShred Ultra Energy Guava Paradise",
     "brand": "OxyShred",
     "date": "09/15/2024",
@@ -2379,7 +2390,7 @@
     "caffeine": 163
   },
   {
-    "rank": 216,
+    "rank": 217,
     "name": "NOS Energy Original",
     "brand": "NOS",
     "date": "08/19/2024",
@@ -2390,7 +2401,7 @@
     "caffeine": 160
   },
   {
-    "rank": 217,
+    "rank": 218,
     "name": "GHOST Energy Citrus",
     "brand": "GHOST",
     "date": "07/26/2024",
@@ -2401,7 +2412,7 @@
     "caffeine": 200
   },
   {
-    "rank": 218,
+    "rank": 219,
     "name": "Gorilla Mind Lucky Lemon",
     "brand": "Gorilla Mind",
     "date": "07/10/2024",
@@ -2412,7 +2423,7 @@
     "caffeine": 200
   },
   {
-    "rank": 219,
+    "rank": 220,
     "name": "Rockstar RECOVERY Berryade",
     "brand": "Rockstar",
     "date": "07/28/2025",
@@ -2423,7 +2434,7 @@
     "caffeine": 160
   },
   {
-    "rank": 220,
+    "rank": 221,
     "name": "RYSE Fuel Country Time Lemonade",
     "brand": "RYSE",
     "date": "09/05/2024",
@@ -2434,7 +2445,7 @@
     "caffeine": 200
   },
   {
-    "rank": 221,
+    "rank": 222,
     "name": "bang Energy Birthday Cake Bash",
     "brand": "bang",
     "date": "08/28/2024",
@@ -2445,7 +2456,7 @@
     "caffeine": 300
   },
   {
-    "rank": 222,
+    "rank": 223,
     "name": "C4 Orange Slice",
     "brand": "C4",
     "date": "04/23/2024",
@@ -2456,7 +2467,7 @@
     "caffeine": 200
   },
   {
-    "rank": 223,
+    "rank": 224,
     "name": "C4 Popsicle Hawaiian Pineapple",
     "brand": "C4",
     "date": "04/19/2024",
@@ -2467,7 +2478,7 @@
     "caffeine": 200
   },
   {
-    "rank": 224,
+    "rank": 225,
     "name": "GHOST Energy Warheads Sour Green Apple",
     "brand": "GHOST",
     "date": "07/25/2024",
@@ -2478,7 +2489,7 @@
     "caffeine": 200
   },
   {
-    "rank": 225,
+    "rank": 226,
     "name": "BUCKED UP Blue Raz",
     "brand": "BUCKED UP",
     "date": "08/13/2024",
@@ -2489,7 +2500,7 @@
     "caffeine": 300
   },
   {
-    "rank": 226,
+    "rank": 227,
     "name": "Celsius Sparkling Tropical Vibe",
     "brand": "Celsius",
     "date": "07/02/2024",
@@ -2500,7 +2511,7 @@
     "caffeine": 200
   },
   {
-    "rank": 227,
+    "rank": 228,
     "name": "GHOST Energy Tropical Mango",
     "brand": "GHOST",
     "date": "07/05/2024",
@@ -2511,7 +2522,7 @@
     "caffeine": 200
   },
   {
-    "rank": 228,
+    "rank": 229,
     "name": "Mountain Dew Kickstart Strawberry Start-Up",
     "brand": "Mountain Dew Kickstart",
     "date": "07/09/2024",
@@ -2522,7 +2533,7 @@
     "caffeine": 92
   },
   {
-    "rank": 229,
+    "rank": 230,
     "name": "C4 Arctic Snow Cone",
     "brand": "C4",
     "date": "04/10/2024",
@@ -2533,7 +2544,7 @@
     "caffeine": 200
   },
   {
-    "rank": 230,
+    "rank": 231,
     "name": "Celsius Sparkling Cherry Cola",
     "brand": "Celsius",
     "date": "11/20/2024",
@@ -2546,7 +2557,7 @@
     "caffeine": 200
   },
   {
-    "rank": 231,
+    "rank": 232,
     "name": "Celsius Sparkling Cola",
     "brand": "Celsius",
     "date": "10/07/2024",
@@ -2557,7 +2568,7 @@
     "caffeine": 200
   },
   {
-    "rank": 232,
+    "rank": 233,
     "name": "Beaver Buzz Energy Dr. Buzz",
     "brand": "Beaver Buzz",
     "date": "06/25/2025",
@@ -2568,7 +2579,7 @@
     "caffeine": 178
   },
   {
-    "rank": 233,
+    "rank": 234,
     "name": "OxyShred Ultra Energy Cali Cola",
     "brand": "OxyShred",
     "date": "09/20/2024",
@@ -2579,7 +2590,7 @@
     "caffeine": 163
   },
   {
-    "rank": 234,
+    "rank": 235,
     "name": "Red Bull The Yellow Edition: Tropical",
     "brand": "Red Bull",
     "date": "09/17/2024",
@@ -2590,7 +2601,7 @@
     "caffeine": 80
   },
   {
-    "rank": 235,
+    "rank": 236,
     "name": "G Fuel Power Pellet",
     "brand": "G FUEL",
     "date": "07/17/2024",
@@ -2601,7 +2612,7 @@
     "caffeine": 140
   },
   {
-    "rank": 236,
+    "rank": 237,
     "name": "Oxyshred Ultra Energy Cotton Candy",
     "brand": "OxyShred",
     "date": "06/28/2025",
@@ -2612,7 +2623,7 @@
     "caffeine": 163
   },
   {
-    "rank": 237,
+    "rank": 238,
     "name": "Huel Energy+ Watermelon",
     "brand": "Huel",
     "date": "01/11/2025",
@@ -2623,7 +2634,7 @@
     "caffeine": 100
   },
   {
-    "rank": 238,
+    "rank": 239,
     "name": "NOOB Energy Sweet Tooth",
     "brand": "NOOB",
     "date": "11/14/2024",
@@ -2634,7 +2645,7 @@
     "caffeine": 175
   },
   {
-    "rank": 239,
+    "rank": 240,
     "name": "Monster Energy ULTRA Violet",
     "brand": "Monster",
     "date": "08/27/2024",
@@ -2645,7 +2656,7 @@
     "caffeine": 150
   },
   {
-    "rank": 240,
+    "rank": 241,
     "name": "Gorilla Mind Sour Watermelon Candy",
     "brand": "Gorilla Mind",
     "date": "07/16/2024",
@@ -2656,7 +2667,7 @@
     "caffeine": 200
   },
   {
-    "rank": 241,
+    "rank": 242,
     "name": "Alani Nu Breezeberry",
     "brand": "Alani Nu",
     "date": "06/20/2024",
@@ -2667,7 +2678,7 @@
     "caffeine": 200
   },
   {
-    "rank": 242,
+    "rank": 243,
     "name": "Monster Energy JUICE Aussie Style Lemonade",
     "brand": "Monster",
     "date": "06/05/2024",
@@ -2678,7 +2689,7 @@
     "caffeine": 160
   },
   {
-    "rank": 243,
+    "rank": 244,
     "name": "Huel Energy+ Blue Raspberry",
     "brand": "Huel",
     "date": "12/28/2024",
@@ -2689,7 +2700,7 @@
     "caffeine": 100
   },
   {
-    "rank": 244,
+    "rank": 245,
     "name": "NOOB Energy Citrus Burst",
     "brand": "NOOB",
     "date": "11/13/2024",
@@ -2700,7 +2711,7 @@
     "caffeine": 175
   },
   {
-    "rank": 245,
+    "rank": 246,
     "name": "EBOOST SUPER FUEL Sparkling Strawberry Lemonade",
     "brand": "EBOOST",
     "date": "12/15/2025",
@@ -2711,7 +2722,7 @@
     "caffeine": 0
   },
   {
-    "rank": 246,
+    "rank": 247,
     "name": "OxyShred Ultra Energy Frosty Big Apple",
     "brand": "OxyShred",
     "date": "05/14/2024",
@@ -2722,7 +2733,7 @@
     "caffeine": 163
   },
   {
-    "rank": 247,
+    "rank": 248,
     "name": "OxyShred Ultra Energy Proton Plasma",
     "brand": "OxyShred",
     "date": "04/16/2024",
@@ -2733,7 +2744,7 @@
     "caffeine": 163
   },
   {
-    "rank": 248,
+    "rank": 249,
     "name": "EBOOST SUPER FUEL Sparkling Blue Raspberry",
     "brand": "EBOOST",
     "date": "12/22/2024",
