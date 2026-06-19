@@ -3202,7 +3202,11 @@ async function loadDrinks() {
   initializeSite();
 }
 
-loadDrinks();
+if(document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadDrinks);
+} else {
+  loadDrinks();
+}
 
 function showLoadError(err) {
   updateThemeBtn();
@@ -3280,14 +3284,33 @@ function makeFlags(d) {
   return f ? `<div class="rflags">${f}</div>` : '';
 }
 
+function slugify(text) {
+  return String(text || '')
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function getReviewSlug(d) {
+  const base = slugify(d.slug || d.name);
+  const matches = drinks.filter(x => slugify(x.slug || x.name) === base);
+  if(matches.length <= 1) return base;
+  return slugify((d.brand || '') + ' ' + (d.name || ''));
+}
+
+function findDrinkBySlug(slug) {
+  return drinks.find(d => getReviewSlug(d) === slug);
+}
+
 function makeItem(d) {
   const li = document.createElement('li');
   li.className = 'rank-item';
   li.setAttribute('role', 'button');
   li.setAttribute('tabindex', '0');
   li.setAttribute('aria-label', `#${d.rank} ${d.name} — read review`);
-  li.onclick = () => showReview(d.rank);
-  li.onkeydown = (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showReview(d.rank); } };
+  li.onclick = () => showReview(d);
+  li.onkeydown = (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showReview(d); } };
   li.dataset.srch = (d.name+' '+d.brand).toLowerCase();
   li.innerHTML = `<div class="rnum" aria-hidden="true">${d.rank}</div><div class="rbody"><div class="rtext"><div class="rname">${d.name}</div>${d.date?`<div class="rdate">${d.date}</div>`:''}</div><div class="rmeta" aria-hidden="true">${makeFlags(d)}<div class="arr">→</div></div></div>`;
   return li;
@@ -3362,9 +3385,13 @@ function filter() {
   document.getElementById('search-count').textContent = q ? `${vis} of ${drinks.length} drinks` : '';
 }
 
-function showReview(rank, skipPush = false) {
-  const d = drinks.find(x => x.rank === rank);
+function showReview(drinkOrRank, skipPush = false) {
+  const d = typeof drinkOrRank === 'object'
+    ? drinkOrRank
+    : drinks.find(x => x.rank === drinkOrRank);
   if(!d) return;
+  const rank = d.rank;
+  const slug = getReviewSlug(d);
   const tier = getTier(rank);
   const ti = tiers[tier];
   const hasMSL = d.msl && d.msl.trim();
@@ -3404,8 +3431,8 @@ function showReview(rank, skipPush = false) {
  document.title = `${d.name} — Matt & Nick's Stupid Adventure`;
 nav('review');
 
-if(!skipPush && location.hash !== '#review-' + rank) {
-  location.hash = 'review-' + rank;
+if(!skipPush && location.hash !== '#review/' + slug) {
+  location.hash = 'review/' + slug;
 }
 }
 let prevPage = 'ranking';
@@ -3419,7 +3446,12 @@ function nav(page) {
     a.classList.remove('active');
     a.removeAttribute('aria-current');
   });
-  document.getElementById('page-'+page).classList.add('active');
+  const pageEl = document.getElementById('page-'+page);
+  if(!pageEl) {
+    console.warn('Page not found:', page);
+    return;
+  }
+  pageEl.classList.add('active');
   const el = document.getElementById('nav-'+page);
   if(el) { el.classList.add('active'); el.setAttribute('aria-current', 'page'); }
   window.scrollTo(0,0);
@@ -3431,11 +3463,24 @@ function handleRouting() {
   const hash = location.hash.replace('#', '');
 
   // Review routes
+  if(hash.startsWith('review/')) {
+    const slug = hash.replace('review/', '');
+    const d = findDrinkBySlug(slug);
+
+    if(d) {
+      showReview(d, true);
+      return;
+    }
+  }
+
+  // Legacy rank routes, kept so old links do not break.
   if(hash.startsWith('review-')) {
     const rank = parseInt(hash.replace('review-', ''), 10);
+    const d = drinks.find(x => x.rank === rank);
 
-    if(!isNaN(rank)) {
-      showReview(rank, true);
+    if(d) {
+      location.replace('#review/' + getReviewSlug(d));
+      showReview(d, true);
       return;
     }
   }
@@ -3703,7 +3748,7 @@ function adminSubmit() {
 
   if(!rank || !name || !brand) {
     adminMsg('Rank, Name, and Brand are required.', 'err');
-    return;
+    return false;
   }
 
   // If inserting at an existing rank, push everything at that rank and below down by 1
@@ -3727,6 +3772,13 @@ function adminSubmit() {
   adminRefreshAll();
   adminClear();
   adminMsg('✓ #' + rank + ' “' + name + '” added and rankings updated!', 'ok');
+  return true;
+}
+
+async function adminSubmitAndPublish() {
+  if(adminSubmit()) {
+    await adminPublish();
+  }
 }
 
 function adminClear() {
@@ -3751,37 +3803,47 @@ function adminDateFromPicker() {
 }
 
 // ── Credential management ────────────────────────────────────
-const CREDS_KEY = 'stupidadventure_netlify_creds';
+const CREDS_KEY = 'stupidadventure_github_creds';
 
 function adminLoadCreds() {
   try {
     const raw = localStorage.getItem(CREDS_KEY);
     if(!raw) return;
-    const {token, siteId} = JSON.parse(raw);
+    const {token, owner, repo, branch} = JSON.parse(raw);
     const t = document.getElementById('adm-token');
-    const s = document.getElementById('adm-siteid');
+    const o = document.getElementById('adm-owner');
+    const r = document.getElementById('adm-repo');
+    const b = document.getElementById('adm-branch');
     if(t && token)  t.value = token;
-    if(s && siteId) s.value = siteId;
+    if(o && owner) o.value = owner;
+    if(r && repo) r.value = repo;
+    if(b && branch) b.value = branch;
   } catch(e) {}
 }
 
 function adminSaveCreds() {
   const token  = (document.getElementById('adm-token')  || {}).value || '';
-  const siteId = (document.getElementById('adm-siteid') || {}).value || '';
-  if(!token || !siteId) {
-    adminPublishMsg('Enter both a token and Site ID first.', 'err');
+  const owner = (document.getElementById('adm-owner') || {}).value || '';
+  const repo = (document.getElementById('adm-repo') || {}).value || '';
+  const branch = (document.getElementById('adm-branch') || {}).value || 'main';
+  if(!token || !owner || !repo || !branch) {
+    adminPublishMsg('Enter a GitHub token, owner, repo, and branch first.', 'err');
     return;
   }
-  localStorage.setItem(CREDS_KEY, JSON.stringify({token, siteId}));
+  localStorage.setItem(CREDS_KEY, JSON.stringify({token, owner, repo, branch}));
   adminPublishMsg('\u2713 Credentials saved to this browser.', 'ok');
 }
 
 function adminClearCreds() {
   localStorage.removeItem(CREDS_KEY);
   const t = document.getElementById('adm-token');
-  const s = document.getElementById('adm-siteid');
+  const o = document.getElementById('adm-owner');
+  const r = document.getElementById('adm-repo');
+  const b = document.getElementById('adm-branch');
   if(t) t.value = '';
-  if(s) s.value = '';
+  if(o) o.value = '';
+  if(r) r.value = '';
+  if(b) b.value = 'main';
   adminPublishMsg('Credentials cleared.', 'ok');
 }
 
@@ -3802,20 +3864,90 @@ function adminPublishMsg(text, type) {
   if(type === 'ok') setTimeout(() => { el.style.display = 'none'; }, 6000);
 }
 
-// ── SHA-1 for Netlify file digest ────────────────────────────
-async function sha1Hex(str) {
-  const buf = await crypto.subtle.digest('SHA-1',
-    new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf))
-    .map(b => b.toString(16).padStart(2,'0')).join('');
+function serializeDrinksJson() {
+  const sorted = [...drinks].sort((a, b) => a.rank - b.rank);
+  return JSON.stringify(sorted, null, 2) + '\n';
 }
 
-// ── Publish to Netlify ───────────────────────────────────────
+function buildPublishHtml(drinksJson) {
+  const activePage = document.querySelector('.page.active');
+  const activeNav = document.querySelector('nav a.active');
+
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => {
+    a.classList.remove('active');
+    a.removeAttribute('aria-current');
+  });
+
+  const homePage = document.getElementById('page-home');
+  const homeNav = document.getElementById('nav-home');
+  if(homePage) homePage.classList.add('active');
+  if(homeNav) {
+    homeNav.classList.add('active');
+    homeNav.setAttribute('aria-current', 'page');
+  }
+
+  const currentHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => {
+    a.classList.remove('active');
+    a.removeAttribute('aria-current');
+  });
+  if(activePage) activePage.classList.add('active');
+  if(activeNav) {
+    activeNav.classList.add('active');
+    activeNav.setAttribute('aria-current', 'page');
+  }
+
+  const nextBlock = '<script id="embedded-drinks" type="application/json">\n' +
+    drinksJson.trim() +
+    '\n</scr' + 'ipt>';
+
+  if(!currentHtml.includes('<script id="embedded-drinks" type="application/json">')) {
+    throw new Error('Could not locate embedded drink data in page source');
+  }
+
+  return currentHtml.replace(
+    /<script id="embedded-drinks" type="application\/json">[\s\S]*?<\/script>/,
+    nextBlock
+  );
+}
+
+async function githubApi(path, options = {}) {
+  const token = (document.getElementById('adm-token') || {}).value || '';
+  const resp = await fetch('https://api.github.com' + path, {
+    ...options,
+    headers: {
+      Authorization: 'Bearer ' + token,
+      Accept: 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+      ...(options.headers || {})
+    }
+  });
+  if(!resp.ok) {
+    const err = await resp.text();
+    throw new Error('GitHub API failed (' + resp.status + '): ' + err.slice(0,250));
+  }
+  return resp.json();
+}
+
+async function createGithubBlob(owner, repo, content) {
+  const blob = await githubApi('/repos/' + owner + '/' + repo + '/git/blobs', {
+    method: 'POST',
+    body: JSON.stringify({content, encoding: 'utf-8'})
+  });
+  return blob.sha;
+}
+
+// ── Publish to GitHub ───────────────────────────────────────
 async function adminPublish() {
   const token  = (document.getElementById('adm-token')  || {}).value || '';
-  const siteId = (document.getElementById('adm-siteid') || {}).value || '';
-  if(!token || !siteId) {
-    adminPublishMsg('Enter your Netlify token and Site ID, then save credentials.', 'err');
+  const owner = (document.getElementById('adm-owner') || {}).value || '';
+  const repo = (document.getElementById('adm-repo') || {}).value || '';
+  const branch = (document.getElementById('adm-branch') || {}).value || 'main';
+  if(!token || !owner || !repo || !branch) {
+    adminPublishMsg('Enter your GitHub token, owner, repo, and branch, then save credentials.', 'err');
     return;
   }
 
@@ -3827,123 +3959,54 @@ async function adminPublish() {
   adminPublishMsg('', 'ok');
 
   try {
-    // Serialise current in-memory drinks array
-    function serializeDrinks() {
-      return drinks.map(d => {
-        const esc = s => String(s||'').replace(/\\/g,'\\\\').replace(/`/g,'\\`').replace(/\$/g,'\\$');
-        return '  {rank:' + d.rank +
-          ',name:"' + (d.name||'').replace(/"/g,'\\"') + '"' +
-          ',brand:"' + (d.brand||'').replace(/"/g,'\\"') + '"' +
-          ',date:"' + (d.date||'') + '"' +
-          ',redo:' + (d.redo||false) +
-          ',notes:[' + (d.notes||[]).map(n => '"'+n+'"').join(',') + ']' +
-          ',msl:`' + esc(d.msl||'') + '`' +
-          ',nf:`' + esc(d.nf||'') + '`' +
-          ',caffeine:' + (d.caffeine||0) + '}';
-      }).join(',\n');
-    }
+    adminPublishMsg('Building updated data files…', 'ok');
 
-    // Get the current page source — we're running inside the file so
-    // document.documentElement.outerHTML gives us the full HTML minus <!DOCTYPE>
-adminPublishMsg('Building updated file…', 'ok');
+    const drinksJson = serializeDrinksJson();
+    const newHtml = buildPublishHtml(drinksJson);
 
-// Remember currently active page
-const activePage = document.querySelector('.page.active');
-const activeNav  = document.querySelector('nav a.active');
+    adminPublishMsg('Committing to GitHub…', 'ok');
 
-// Temporarily force Home visible for exported HTML
-document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-document.querySelectorAll('nav a').forEach(a => {
-  a.classList.remove('active');
-  a.removeAttribute('aria-current');
-});
-
-document.getElementById('page-home').classList.add('active');
-
-const navHome = document.getElementById('nav-home');
-if(navHome) {
-  navHome.classList.add('active');
-  navHome.setAttribute('aria-current', 'page');
-}
-
-// Snapshot HTML
-const currentHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-
-// Restore previous UI state after snapshot
-document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-document.querySelectorAll('nav a').forEach(a => {
-  a.classList.remove('active');
-  a.removeAttribute('aria-current');
-});
-
-if(activePage) activePage.classList.add('active');
-
-if(activeNav) {
-  activeNav.classList.add('active');
-  activeNav.setAttribute('aria-current', 'page');
-}
-
-// Splice in the freshly serialised drinks array
-const drinksStart = currentHtml.indexOf('const drinks = [');
-const drinksEnd   = currentHtml.indexOf('\n];', drinksStart) + 3;
-
-if(drinksStart === -1 || drinksEnd < drinksStart) {
-  throw new Error('Could not locate drinks array in page source');
-}
-
-const newHtml = currentHtml.slice(0, drinksStart) +
-  'const drinks = [\n' + serializeDrinks() + '\n]' +
-  currentHtml.slice(drinksEnd);
-
-    adminPublishMsg('Uploading to Netlify…', 'ok');
-
-    // Compute SHA1 of new file content
-    const digest = await sha1Hex(newHtml);
-
-    // Step 1: create deploy with file manifest
-    const deployResp = await fetch('https://api.netlify.com/api/v1/sites/' + siteId + '/deploys', {
+    const ref = await githubApi('/repos/' + owner + '/' + repo + '/git/ref/heads/' + encodeURIComponent(branch));
+    const baseSha = ref.object.sha;
+    const baseCommit = await githubApi('/repos/' + owner + '/' + repo + '/git/commits/' + baseSha);
+    const htmlBlobSha = await createGithubBlob(owner, repo, newHtml);
+    const jsonBlobSha = await createGithubBlob(owner, repo, drinksJson);
+    const tree = await githubApi('/repos/' + owner + '/' + repo + '/git/trees', {
       method: 'POST',
-      headers: {
-        Authorization: 'Bearer ' + token,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ files: { '/index.html': digest }, async: false })
+      body: JSON.stringify({
+        base_tree: baseCommit.tree.sha,
+        tree: [
+          {path: 'index.html', mode: '100644', type: 'blob', sha: htmlBlobSha},
+          {path: 'drinks.json', mode: '100644', type: 'blob', sha: jsonBlobSha}
+        ]
+      })
     });
-    if(!deployResp.ok) {
-      const err = await deployResp.text();
-      throw new Error('Deploy creation failed (' + deployResp.status + '): ' + err.slice(0,200));
-    }
-    const deploy = await deployResp.json();
-    const deployId = deploy.id;
-
-    // Step 2: upload the file
-    const uploadResp = await fetch('https://api.netlify.com/api/v1/deploys/' + deployId + '/files/index.html', {
-      method: 'PUT',
-      headers: {
-        Authorization: 'Bearer ' + token,
-        'Content-Type': 'application/octet-stream'
-      },
-      body: new TextEncoder().encode(newHtml)
+    const commit = await githubApi('/repos/' + owner + '/' + repo + '/git/commits', {
+      method: 'POST',
+      body: JSON.stringify({
+        message: 'Add energy drink review',
+        tree: tree.sha,
+        parents: [baseSha]
+      })
     });
-    if(!uploadResp.ok) {
-      const err = await uploadResp.text();
-      throw new Error('File upload failed (' + uploadResp.status + '): ' + err.slice(0,200));
-    }
+    await githubApi('/repos/' + owner + '/' + repo + '/git/refs/heads/' + encodeURIComponent(branch), {
+      method: 'PATCH',
+      body: JSON.stringify({sha: commit.sha})
+    });
 
-    // Clear persisted admin additions — they're now baked into the deployed file
     localStorage.removeItem('stupidadventure_added_drinks');
 
     btn.disabled = false;
     btn.classList.remove('publishing');
-    lbl.textContent = 'Publish to Netlify';
-    adminPublishMsg('✓ Published! Live at stupidadventure.netlify.app — may take a few seconds to propagate.', 'ok');
+    lbl.textContent = 'Commit to GitHub';
+    adminPublishMsg('✓ Committed to GitHub. Netlify should auto-deploy from the new commit.', 'ok');
 
   } catch(err) {
     btn.disabled = false;
     btn.classList.remove('publishing');
-    lbl.textContent = 'Publish to Netlify';
+    lbl.textContent = 'Commit to GitHub';
     adminPublishMsg('✗ ' + err.message, 'err');
-    console.error('Netlify publish error:', err);
+    console.error('GitHub publish error:', err);
   }
 }
 
@@ -4007,12 +4070,53 @@ const newHtml = currentHtml.slice(0, drinksStart) +
 
     <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">
       <button class="adm-btn" onclick="adminSubmit()">Submit Drink</button>
+      <button class="adm-btn" onclick="adminSubmitAndPublish()">Submit &amp; Publish</button>
       <button class="adm-btn secondary" onclick="adminClear()">Clear Form</button>
     </div>
     <div class="adm-msg ok" id="adm-msg" style="display:none"></div>
 
     <div class="adm-section" style="margin-top:2rem">
-    
+      <h3>Pending Browser Changes</h3>
+      <span class="adm-drink-count" id="adm-live-count">0</span>
+      <ul id="adm-added-list" style="list-style:none;margin:0;padding:0">
+        <li class="adm-empty">No drinks added yet.</li>
+      </ul>
+    </div>
+
+    <div class="adm-section adm-publish-section">
+      <h3>Publish</h3>
+      <p class="admin-sub">Publishing commits drinks.json and index.html to GitHub. Netlify will auto-deploy from that commit.</p>
+      <div class="adm-grid">
+        <div class="adm-field full">
+          <label for="adm-token">GitHub Token</label>
+          <div style="display:flex;gap:.5rem">
+            <input type="password" id="adm-token" autocomplete="off" placeholder="Fine-grained token with repository contents access">
+            <button class="adm-btn secondary" type="button" onclick="adminToggleToken()" style="margin-top:0">Show</button>
+          </div>
+        </div>
+        <div class="adm-field">
+          <label for="adm-owner">Owner</label>
+          <input type="text" id="adm-owner" autocomplete="off" placeholder="GitHub user or org">
+        </div>
+        <div class="adm-field">
+          <label for="adm-repo">Repo</label>
+          <input type="text" id="adm-repo" autocomplete="off" placeholder="Repository name">
+        </div>
+        <div class="adm-field full">
+          <label for="adm-branch">Branch</label>
+          <input type="text" id="adm-branch" autocomplete="off" value="main" placeholder="main">
+        </div>
+      </div>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-top:.75rem">
+        <button class="adm-btn secondary" type="button" onclick="adminSaveCreds()">Save Credentials</button>
+        <button class="adm-btn secondary" type="button" onclick="adminClearCreds()">Clear Credentials</button>
+        <button class="adm-btn adm-publish-btn" id="adm-publish-btn" type="button" onclick="adminPublish()">
+          <span class="adm-spinner" aria-hidden="true"></span>
+          <span class="adm-publish-text" id="adm-publish-label">Commit to GitHub</span>
+        </button>
+      </div>
+      <div class="adm-msg ok" id="adm-publish-msg" style="display:none"></div>
+    </div>
   </div>
 </div>
 
