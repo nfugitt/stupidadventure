@@ -1168,6 +1168,17 @@
   },
   {
     "rank": 106,
+    "name": "GHOST Energy Original",
+    "brand": "GHOST",
+    "date": "06/30/2026",
+    "redo": false,
+    "notes": [],
+    "msl": "This drink is a mystery to me.  Clear but also pretty cloudy.  It smells pleasantly sweet, like candy sweet.  Don’t think we have every single drink in the fridge listed, so I can’t even hazard a guess to what it is.  But if it tastes as good as it smells, I’ll be happy.  \n\nOK well I was way off on this being a candy one, because this is GHOST ORIGINAL.  I assumed ORIGINAL would be just “our take on the Red Bull base” but that’s not what this is. I feel like it’s got a vanilla citrus flavoring but it is also kind of sour?  It’s hard to tell.  I kinda dig it, but I also am not like “WOW THIS IS GOOD.”  It’s a little too sweet for my palette, I feel like I need something stronger to counter whatever it is that I think might be vanilla.  But I liked this enough that I was able to down my entire glass.  So that says something.\n\nI don’t know if I would willingly get this again, but it is by no means unpleasant.  It’s just not the flavor for me!  Thumbs in the middle.",
+    "nf": "Our drink today is clear with some cloudiness to it. It has a sweet smell, and if I didn’t know what it was I would be stumped.\n\nThat’s a plain, sour drink. Very appropriate for “Original” which in fact is not a Red Bull/Nos/Amp-style gasoline-adjacent thing, but moreso the white Monster. The label is very evocative of that, and it seems to exist to both poach the kinds of people that worship at the altar of that product, but also be used as a base. Sure enough, the copy on the website says “this event, festival, and bar exclusive flavor speaks for itself and is crushable for any occasion. Rock it with your favorite mixer or enjoy solo.“ Well, ok, I think I got it at a gas station, which I suppose with today’s prices is an event. With that context, it definitely is capital-F Fine, but definitely seems like it is missing something. This is almost certainly on purpose so it doesn’t fuck with the alcohol or club drugs it is supposed to go with. I would sum this up as a perfectly cromulent citrus-type drink that leans a little towards lemon, and unless you are at some EDM thing where you can crush Ritalin into it, you can find better citrus drinks at your local events, bars, festivals, and gas stations. \n\nBy the way, naming the like, 30th released drink “Original” is like a band self-titling their 8th album.",
+    "caffeine": 200
+  },
+  {
+    "rank": 107,
     "name": "Gorilla Mind Berry Burst",
     "brand": "Gorilla Mind",
     "date": "07/29/2024",
@@ -1178,7 +1189,7 @@
     "caffeine": 200
   },
   {
-    "rank": 107,
+    "rank": 108,
     "name": "Fusion Energy Galactic Citrus",
     "brand": "Fusion",
     "date": "10/19/2024",
@@ -1189,7 +1200,7 @@
     "caffeine": 150
   },
   {
-    "rank": 108,
+    "rank": 109,
     "name": "BUM Energy Blueberry Lemonade",
     "brand": "BUM",
     "date": "12/02/2024",
@@ -1200,7 +1211,7 @@
     "caffeine": 112
   },
   {
-    "rank": 109,
+    "rank": 110,
     "name": "Oxyshred Ultra Energy Bahama Breeze",
     "brand": "Oxyshred",
     "date": "01/16/2025",
@@ -1211,7 +1222,7 @@
     "caffeine": 163
   },
   {
-    "rank": 110,
+    "rank": 111,
     "name": "Gorilla Mind White Gummy Bear",
     "brand": "Gorilla Mind",
     "date": "07/08/2025",
@@ -1222,7 +1233,7 @@
     "caffeine": 200
   },
   {
-    "rank": 111,
+    "rank": 112,
     "name": "BUCKED UP Miami",
     "brand": "BUCKED UP",
     "date": "10/04/2024",
@@ -1233,7 +1244,7 @@
     "caffeine": 300
   },
   {
-    "rank": 112,
+    "rank": 113,
     "name": "Reign TBF Cherry Limeade",
     "brand": "Reign",
     "date": "10/11/2024",
@@ -1244,7 +1255,7 @@
     "caffeine": 300
   },
   {
-    "rank": 113,
+    "rank": 114,
     "name": "RYSE Fuel Baja Cooler",
     "brand": "RYSE",
     "date": "12/13/2024",
@@ -1255,7 +1266,7 @@
     "caffeine": 200
   },
   {
-    "rank": 114,
+    "rank": 115,
     "name": "Gorilla Mind Lychee Bomb",
     "brand": "Gorilla Mind",
     "date": "08/15/2024",
@@ -1266,7 +1277,7 @@
     "caffeine": 200
   },
   {
-    "rank": 115,
+    "rank": 116,
     "name": "C4 Midnight Cherry",
     "brand": "C4",
     "date": "04/28/2024",
@@ -1277,7 +1288,7 @@
     "caffeine": 200
   },
   {
-    "rank": 116,
+    "rank": 117,
     "name": "Full Throttle Original Citrus",
     "brand": "Full Throttle",
     "date": "02/26/2026",
@@ -1288,7 +1299,7 @@
     "caffeine": 160
   },
   {
-    "rank": 117,
+    "rank": 118,
     "name": "Reign TBF Sour Gummy Worm",
     "brand": "Reign",
     "date": "07/03/2024",
@@ -1299,7 +1310,7 @@
     "caffeine": 300
   },
   {
-    "rank": 118,
+    "rank": 119,
     "name": "bang Energy Star Blast",
     "brand": "bang",
     "date": "06/25/2024",
@@ -1310,7 +1321,7 @@
     "caffeine": 300
   },
   {
-    "rank": 119,
+    "rank": 120,
     "name": "C4 Ultimate WWE Ruthless Raspberry",
     "brand": "C4",
     "date": "04/02/2024",
@@ -1321,7 +1332,7 @@
     "caffeine": 300
   },
   {
-    "rank": 120,
+    "rank": 121,
     "name": "Reign TBF White Gummy Bear",
     "brand": "Reign",
     "date": "06/02/2024",
@@ -1332,7 +1343,7 @@
     "caffeine": 300
   },
   {
-    "rank": 121,
+    "rank": 122,
     "name": "BUCKED UP White Gummy Deer",
     "brand": "BUCKED UP",
     "date": "10/21/2024",
@@ -1343,7 +1354,7 @@
     "caffeine": 300
   },
   {
-    "rank": 122,
+    "rank": 123,
     "name": "bang Energy Rainbow Unicorn",
     "brand": "bang",
     "date": "09/07/2024",
@@ -1354,7 +1365,7 @@
     "caffeine": 300
   },
   {
-    "rank": 123,
+    "rank": 124,
     "name": "GOAT Fuel Watermelon Fruit Punch",
     "brand": "GOAT Fuel",
     "date": "10/22/2024",
@@ -1365,7 +1376,7 @@
     "caffeine": 200
   },
   {
-    "rank": 124,
+    "rank": 125,
     "name": "Gorilla Mind Patty's Iced Tea",
     "brand": "Gorilla Mind",
     "date": "02/23/2026",
@@ -1376,7 +1387,7 @@
     "caffeine": 0
   },
   {
-    "rank": 125,
+    "rank": 126,
     "name": "BUM Energy Citrus Blast",
     "brand": "BUM",
     "date": "10/28/2024",
@@ -1387,7 +1398,7 @@
     "caffeine": 112
   },
   {
-    "rank": 126,
+    "rank": 127,
     "name": "BUM Energy Orange Sunrise",
     "brand": "BUM",
     "date": "10/23/2024",
@@ -1398,7 +1409,7 @@
     "caffeine": 112
   },
   {
-    "rank": 127,
+    "rank": 128,
     "name": "Monster Energy Ultra Fantasy Ruby Red",
     "brand": "Monster",
     "date": "09/18/2024",
@@ -1409,7 +1420,7 @@
     "caffeine": 150
   },
   {
-    "rank": 128,
+    "rank": 129,
     "name": "C4 Ultimate Freedom Ice",
     "brand": "C4",
     "date": "06/04/2024",
@@ -1420,7 +1431,7 @@
     "caffeine": 300
   },
   {
-    "rank": 129,
+    "rank": 130,
     "name": "C4 Grape Frost",
     "brand": "C4",
     "date": "04/09/2024",
@@ -1431,7 +1442,7 @@
     "caffeine": 200
   },
   {
-    "rank": 130,
+    "rank": 131,
     "name": "Reign TBF White Haze",
     "brand": "Reign",
     "date": "03/26/2025",
@@ -1442,7 +1453,7 @@
     "caffeine": 300
   },
   {
-    "rank": 131,
+    "rank": 132,
     "name": "C4 Ultimate Frost Bitten Citrus",
     "brand": "C4",
     "date": "03/09/2025",
@@ -1453,7 +1464,7 @@
     "caffeine": 300
   },
   {
-    "rank": 132,
+    "rank": 133,
     "name": "GHOST Energy Bubblicious Cotton Candy",
     "brand": "GHOST",
     "date": "07/05/2025",
@@ -1464,7 +1475,7 @@
     "caffeine": 200
   },
   {
-    "rank": 133,
+    "rank": 134,
     "name": "Celsius Retro Vibe",
     "brand": "Celsius",
     "date": "06/06/2025",
@@ -1475,7 +1486,7 @@
     "caffeine": 200
   },
   {
-    "rank": 134,
+    "rank": 135,
     "name": "Red Bull The Pink Edition: Wild Berries",
     "brand": "Red Bull",
     "date": "06/17/2025",
@@ -1486,7 +1497,7 @@
     "caffeine": 80
   },
   {
-    "rank": 135,
+    "rank": 136,
     "name": "bang Energy Cotton Candy",
     "brand": "bang",
     "date": "11/30/2024",
@@ -1497,7 +1508,7 @@
     "caffeine": 300
   },
   {
-    "rank": 136,
+    "rank": 137,
     "name": "REDCON1 Sour Gummy Blast",
     "brand": "REDCON1",
     "date": "11/29/2024",
@@ -1508,7 +1519,7 @@
     "caffeine": 200
   },
   {
-    "rank": 137,
+    "rank": 138,
     "name": "Fusion Energy Paradise Pulse",
     "brand": "Fusion",
     "date": "10/06/2024",
@@ -1519,7 +1530,7 @@
     "caffeine": 150
   },
   {
-    "rank": 138,
+    "rank": 139,
     "name": "Monster Energy Ultra Blue Hawaiian",
     "brand": "Monster",
     "date": "05/10/2025",
@@ -1530,7 +1541,7 @@
     "caffeine": 150
   },
   {
-    "rank": 139,
+    "rank": 140,
     "name": "GOAT Fuel Jerry Rice Tropical Berry",
     "brand": "GOAT Fuel",
     "date": "05/08/2025",
@@ -1541,7 +1552,7 @@
     "caffeine": 200
   },
   {
-    "rank": 140,
+    "rank": 141,
     "name": "C4 Ultimate Tropical Tundra Frost",
     "brand": "C4",
     "date": "01/24/2025",
@@ -1552,7 +1563,7 @@
     "caffeine": 300
   },
   {
-    "rank": 141,
+    "rank": 142,
     "name": "Alani Nu Tropsicle",
     "brand": "Alani Nu",
     "date": "07/30/2024",
@@ -1563,7 +1574,7 @@
     "caffeine": 200
   },
   {
-    "rank": 142,
+    "rank": 143,
     "name": "C4 Ultimate Cherry Bomb Frost",
     "brand": "C4",
     "date": "02/05/2025",
@@ -1574,7 +1585,7 @@
     "caffeine": 300
   },
   {
-    "rank": 143,
+    "rank": 144,
     "name": "C4 Jolly Rancher Watermelon",
     "brand": "C4",
     "date": "11/03/2024",
@@ -1585,7 +1596,7 @@
     "caffeine": 200
   },
   {
-    "rank": 144,
+    "rank": 145,
     "name": "Monster Energy Reserve Watermelon",
     "brand": "Monster",
     "date": "05/22/2025",
@@ -1596,7 +1607,7 @@
     "caffeine": 140
   },
   {
-    "rank": 145,
+    "rank": 146,
     "name": "Beaver Buzz Energy Saskatoon Berry",
     "brand": "Beaver Buzz",
     "date": "06/24/2025",
@@ -1607,7 +1618,7 @@
     "caffeine": 178
   },
   {
-    "rank": 146,
+    "rank": 147,
     "name": "Amin.O Mango Pineapple Limeade",
     "brand": "Amin.O",
     "date": "12/24/2024",
@@ -1618,7 +1629,7 @@
     "caffeine": 100
   },
   {
-    "rank": 147,
+    "rank": 148,
     "name": "Rockstar PUNCHED Pineapple",
     "brand": "Rockstar",
     "date": "08/14/2025",
@@ -1629,7 +1640,7 @@
     "caffeine": 240
   },
   {
-    "rank": 148,
+    "rank": 149,
     "name": "GHOST Energy Iced Tea Lemonade",
     "brand": "GHOST",
     "date": "07/03/2025",
@@ -1640,7 +1651,7 @@
     "caffeine": 200
   },
   {
-    "rank": 149,
+    "rank": 150,
     "name": "G FUEL Miami Nights",
     "brand": "G FUEL",
     "date": "12/12/2024",
@@ -1651,7 +1662,7 @@
     "caffeine": 140
   },
   {
-    "rank": 150,
+    "rank": 151,
     "name": "BUM Energy Pink Lemonade",
     "brand": "BUM",
     "date": "11/01/2024",
@@ -1662,7 +1673,7 @@
     "caffeine": 112
   },
   {
-    "rank": 151,
+    "rank": 152,
     "name": "3D Energy Lemonade",
     "brand": "3D Energy",
     "date": "09/23/2025",
@@ -1673,7 +1684,7 @@
     "caffeine": 200
   },
   {
-    "rank": 152,
+    "rank": 153,
     "name": "Alani Nu Kimade",
     "brand": "Alani Nu",
     "date": "03/24/2025",
@@ -1684,7 +1695,7 @@
     "caffeine": 200
   },
   {
-    "rank": 153,
+    "rank": 154,
     "name": "Red Bull The Sea Blue Edition: Juneberry",
     "brand": "Red Bull",
     "date": "09/03/2024",
@@ -1695,7 +1706,7 @@
     "caffeine": 80
   },
   {
-    "rank": 154,
+    "rank": 155,
     "name": "Celsius Sparkling Astro Vibe",
     "brand": "Celsius",
     "date": "06/12/2024",
@@ -1706,7 +1717,7 @@
     "caffeine": 200
   },
   {
-    "rank": 155,
+    "rank": 156,
     "name": "Reign TBF Tropical Storm",
     "brand": "Reign",
     "date": "06/16/2024",
@@ -1717,7 +1728,7 @@
     "caffeine": 300
   },
   {
-    "rank": 156,
+    "rank": 157,
     "name": "GYM Weed Candy Shop",
     "brand": "GYM Weed",
     "date": "12/14/2024",
@@ -1728,7 +1739,7 @@
     "caffeine": 200
   },
   {
-    "rank": 157,
+    "rank": 158,
     "name": "bang Energy Peach Mango",
     "brand": "bang",
     "date": "07/24/2024",
@@ -1739,7 +1750,7 @@
     "caffeine": 300
   },
   {
-    "rank": 158,
+    "rank": 159,
     "name": "BUM Energy Peach Mango",
     "brand": "BUM",
     "date": "10/30/2024",
@@ -1750,7 +1761,7 @@
     "caffeine": 112
   },
   {
-    "rank": 159,
+    "rank": 160,
     "name": "Alani Nu Winter Wonderland",
     "brand": "Alani Nu",
     "date": "12/21/2024",
@@ -1761,7 +1772,7 @@
     "caffeine": 200
   },
   {
-    "rank": 160,
+    "rank": 161,
     "name": "Monster Energy Ultra Strawberry Dreams",
     "brand": "Monster",
     "date": "04/18/2024",
@@ -1772,7 +1783,7 @@
     "caffeine": 150
   },
   {
-    "rank": 161,
+    "rank": 162,
     "name": "Monster Energy Ultra Sunrise",
     "brand": "Monster",
     "date": "06/03/2024",
@@ -1783,7 +1794,7 @@
     "caffeine": 150
   },
   {
-    "rank": 162,
+    "rank": 163,
     "name": "Rockstar Original",
     "brand": "Rockstar",
     "date": "07/13/2025",
@@ -1794,7 +1805,7 @@
     "caffeine": 160
   },
   {
-    "rank": 163,
+    "rank": 164,
     "name": "BUCKED UP Big Game Cotton Candy",
     "brand": "BUCKED UP",
     "date": "09/06/2025",
@@ -1805,7 +1816,7 @@
     "caffeine": 300
   },
   {
-    "rank": 164,
+    "rank": 165,
     "name": "BUCKED UP Lightly Carbonated Protein Rainbow Candy",
     "brand": "BUCKED UP",
     "date": "05/23/2025",
@@ -1816,7 +1827,7 @@
     "caffeine": 0
   },
   {
-    "rank": 165,
+    "rank": 166,
     "name": "GHOST Energy Warheads Sour Watermelon",
     "brand": "GHOST",
     "date": "09/24/2024",
@@ -1827,7 +1838,7 @@
     "caffeine": 200
   },
   {
-    "rank": 166,
+    "rank": 167,
     "name": "bang Energy Sour Ropes",
     "brand": "bang",
     "date": "03/05/2025",
@@ -1838,7 +1849,7 @@
     "caffeine": 300
   },
   {
-    "rank": 167,
+    "rank": 168,
     "name": "bang Energy Wylin Watermelon",
     "brand": "bang",
     "date": "01/31/2025",
@@ -1849,7 +1860,7 @@
     "caffeine": 300
   },
   {
-    "rank": 168,
+    "rank": 169,
     "name": "GOAT Fuel Blueberry Lemonade",
     "brand": "GOAT Fuel",
     "date": "05/29/2025",
@@ -1860,7 +1871,7 @@
     "caffeine": 200
   },
   {
-    "rank": 169,
+    "rank": 170,
     "name": "Mountain Dew Kickstart Black Cherry",
     "brand": "Mountain Dew Kickstart",
     "date": "10/14/2024",
@@ -1871,7 +1882,7 @@
     "caffeine": 92
   },
   {
-    "rank": 170,
+    "rank": 171,
     "name": "Lucky F*ck Tropical Thrill",
     "brand": "Lucky F*ck",
     "date": "03/26/2025",
@@ -1882,7 +1893,7 @@
     "caffeine": 200
   },
   {
-    "rank": 171,
+    "rank": 172,
     "name": "REDCON1 Freedom Frost",
     "brand": "REDCON1",
     "date": "01/15/2025",
@@ -1893,7 +1904,7 @@
     "caffeine": 200
   },
   {
-    "rank": 172,
+    "rank": 173,
     "name": "Bloom Sparkling Energy Juicy Orange",
     "brand": "Bloom",
     "date": "09/14/2025",
@@ -1904,7 +1915,7 @@
     "caffeine": 180
   },
   {
-    "rank": 173,
+    "rank": 174,
     "name": "ZOA Energy Frosted Grape",
     "brand": "ZOA",
     "date": "02/09/2025",
@@ -1915,7 +1926,7 @@
     "caffeine": 160
   },
   {
-    "rank": 174,
+    "rank": 175,
     "name": "GOAT Fuel Gummy Bear",
     "brand": "GOAT Fuel",
     "date": "05/25/2025",
@@ -1926,7 +1937,7 @@
     "caffeine": 200
   },
   {
-    "rank": 175,
+    "rank": 176,
     "name": "REDCON1 Sour Peach Rings",
     "brand": "REDCON1",
     "date": "02/06/2025",
@@ -1937,7 +1948,7 @@
     "caffeine": 200
   },
   {
-    "rank": 176,
+    "rank": 177,
     "name": "Monster Energy",
     "brand": "Monster",
     "date": "06/05/2025",
@@ -1948,7 +1959,7 @@
     "caffeine": 160
   },
   {
-    "rank": 177,
+    "rank": 178,
     "name": "Lucky F*ck OG Luck",
     "brand": "Lucky F*ck",
     "date": "05/19/2025",
@@ -1959,7 +1970,7 @@
     "caffeine": 200
   },
   {
-    "rank": 178,
+    "rank": 179,
     "name": "NOS GT Grape",
     "brand": "NOS",
     "date": "08/29/2024",
@@ -1970,7 +1981,7 @@
     "caffeine": 200
   },
   {
-    "rank": 179,
+    "rank": 180,
     "name": "C4 Mango Foxtrot",
     "brand": "C4",
     "date": "04/14/2024",
@@ -1981,7 +1992,7 @@
     "caffeine": 200
   },
   {
-    "rank": 180,
+    "rank": 181,
     "name": "Monster Energy JUICE Pacific Punch",
     "brand": "Monster",
     "date": "04/30/2024",
@@ -1992,7 +2003,7 @@
     "caffeine": 160
   },
   {
-    "rank": 181,
+    "rank": 182,
     "name": "Bloom Sparkling Energy Cherry Lime",
     "brand": "Bloom",
     "date": "11/24/2024",
@@ -2003,7 +2014,7 @@
     "caffeine": 180
   },
   {
-    "rank": 182,
+    "rank": 183,
     "name": "bang Energy Black Cherry Vanilla",
     "brand": "bang",
     "date": "07/04/2024",
@@ -2014,7 +2025,7 @@
     "caffeine": 300
   },
   {
-    "rank": 183,
+    "rank": 184,
     "name": "GHOST Energy EDC Electric Limeade",
     "brand": "GHOST",
     "date": "06/27/2024",
@@ -2025,7 +2036,7 @@
     "caffeine": 200
   },
   {
-    "rank": 184,
+    "rank": 185,
     "name": "C4 Starburst Lemon",
     "brand": "C4",
     "date": "09/26/2024",
@@ -2036,7 +2047,7 @@
     "caffeine": 200
   },
   {
-    "rank": 185,
+    "rank": 186,
     "name": "Lucky F*ck Bodacious Berry",
     "brand": "Lucky F*ck",
     "date": "10/05/2024",
@@ -2047,7 +2058,7 @@
     "caffeine": 200
   },
   {
-    "rank": 186,
+    "rank": 187,
     "name": "G FUEL Mega Man Blue Bomber Slushee",
     "brand": "G FUEL",
     "date": "09/03/2025",
@@ -2058,7 +2069,7 @@
     "caffeine": 140
   },
   {
-    "rank": 187,
+    "rank": 188,
     "name": "Gorilla Mind Blue Raspberry",
     "brand": "Gorilla Mind",
     "date": "07/24/2025",
@@ -2069,7 +2080,7 @@
     "caffeine": 200
   },
   {
-    "rank": 188,
+    "rank": 189,
     "name": "Mountain Dew Amp",
     "brand": "Mountain Dew Amp",
     "date": "07/06/2024",
@@ -2080,7 +2091,7 @@
     "caffeine": 142
   },
   {
-    "rank": 189,
+    "rank": 190,
     "name": "Mountain Dew Kickstart Orange Citrus",
     "brand": "Mountain Dew Kickstart",
     "date": "07/17/2025",
@@ -2091,7 +2102,7 @@
     "caffeine": 92
   },
   {
-    "rank": 190,
+    "rank": 191,
     "name": "BUM Energy Champion Mentality",
     "brand": "BUM",
     "date": "10/29/2024",
@@ -2102,7 +2113,7 @@
     "caffeine": 112
   },
   {
-    "rank": 191,
+    "rank": 192,
     "name": "Red Bull The Winter Edition: Iced Vanilla Berry",
     "brand": "Red Bull",
     "date": "11/02/2024",
@@ -2113,7 +2124,7 @@
     "caffeine": 80
   },
   {
-    "rank": 192,
+    "rank": 193,
     "name": "Alani Nu Watermelon Wave",
     "brand": "Alani Nu",
     "date": "08/10/2024",
@@ -2124,7 +2135,7 @@
     "caffeine": 200
   },
   {
-    "rank": 193,
+    "rank": 194,
     "name": "Red Bull The Coconut Edition: Coconut Berry",
     "brand": "Red Bull",
     "date": "09/12/2024",
@@ -2137,7 +2148,7 @@
     "caffeine": 80
   },
   {
-    "rank": 194,
+    "rank": 195,
     "name": "Rockstar PURE ZERO: Fruit Punch",
     "brand": "Rockstar",
     "date": "04/17/2024",
@@ -2148,7 +2159,7 @@
     "caffeine": 160
   },
   {
-    "rank": 195,
+    "rank": 196,
     "name": "C4 Popsicle Grape",
     "brand": "C4",
     "date": "04/01/2024",
@@ -2159,7 +2170,7 @@
     "caffeine": 200
   },
   {
-    "rank": 196,
+    "rank": 197,
     "name": "Red Bull The Red Edition: Watermelon",
     "brand": "Red Bull",
     "date": "08/20/2024",
@@ -2170,7 +2181,7 @@
     "caffeine": 80
   },
   {
-    "rank": 197,
+    "rank": 198,
     "name": "Beaver Buzz Energy Citrus",
     "brand": "Beaver Buzz",
     "date": "06/26/2025",
@@ -2181,7 +2192,7 @@
     "caffeine": 178
   },
   {
-    "rank": 198,
+    "rank": 199,
     "name": "Beaver Buzz Energy Original",
     "brand": "Beaver Buzz",
     "date": "06/21/2025",
@@ -2192,7 +2203,7 @@
     "caffeine": 178
   },
   {
-    "rank": 199,
+    "rank": 200,
     "name": "bang Energy Sour Heads",
     "brand": "bang",
     "date": "08/31/2024",
@@ -2203,7 +2214,7 @@
     "caffeine": 300
   },
   {
-    "rank": 200,
+    "rank": 201,
     "name": "Lucky F*ck Orange Drizzle",
     "brand": "Lucky F*ck",
     "date": "09/27/2024",
@@ -2214,7 +2225,7 @@
     "caffeine": 200
   },
   {
-    "rank": 201,
+    "rank": 202,
     "name": "BUCKED UP Blood Razz",
     "brand": "BUCKED UP",
     "date": "11/07/2024",
@@ -2225,7 +2236,7 @@
     "caffeine": 300
   },
   {
-    "rank": 202,
+    "rank": 203,
     "name": "Red Bull The Summer Edition: Curuba Elderflower",
     "brand": "Red Bull",
     "date": "06/12/2025",
@@ -2236,7 +2247,7 @@
     "caffeine": 80
   },
   {
-    "rank": 203,
+    "rank": 204,
     "name": "Gorilla Mind Tiger's Blood",
     "brand": "Gorilla Mind",
     "date": "07/27/2024",
@@ -2247,7 +2258,7 @@
     "caffeine": 200
   },
   {
-    "rank": 204,
+    "rank": 205,
     "name": "RYSE Fuel Tiger's Blood",
     "brand": "RYSE",
     "date": "08/09/2024",
@@ -2258,7 +2269,7 @@
     "caffeine": 200
   },
   {
-    "rank": 205,
+    "rank": 206,
     "name": "GOAT Fuel Black Cherry Ginger Ale",
     "brand": "GOAT Fuel",
     "date": "11/05/2024",
@@ -2269,7 +2280,7 @@
     "caffeine": 200
   },
   {
-    "rank": 206,
+    "rank": 207,
     "name": "Gorilla Mind Tropic Storm",
     "brand": "Gorilla Mind",
     "date": "07/11/2024",
@@ -2280,7 +2291,7 @@
     "caffeine": 200
   },
   {
-    "rank": 207,
+    "rank": 208,
     "name": "Celsius Sparkling Peach Vibe",
     "brand": "Celsius",
     "date": "06/24/2024",
@@ -2291,7 +2302,7 @@
     "caffeine": 200
   },
   {
-    "rank": 208,
+    "rank": 209,
     "name": "C4 Creamsicle",
     "brand": "C4",
     "date": "05/14/2024",
@@ -2302,7 +2313,7 @@
     "caffeine": 200
   },
   {
-    "rank": 209,
+    "rank": 210,
     "name": "Red Bull The Blue Edition: Blueberry",
     "brand": "Red Bull",
     "date": "08/04/2024",
@@ -2313,7 +2324,7 @@
     "caffeine": 80
   },
   {
-    "rank": 210,
+    "rank": 211,
     "name": "Red Bull Sugarfree",
     "brand": "Red Bull",
     "date": "06/07/2025",
@@ -2324,7 +2335,7 @@
     "caffeine": 80
   },
   {
-    "rank": 211,
+    "rank": 212,
     "name": "Red Bull",
     "brand": "Red Bull",
     "date": "08/01/2024",
@@ -2335,7 +2346,7 @@
     "caffeine": 80
   },
   {
-    "rank": 212,
+    "rank": 213,
     "name": "Alani Nu Hawaiian Shaved Ice",
     "brand": "Alani Nu",
     "date": "07/28/2024",
@@ -2346,7 +2357,7 @@
     "caffeine": 200
   },
   {
-    "rank": 213,
+    "rank": 214,
     "name": "Huel Energy+ Pineapple & Mango",
     "brand": "Huel",
     "date": "01/29/2025",
@@ -2357,7 +2368,7 @@
     "caffeine": 100
   },
   {
-    "rank": 214,
+    "rank": 215,
     "name": "Red Bull The Amber Edition: Strawberry Apricot",
     "brand": "Red Bull",
     "date": "07/31/2025",
@@ -2368,7 +2379,7 @@
     "caffeine": 80
   },
   {
-    "rank": 215,
+    "rank": 216,
     "name": "JOLT Cola",
     "brand": "JOLT",
     "date": "06/19/2025",
@@ -2379,7 +2390,7 @@
     "caffeine": 72
   },
   {
-    "rank": 216,
+    "rank": 217,
     "name": "Bum Energy Cola",
     "brand": "Bum Energy",
     "date": "06/19/2026",
@@ -2390,7 +2401,7 @@
     "caffeine": 112
   },
   {
-    "rank": 217,
+    "rank": 218,
     "name": "OxyShred Ultra Energy Guava Paradise",
     "brand": "OxyShred",
     "date": "09/15/2024",
@@ -2401,7 +2412,7 @@
     "caffeine": 163
   },
   {
-    "rank": 218,
+    "rank": 219,
     "name": "NOS Energy Original",
     "brand": "NOS",
     "date": "08/19/2024",
@@ -2412,7 +2423,7 @@
     "caffeine": 160
   },
   {
-    "rank": 219,
+    "rank": 220,
     "name": "GHOST Energy Citrus",
     "brand": "GHOST",
     "date": "07/26/2024",
@@ -2423,7 +2434,7 @@
     "caffeine": 200
   },
   {
-    "rank": 220,
+    "rank": 221,
     "name": "Gorilla Mind Lucky Lemon",
     "brand": "Gorilla Mind",
     "date": "07/10/2024",
@@ -2434,7 +2445,7 @@
     "caffeine": 200
   },
   {
-    "rank": 221,
+    "rank": 222,
     "name": "Rockstar RECOVERY Berryade",
     "brand": "Rockstar",
     "date": "07/28/2025",
@@ -2445,7 +2456,7 @@
     "caffeine": 160
   },
   {
-    "rank": 222,
+    "rank": 223,
     "name": "RYSE Fuel Country Time Lemonade",
     "brand": "RYSE",
     "date": "09/05/2024",
@@ -2456,7 +2467,7 @@
     "caffeine": 200
   },
   {
-    "rank": 223,
+    "rank": 224,
     "name": "bang Energy Birthday Cake Bash",
     "brand": "bang",
     "date": "08/28/2024",
@@ -2467,7 +2478,7 @@
     "caffeine": 300
   },
   {
-    "rank": 224,
+    "rank": 225,
     "name": "C4 Orange Slice",
     "brand": "C4",
     "date": "04/23/2024",
@@ -2478,7 +2489,7 @@
     "caffeine": 200
   },
   {
-    "rank": 225,
+    "rank": 226,
     "name": "C4 Popsicle Hawaiian Pineapple",
     "brand": "C4",
     "date": "04/19/2024",
@@ -2489,7 +2500,7 @@
     "caffeine": 200
   },
   {
-    "rank": 226,
+    "rank": 227,
     "name": "GHOST Energy Warheads Sour Green Apple",
     "brand": "GHOST",
     "date": "07/25/2024",
@@ -2500,7 +2511,7 @@
     "caffeine": 200
   },
   {
-    "rank": 227,
+    "rank": 228,
     "name": "BUCKED UP Blue Raz",
     "brand": "BUCKED UP",
     "date": "08/13/2024",
@@ -2511,7 +2522,7 @@
     "caffeine": 300
   },
   {
-    "rank": 228,
+    "rank": 229,
     "name": "Celsius Sparkling Tropical Vibe",
     "brand": "Celsius",
     "date": "07/02/2024",
@@ -2522,7 +2533,7 @@
     "caffeine": 200
   },
   {
-    "rank": 229,
+    "rank": 230,
     "name": "GHOST Energy Tropical Mango",
     "brand": "GHOST",
     "date": "07/05/2024",
@@ -2533,7 +2544,7 @@
     "caffeine": 200
   },
   {
-    "rank": 230,
+    "rank": 231,
     "name": "Mountain Dew Kickstart Strawberry Start-Up",
     "brand": "Mountain Dew Kickstart",
     "date": "07/09/2024",
@@ -2544,7 +2555,7 @@
     "caffeine": 92
   },
   {
-    "rank": 231,
+    "rank": 232,
     "name": "C4 Arctic Snow Cone",
     "brand": "C4",
     "date": "04/10/2024",
@@ -2555,7 +2566,7 @@
     "caffeine": 200
   },
   {
-    "rank": 232,
+    "rank": 233,
     "name": "Celsius Sparkling Cherry Cola",
     "brand": "Celsius",
     "date": "11/20/2024",
@@ -2568,7 +2579,7 @@
     "caffeine": 200
   },
   {
-    "rank": 233,
+    "rank": 234,
     "name": "Celsius Sparkling Cola",
     "brand": "Celsius",
     "date": "10/07/2024",
@@ -2579,7 +2590,7 @@
     "caffeine": 200
   },
   {
-    "rank": 234,
+    "rank": 235,
     "name": "Beaver Buzz Energy Dr. Buzz",
     "brand": "Beaver Buzz",
     "date": "06/25/2025",
@@ -2590,7 +2601,7 @@
     "caffeine": 178
   },
   {
-    "rank": 235,
+    "rank": 236,
     "name": "OxyShred Ultra Energy Cali Cola",
     "brand": "OxyShred",
     "date": "09/20/2024",
@@ -2601,7 +2612,7 @@
     "caffeine": 163
   },
   {
-    "rank": 236,
+    "rank": 237,
     "name": "Red Bull The Yellow Edition: Tropical",
     "brand": "Red Bull",
     "date": "09/17/2024",
@@ -2612,7 +2623,7 @@
     "caffeine": 80
   },
   {
-    "rank": 237,
+    "rank": 238,
     "name": "G Fuel Power Pellet",
     "brand": "G FUEL",
     "date": "07/17/2024",
@@ -2623,7 +2634,7 @@
     "caffeine": 140
   },
   {
-    "rank": 238,
+    "rank": 239,
     "name": "Oxyshred Ultra Energy Cotton Candy",
     "brand": "OxyShred",
     "date": "06/28/2025",
@@ -2634,7 +2645,7 @@
     "caffeine": 163
   },
   {
-    "rank": 239,
+    "rank": 240,
     "name": "Huel Energy+ Watermelon",
     "brand": "Huel",
     "date": "01/11/2025",
@@ -2645,7 +2656,7 @@
     "caffeine": 100
   },
   {
-    "rank": 240,
+    "rank": 241,
     "name": "NOOB Energy Sweet Tooth",
     "brand": "NOOB",
     "date": "11/14/2024",
@@ -2656,7 +2667,7 @@
     "caffeine": 175
   },
   {
-    "rank": 241,
+    "rank": 242,
     "name": "Monster Energy ULTRA Violet",
     "brand": "Monster",
     "date": "08/27/2024",
@@ -2667,7 +2678,7 @@
     "caffeine": 150
   },
   {
-    "rank": 242,
+    "rank": 243,
     "name": "Gorilla Mind Sour Watermelon Candy",
     "brand": "Gorilla Mind",
     "date": "07/16/2024",
@@ -2678,7 +2689,7 @@
     "caffeine": 200
   },
   {
-    "rank": 243,
+    "rank": 244,
     "name": "Alani Nu Breezeberry",
     "brand": "Alani Nu",
     "date": "06/20/2024",
@@ -2689,7 +2700,7 @@
     "caffeine": 200
   },
   {
-    "rank": 244,
+    "rank": 245,
     "name": "Monster Energy JUICE Aussie Style Lemonade",
     "brand": "Monster",
     "date": "06/05/2024",
@@ -2700,7 +2711,7 @@
     "caffeine": 160
   },
   {
-    "rank": 245,
+    "rank": 246,
     "name": "Huel Energy+ Blue Raspberry",
     "brand": "Huel",
     "date": "12/28/2024",
@@ -2711,7 +2722,7 @@
     "caffeine": 100
   },
   {
-    "rank": 246,
+    "rank": 247,
     "name": "NOOB Energy Citrus Burst",
     "brand": "NOOB",
     "date": "11/13/2024",
@@ -2722,7 +2733,7 @@
     "caffeine": 175
   },
   {
-    "rank": 247,
+    "rank": 248,
     "name": "EBOOST SUPER FUEL Sparkling Strawberry Lemonade",
     "brand": "EBOOST",
     "date": "12/15/2025",
@@ -2733,7 +2744,7 @@
     "caffeine": 0
   },
   {
-    "rank": 248,
+    "rank": 249,
     "name": "OxyShred Ultra Energy Frosty Big Apple",
     "brand": "OxyShred",
     "date": "05/14/2024",
@@ -2744,7 +2755,7 @@
     "caffeine": 163
   },
   {
-    "rank": 249,
+    "rank": 250,
     "name": "OxyShred Ultra Energy Proton Plasma",
     "brand": "OxyShred",
     "date": "04/16/2024",
@@ -2755,7 +2766,7 @@
     "caffeine": 163
   },
   {
-    "rank": 250,
+    "rank": 251,
     "name": "EBOOST SUPER FUEL Sparkling Blue Raspberry",
     "brand": "EBOOST",
     "date": "12/22/2024",
