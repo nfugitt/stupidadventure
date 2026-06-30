@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+QW<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,7 +6,7 @@
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:title" content="Matt &amp; Nick's Stupid Adventure">
-<meta property="og:description" content="Short pithy thoughts on energy drinks and a big list of 'em. 248 drinks reviewed.">
+<meta property="og:description" content="Short pithy thoughts on energy drinks and a big list of 'em. Somehow still going since 2024.">
 <meta property="og:image" content="https://stupidadventure.netlify.app/og-image.png">
 <meta property="og:image:secure_url" content="https://stupidadventure.netlify.app/og-image.png">
 <meta property="og:image:type" content="image/png">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Matt &amp; Nick's Stupid Adventure">
-<meta name="twitter:description" content="Short pithy thoughts on energy drinks and a big list of 'em. 248 drinks reviewed.">
+<meta name="twitter:description" content="Short pithy thoughts on energy drinks and a big list of 'em. Somehow still going since 2024.">
 <meta name="twitter:image" content="https://stupidadventure.netlify.app/og-image.png">
 <title>Matt &amp; Nick's Stupid Adventure</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
 <noscript><link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800&display=swap" rel="stylesheet"></noscript>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
+:root{Q
   --ink:#1a1a18;--paper:#f7f4ef;--cream:#ede9e1;--accent:#d4540a;
   --mid:#6b6860;--mid-hi:#4a4642;--rule:#d8d4cc;
   --s:#b8860b;--a:#2e7d32;--b:#1565c0;--c:#6a1b9a;--d:#c62828;--f:#4a0000;
@@ -3239,6 +3239,7 @@ function initializeSite() {
   adminLoadPersisted();
 
   const n = drinks.length;
+  updateSocialDescriptions(n);
   document.getElementById('stat-count').textContent = n;
 
   const btnCount = document.getElementById('btn-count');
@@ -3252,6 +3253,14 @@ function initializeSite() {
   adminPopulateBrands();
   handleRouting();
   handleAdminAccess();
+}
+
+function updateSocialDescriptions() {
+  const text = "Short pithy thoughts on energy drinks and a big list of 'em. Somehow still going since 2024.";
+  const og = document.querySelector('meta[property="og:description"]');
+  const tw = document.querySelector('meta[name="twitter:description"]');
+  if(og) og.setAttribute('content', text);
+  if(tw) tw.setAttribute('content', text);
 }
 
 const tiers = {
@@ -3683,6 +3692,7 @@ function adminRenumber() {
 
 function adminRefreshAll() {
   const n = drinks.length;
+  updateSocialDescriptions(n);
   document.getElementById('stat-count').textContent = n;
   const btnCount = document.getElementById('btn-count');
   if(btnCount) btnCount.textContent = n;
