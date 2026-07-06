@@ -2403,7 +2403,7 @@
   {
     "rank": 218,
     "name": "Bum Energy Cola",
-    "brand": "BUM",
+    "brand": "Bum Energy",
     "date": "06/19/2026",
     "redo": false,
     "notes": [],
@@ -2657,6 +2657,17 @@
   },
   {
     "rank": 241,
+    "name": "Bum Energy Dr. Bum",
+    "brand": "Bum Energy",
+    "date": "07/06/2026",
+    "redo": false,
+    "notes": [],
+    "msl": "Another clear drink!  Taking a sniff of this one and it has a is VERY strong fruity smell.  This one is a mystery for me and I am terrible at identifying stuff by smell.  I’m gonna say like… Raspberry Lemon or Wild Orchard.  I dunno.  Maybe even Peach Mango.\n\nWow OK this is Dr. Bum.  What if we made Dr. Pepper a little worse?  That’s what this is.  I wish you all could have seen NF’s face after his sip, you can see it scrunch up in some form of disgust.  Yeah, I gave this one the slosh, and I gave this one the big swig, and the rest of it is kinda just going in the drain.  I don’t think it’s worth the caffeine.  I’m a guy who really likes Diet Dr. Pepper over Dr. Pepper, but I could tolerate Dr. Pepper.  This is not as good as either.  And for that, I dunno man.  I’m not gonna drink it again.  Thuuuuumbs doooown.\n\nHonestly, Thumbs down might come off a little harsh as this wasn’t like i’m gagging and disgusting or anything, but when a popular Cola variant performs like this, I just am not interested in drinking any more of it.  So it goes.  I obviously did not finish.",
+    "nf": "I was plunging my toilet when Matt called me and asked if I wanted to review a drink. One second, I said, as I washed the plunger. A little awkwardness and time later, here we are with a drink I have selected. It’s another color coward, giving us NOTHING in the looks department. No visual whimsy here, folks! It smells like what it is. Matt has no idea what that is yet but he will quite soon. \n\nWell it’s named appropriately, that’s for damn sure. Not because it tastes like Dr. Pepper - which it only kind of does - but because it tastes like medicine. Now, I’m not a huge fan of the drink this takes after, but it’s more a “eh not for me” and not “Get this shit AWAY from me omfg.” You can detect the attempt here, but if they were aiming for a bulls’ eye, they missed the dart board entirely. It’s got a terrible, bitter, medicine-like taste that makes you want to curse the entire bloodline of everyone that worked on it. Matt *likes* Dr. Pepper and I wouldn’t even recommend this as a joke. No time for love, Dr. Bum!",
+    "caffeine": 112
+  },
+  {
+    "rank": 242,
     "name": "Huel Energy+ Watermelon",
     "brand": "Huel",
     "date": "01/11/2025",
@@ -2667,7 +2678,7 @@
     "caffeine": 100
   },
   {
-    "rank": 242,
+    "rank": 243,
     "name": "NOOB Energy Sweet Tooth",
     "brand": "NOOB",
     "date": "11/14/2024",
@@ -2678,7 +2689,7 @@
     "caffeine": 175
   },
   {
-    "rank": 243,
+    "rank": 244,
     "name": "Monster Energy ULTRA Violet",
     "brand": "Monster",
     "date": "08/27/2024",
@@ -2689,7 +2700,7 @@
     "caffeine": 150
   },
   {
-    "rank": 244,
+    "rank": 245,
     "name": "Gorilla Mind Sour Watermelon Candy",
     "brand": "Gorilla Mind",
     "date": "07/16/2024",
@@ -2700,7 +2711,7 @@
     "caffeine": 200
   },
   {
-    "rank": 245,
+    "rank": 246,
     "name": "Alani Nu Breezeberry",
     "brand": "Alani Nu",
     "date": "06/20/2024",
@@ -2711,7 +2722,7 @@
     "caffeine": 200
   },
   {
-    "rank": 246,
+    "rank": 247,
     "name": "Monster Energy JUICE Aussie Style Lemonade",
     "brand": "Monster",
     "date": "06/05/2024",
@@ -2722,7 +2733,7 @@
     "caffeine": 160
   },
   {
-    "rank": 247,
+    "rank": 248,
     "name": "Huel Energy+ Blue Raspberry",
     "brand": "Huel",
     "date": "12/28/2024",
@@ -2733,7 +2744,7 @@
     "caffeine": 100
   },
   {
-    "rank": 248,
+    "rank": 249,
     "name": "NOOB Energy Citrus Burst",
     "brand": "NOOB",
     "date": "11/13/2024",
@@ -2744,7 +2755,7 @@
     "caffeine": 175
   },
   {
-    "rank": 249,
+    "rank": 250,
     "name": "EBOOST SUPER FUEL Sparkling Strawberry Lemonade",
     "brand": "EBOOST",
     "date": "12/15/2025",
@@ -2755,7 +2766,7 @@
     "caffeine": 0
   },
   {
-    "rank": 250,
+    "rank": 251,
     "name": "OxyShred Ultra Energy Frosty Big Apple",
     "brand": "OxyShred",
     "date": "05/14/2024",
@@ -2766,7 +2777,7 @@
     "caffeine": 163
   },
   {
-    "rank": 251,
+    "rank": 252,
     "name": "OxyShred Ultra Energy Proton Plasma",
     "brand": "OxyShred",
     "date": "04/16/2024",
@@ -2777,7 +2788,7 @@
     "caffeine": 163
   },
   {
-    "rank": 252,
+    "rank": 253,
     "name": "EBOOST SUPER FUEL Sparkling Blue Raspberry",
     "brand": "EBOOST",
     "date": "12/22/2024",
