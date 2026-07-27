@@ -115,7 +115,7 @@ nav a[aria-current="page"]{color:var(--accent)}
 #theme-btn .theme-label{font-size:.65rem}
 /* FOCUS STYLES */
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-.rank-item:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:0}
+.rank-link:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:0}
 .back-btn:focus-visible,.cta-btn:focus-visible,.sort-btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
 /* PAGES */
@@ -209,6 +209,7 @@ nav a[aria-current="page"]{color:var(--accent)}
 
 /* RANK ITEM */
 .rank-item{display:flex;align-items:stretch;border-bottom:1px solid var(--rule);cursor:pointer;transition:background .15s}
+.rank-link{display:flex;align-items:stretch;width:100%;color:inherit;text-decoration:none}
 .rank-item:hover{background:var(--cream)}
 .rank-item:hover .arr{opacity:1;transform:translateX(0)}
 .rnum{width:60px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Clash Display',sans-serif;font-size:1rem;font-weight:600;color:var(--mid-hi);border-right:1px solid var(--rule);padding:1rem 0}
@@ -1592,13 +1593,18 @@ const reviewSearchAliases = Object.freeze({
 function makeItem(d) {
   const li = document.createElement('li');
   li.className = 'rank-item';
-  li.setAttribute('role', 'button');
-  li.setAttribute('tabindex', '0');
-  li.setAttribute('aria-label', `#${d.rank} ${d.name} — read review`);
-  li.onclick = () => showReview(d);
-  li.onkeydown = (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showReview(d); } };
   li.dataset.srch = (d.name+' '+d.brand+' '+(reviewSearchAliases[getReviewSlug(d)] || '')).toLowerCase();
-  li.innerHTML = '<div class="rnum" aria-hidden="true"></div><div class="rbody"><div class="rtext"><div class="rname"></div><div class="rdate"></div></div><div class="rmeta" aria-hidden="true"><div class="arr">→</div></div></div>';
+  const link = document.createElement('a');
+  link.className = 'rank-link';
+  link.href = '#review/' + encodeURIComponent(getReviewSlug(d));
+  link.setAttribute('aria-label', `#${d.rank} ${d.name} — read review`);
+  link.onclick = (e) => {
+    if(e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    showReview(d);
+  };
+  link.innerHTML = '<div class="rnum" aria-hidden="true"></div><div class="rbody"><div class="rtext"><div class="rname"></div><div class="rdate"></div></div><div class="rmeta" aria-hidden="true"><div class="arr">→</div></div></div>';
+  li.appendChild(link);
   li.querySelector('.rnum').textContent = d.rank;
   li.querySelector('.rname').textContent = d.name;
   const date = li.querySelector('.rdate');
