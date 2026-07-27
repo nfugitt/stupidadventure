@@ -2405,6 +2405,18 @@ function adminSubmit() {
     return false;
   }
 
+  const reviewKey = value => String(value || '').trim().toLocaleLowerCase();
+  const duplicate = drinks.find(d =>
+    reviewKey(d.name) === reviewKey(name) &&
+    reviewKey(d.brand) === reviewKey(brand) &&
+    reviewKey(d.date) === reviewKey(date)
+  );
+  if(duplicate) {
+    adminMsg('This drink already has a review for ' + (date || 'that date') +
+      ' at #' + duplicate.rank + '. It was not added again.', 'err');
+    return false;
+  }
+
   const slugBase = slugify(name) || slugify(brand + '-' + name) || 'drink';
   let slug = slugBase;
   let slugSuffix = 2;
@@ -2602,7 +2614,12 @@ async function adminSendLocalRequest(path, publishing) {
       loadedDrinksSnapshot = canonicalDrinks(drinks);
       adminUpdateList();
     }
-    if(!resp.ok) throw new Error(result.error || 'Local admin request failed.');
+    if(!resp.ok) {
+      const prefix = result.saved
+        ? 'Saved locally, but not published. Do not add the review again. '
+        : '';
+      throw new Error(prefix + (result.error || 'Local admin request failed.'));
+    }
     adminPublishMsg(publishing
       ? '✓ Saved, committed, and pushed. Netlify should deploy the new review automatically.'
       : '✓ Saved to drinks.json. A timestamped backup was created.', 'ok');
