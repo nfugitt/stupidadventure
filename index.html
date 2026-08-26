@@ -299,6 +299,14 @@ nav a[aria-current="page"]{color:var(--accent)}
 .adm-field input:focus,.adm-field textarea:focus,.adm-field select:focus{
   outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
 .adm-field textarea{min-height:104px;resize:vertical;line-height:1.5}
+.adm-format-toolbar{display:flex;gap:.3rem;margin-bottom:.15rem}
+.adm-format-btn{
+  align-items:center;background:var(--paper);border:1px solid var(--rule);border-radius:4px;
+  color:var(--ink);cursor:pointer;display:inline-flex;font-family:Georgia,serif;font-size:.9rem;
+  height:2rem;justify-content:center;padding:0;width:2rem
+}
+.adm-format-btn:hover{border-color:var(--accent);color:var(--accent)}
+.adm-format-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .adm-btn{background:var(--accent);color:#fff;border:none;padding:.65rem 1.4rem;
   border-radius:4px;font-family:'DM Mono',monospace;font-size:.8rem;
   letter-spacing:.06em;text-transform:uppercase;cursor:pointer;margin-top:.5rem}
@@ -1801,7 +1809,7 @@ function appendSafeReviewHtml(target, source) {
       parent.appendChild(document.createElement('br'));
       return;
     }
-    if(tag === 'strong' || tag === 'em') {
+    if(tag === 'strong' || tag === 'em' || tag === 'u' || tag === 's') {
       const safe = document.createElement(tag);
       node.childNodes.forEach(child => copy(safe, child));
       parent.appendChild(safe);
@@ -2379,15 +2387,34 @@ function adminMsg(text, type) {
 }
 
 function adminFormatReviewText(text) {
-  return (text || '').trim()
+  const allowedTag = /^<\/?(?:strong|em|u|s)>$/i;
+  const escapeText = value => value
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;')
-    .replace(/\r\n?/g, '\n')
     .replace(/\n{2,}/g, '<br><br>')
     .replace(/\n/g, '<br>');
+
+  return String(text || '').trim()
+    .replace(/\r\n?/g, '\n')
+    .split(/(<\/?(?:strong|em|u|s)>)/gi)
+    .map(part => allowedTag.test(part) ? part.toLowerCase() : escapeText(part))
+    .join('');
+}
+
+function adminWrapReviewSelection(textareaId, tag) {
+  const textarea = document.getElementById(textareaId);
+  if(!textarea || !['strong','em','u','s'].includes(tag)) return;
+  const start = textarea.selectionStart;
+  const end = textarea.selectionEnd;
+  const open = '<' + tag + '>';
+  const close = '</' + tag + '>';
+  const selected = textarea.value.slice(start, end);
+  textarea.setRangeText(open + selected + close, start, end, 'select');
+  if(start === end) textarea.setSelectionRange(start + open.length, start + open.length);
+  textarea.focus();
 }
 
 function adminSubmit() {
@@ -2689,6 +2716,12 @@ async function adminSendLocalRequest(path, publishing) {
       <h3>MSL Review</h3>
       <div class="adm-field">
         <label for="adm-msl">Matt’s Notes</label>
+        <div class="adm-format-toolbar" role="toolbar" aria-label="Format Matt’s notes">
+          <button class="adm-format-btn" type="button" aria-label="Bold" title="Bold" onclick="adminWrapReviewSelection('adm-msl','strong')"><strong>B</strong></button>
+          <button class="adm-format-btn" type="button" aria-label="Italic" title="Italic" onclick="adminWrapReviewSelection('adm-msl','em')"><em>I</em></button>
+          <button class="adm-format-btn" type="button" aria-label="Underline" title="Underline" onclick="adminWrapReviewSelection('adm-msl','u')"><u>U</u></button>
+          <button class="adm-format-btn" type="button" aria-label="Strikethrough" title="Strikethrough" onclick="adminWrapReviewSelection('adm-msl','s')"><s>S</s></button>
+        </div>
         <textarea id="adm-msl" placeholder="Matt’s review…"></textarea>
       </div>
     </div>
@@ -2697,6 +2730,12 @@ async function adminSendLocalRequest(path, publishing) {
       <h3>NF Review</h3>
       <div class="adm-field">
         <label for="adm-nf">Nick’s Notes</label>
+        <div class="adm-format-toolbar" role="toolbar" aria-label="Format Nick’s notes">
+          <button class="adm-format-btn" type="button" aria-label="Bold" title="Bold" onclick="adminWrapReviewSelection('adm-nf','strong')"><strong>B</strong></button>
+          <button class="adm-format-btn" type="button" aria-label="Italic" title="Italic" onclick="adminWrapReviewSelection('adm-nf','em')"><em>I</em></button>
+          <button class="adm-format-btn" type="button" aria-label="Underline" title="Underline" onclick="adminWrapReviewSelection('adm-nf','u')"><u>U</u></button>
+          <button class="adm-format-btn" type="button" aria-label="Strikethrough" title="Strikethrough" onclick="adminWrapReviewSelection('adm-nf','s')"><s>S</s></button>
+        </div>
         <textarea id="adm-nf" placeholder="Nick’s review…"></textarea>
       </div>
     </div>
