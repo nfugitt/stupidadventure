@@ -1336,9 +1336,22 @@
     "caffeine": 112
   },
   {
+    "id": "44f208e6-e16c-4e91-af25-efcf3dc99516",
+    "slug": "bucked-up-energy-sour-bucks",
+    "rank": 103,
+    "name": "BUCKED UP Energy Sour Bucks",
+    "brand": "BUCKED UP",
+    "date": "06/18/2026",
+    "redo": false,
+    "notes": [],
+    "msl": "This thing is as clear as water.  Or Sprite.  Odor isn’t strong, but it is nice.  I know what it is but NF does not.  Here we go!<br><br>It tastes like sour candy!  And it should, because this is SOUR BUCKS.  It’s not a very strong sour.  But it’s pretty tasty.  I don’t really know what type of actual flavor of sour candy it is, but it just has that kinda flavor with a hint of sour.  The more I drink, I don’t really think it’s GREAT but I don’t think I have anything really negative to say here either.  It’s just a pretty good sour drink.  Nothing more nothing less.  No crazy tingly feeling in my mouth.  Would be fine if someone gave me one of these again.  Probably wouldn’t seek it out though.  Thumbs in the middle leaning up.  I did finish.",
+    "nf": "What we have here, is failure…to add color to the drink. We got a mystery clear drink today with a smell that is familiar but I cannot quite put my finger on at the moment.<br><br>That is a lot. A lot of sensations on my tongue that go every which way. I guessed Sour Bucks and I was correct. It makes sense because it tastes like it is trying to be multiple flavors. It is odd because I taste them very rapidly in sequence and then it’s almost as if my brain immediately tries to tie them into one. Hard to describe. Do I like it? Well I can tell you I don’t dislike it. It’s pleasantly sweet enough with a tang of character. But it’s also, in a word, busy. Like I said, it seems like there’s a lot going on here when you take a sip, and it makes it hard to focus on just what the final flavor IS. It really just has a dominant sour flavor without making you pucker your mouth like the Warheads logo (although the Warheads drinks mostly made us pucker our mouths in disgust). Knowing what the flavor is now, I think it was a missed opportunity to make it some crazy color. Light thumbs up for Sour Bucks from the Not Young Bucks of Nick and Matt.",
+    "caffeine": 300
+  },
+  {
     "id": "100f4228-f461-4573-a58d-a8db4104f8fe",
     "slug": "bucked-up-breezy-blast",
-    "rank": 103,
+    "rank": 104,
     "name": "BUCKED UP Breezy Blast",
     "brand": "BUCKED UP",
     "date": "11/04/2024",
@@ -1351,7 +1364,7 @@
   {
     "id": "4a79d5c7-07ce-46f5-9467-a13c06850772",
     "slug": "bucked-up-lightly-carbonated-protein-orange-cream",
-    "rank": 104,
+    "rank": 105,
     "name": "BUCKED UP Lightly Carbonated Protein Orange Cream",
     "brand": "BUCKED UP",
     "date": "05/28/2025",
@@ -1364,7 +1377,7 @@
   {
     "id": "88d7d017-7b4b-4a36-a44a-faf5a1388103",
     "slug": "gorilla-mind-orange-rush",
-    "rank": 105,
+    "rank": 106,
     "name": "Gorilla Mind Orange Rush",
     "brand": "Gorilla Mind",
     "date": "09/04/2024",
@@ -1379,7 +1392,7 @@
   {
     "id": "17444776-4fb1-4019-904d-aa98980c0500",
     "slug": "beaver-buzz-energy-root-beer",
-    "rank": 106,
+    "rank": 107,
     "name": "Beaver Buzz Energy Root Beer",
     "brand": "Beaver Buzz",
     "date": "06/27/2025",
@@ -1392,7 +1405,7 @@
   {
     "id": "ab3258c1-8b17-4b6a-8050-f4f1c70c40bf",
     "slug": "ryse-fuel-root-beer-float",
-    "rank": 107,
+    "rank": 108,
     "name": "RYSE Fuel Root Beer Float",
     "brand": "RYSE",
     "date": "07/22/2026",
@@ -1405,7 +1418,7 @@
   {
     "id": "1941b308-1782-4481-b518-84cf9cefbba0",
     "slug": "the-winter-edition-fuji-apple-and-ginger",
-    "rank": 108,
+    "rank": 109,
     "name": "The Winter Edition: Fuji Apple & Ginger",
     "brand": "Red Bull",
     "date": "06/13/2026",
@@ -1418,7 +1431,7 @@
   {
     "id": "e6ad473b-f184-4406-975f-24ac83f153fb",
     "slug": "alani-nu-cotton-candy",
-    "rank": 109,
+    "rank": 110,
     "name": "Alani Nu Cotton Candy",
     "brand": "Alani Nu",
     "date": "07/10/2025",
@@ -1431,7 +1444,7 @@
   {
     "id": "de1792d8-d0c3-4954-82fa-4925cff5c832",
     "slug": "3d-energy-citrus-mist",
-    "rank": 110,
+    "rank": 111,
     "name": "3D Energy Citrus Mist",
     "brand": "3D Energy",
     "date": "09/11/2025",
@@ -1444,7 +1457,7 @@
   {
     "id": "3853b128-cd3f-458e-8ce5-7ec32c593154",
     "slug": "redcon1-orange-cream",
-    "rank": 111,
+    "rank": 112,
     "name": "REDCON1 Orange Cream",
     "brand": "REDCON1",
     "date": "07/31/2024",
@@ -1457,7 +1470,7 @@
   {
     "id": "55ccc1a2-2988-47a8-86fa-ed149214b0eb",
     "slug": "gorilla-mind-orange-ice-dream",
-    "rank": 112,
+    "rank": 113,
     "name": "Gorilla Mind Orange Ice Dream",
     "brand": "Gorilla Mind",
     "date": "07/07/2024",
@@ -1470,7 +1483,7 @@
   {
     "id": "6287c361-bf2c-4a45-afc5-acc70093128c",
     "slug": "c4-cherry-limeade",
-    "rank": 113,
+    "rank": 114,
     "name": "C4 Cherry Limeade",
     "brand": "C4",
     "date": "06/17/2024",
@@ -1483,7 +1496,7 @@
   {
     "id": "a11a8cbd-bbdc-4856-8f08-82b6b54692ad",
     "slug": "bucked-up-cherry-candy",
-    "rank": 114,
+    "rank": 115,
     "name": "BUCKED UP Cherry Candy",
     "brand": "BUCKED UP",
     "date": "01/07/2025",
@@ -1496,7 +1509,7 @@
   {
     "id": "42bb62cf-d5ad-4bb0-ab4e-19acfcb722af",
     "slug": "bloom-sparkling-energy-raspberry-lemon",
-    "rank": 115,
+    "rank": 116,
     "name": "Bloom Sparkling Energy Raspberry Lemon",
     "brand": "Bloom",
     "date": "07/21/2026",
@@ -1509,7 +1522,7 @@
   {
     "id": "273a8d1e-6420-41c8-8555-b575cf57a491",
     "slug": "goat-fuel-pineapple-cream-soda",
-    "rank": 116,
+    "rank": 117,
     "name": "GOAT Fuel Pineapple Cream Soda",
     "brand": "GOAT Fuel",
     "date": "10/13/2024",
@@ -1522,7 +1535,7 @@
   {
     "id": "c522b234-5ddb-4209-86bb-603aa78c6d59",
     "slug": "bum-energy-root-beer",
-    "rank": 117,
+    "rank": 118,
     "name": "BUM Energy Root Beer",
     "brand": "BUM",
     "date": "10/31/2024",
@@ -1535,7 +1548,7 @@
   {
     "id": "43dca0e5-b344-495e-a717-66f3c51e560a",
     "slug": "reign-tbf-melon-mania",
-    "rank": 118,
+    "rank": 119,
     "name": "Reign TBF Melon Mania",
     "brand": "Reign",
     "date": "05/31/2024",
@@ -1548,7 +1561,7 @@
   {
     "id": "ef1783a5-1188-41b9-bdbd-db5f25253805",
     "slug": "bucked-up-energy-wild-orchard",
-    "rank": 119,
+    "rank": 120,
     "name": "BUCKED UP Energy Wild Orchard",
     "brand": "BUCKED UP",
     "date": "07/28/2026",
@@ -1561,7 +1574,7 @@
   {
     "id": "06712b53-679b-4246-a239-308aa751f020",
     "slug": "alani-nu-purple-cotton-candy",
-    "rank": 120,
+    "rank": 121,
     "name": "Alani Nu Purple Cotton Candy",
     "brand": "Alani Nu",
     "date": "08/02/2026",
@@ -1574,7 +1587,7 @@
   {
     "id": "a500af65-c8be-4fed-99e5-576970680a2f",
     "slug": "ghost-energy-original",
-    "rank": 121,
+    "rank": 122,
     "name": "GHOST Energy Original",
     "brand": "GHOST",
     "date": "06/30/2026",
@@ -1587,7 +1600,7 @@
   {
     "id": "c538e7f9-d0fa-46bc-8611-18c04c60cba7",
     "slug": "gorilla-mind-berry-burst",
-    "rank": 122,
+    "rank": 123,
     "name": "Gorilla Mind Berry Burst",
     "brand": "Gorilla Mind",
     "date": "07/29/2024",
@@ -1600,7 +1613,7 @@
   {
     "id": "93c7bcea-1ed7-4221-934b-9f68ab5aa8c8",
     "slug": "fusion-energy-galactic-citrus",
-    "rank": 123,
+    "rank": 124,
     "name": "Fusion Energy Galactic Citrus",
     "brand": "Fusion",
     "date": "10/19/2024",
@@ -1613,7 +1626,7 @@
   {
     "id": "cb7a32d3-dea7-49d0-9708-e819cca5a2d6",
     "slug": "bum-energy-blueberry-lemonade",
-    "rank": 124,
+    "rank": 125,
     "name": "BUM Energy Blueberry Lemonade",
     "brand": "BUM",
     "date": "12/02/2024",
@@ -1626,7 +1639,7 @@
   {
     "id": "a92d8b29-3a91-414a-a646-f808a895444a",
     "slug": "oxyshred-ultra-energy-bahama-breeze",
-    "rank": 125,
+    "rank": 126,
     "name": "Oxyshred Ultra Energy Bahama Breeze",
     "brand": "Oxyshred",
     "date": "01/16/2025",
@@ -1639,7 +1652,7 @@
   {
     "id": "d4f02b71-6e51-40d6-87d2-28d947242ad7",
     "slug": "gorilla-mind-white-gummy-bear",
-    "rank": 126,
+    "rank": 127,
     "name": "Gorilla Mind White Gummy Bear",
     "brand": "Gorilla Mind",
     "date": "07/08/2025",
@@ -1652,7 +1665,7 @@
   {
     "id": "e1b5ce2e-3f53-4e03-b035-35a10836aac8",
     "slug": "bucked-up-miami",
-    "rank": 127,
+    "rank": 128,
     "name": "BUCKED UP Miami",
     "brand": "BUCKED UP",
     "date": "10/04/2024",
@@ -1665,7 +1678,7 @@
   {
     "id": "00d006bf-d376-454e-a591-d8a12212fe26",
     "slug": "reign-tbf-cherry-limeade",
-    "rank": 128,
+    "rank": 129,
     "name": "Reign TBF Cherry Limeade",
     "brand": "Reign",
     "date": "10/11/2024",
@@ -1678,7 +1691,7 @@
   {
     "id": "d9f75983-5311-45d9-ad5e-72c262a2d313",
     "slug": "ryse-fuel-baja-cooler",
-    "rank": 129,
+    "rank": 130,
     "name": "RYSE Fuel Baja Cooler",
     "brand": "RYSE",
     "date": "12/13/2024",
@@ -1691,7 +1704,7 @@
   {
     "id": "3a8c8403-8e0b-4e97-909f-230bd505ef75",
     "slug": "gorilla-mind-lychee-bomb",
-    "rank": 130,
+    "rank": 131,
     "name": "Gorilla Mind Lychee Bomb",
     "brand": "Gorilla Mind",
     "date": "08/15/2024",
@@ -1702,22 +1715,9 @@
     "caffeine": 200
   },
   {
-    "id": "f6ea3e08-da39-4b80-a248-dfe915611df9",
-    "slug": "c4-midnight-cherry",
-    "rank": 132,
-    "name": "C4 Midnight Cherry",
-    "brand": "C4",
-    "date": "04/28/2024",
-    "redo": false,
-    "notes": [],
-    "msl": "MIDNIGHT.  Ok let’s go.  That’s a cherry drink.  I like it.  Feels more energy drinky than cherry flavor.  But it’s good.  It’s really, really hard for us to rank any cherry drinks at this point because the first thing we ever drank was the Starburst Cherry - and the amount of flavor that one had was insane.  But this is pretty damn good, and I like it a lot.",
-    "nf": "“Ooh. I like that.” - my first sip. It’s definitely not as good as the top ones, but it’s still something I’d drink if offered to me. It’s got a very good cherry flavor that isn’t too strong - might even be a smidge weak - but still hits the right notes. It’s missing the sour punch that the best have, but I like it. It’s almost like a Diet or Lite version of Starburst Cherry for people who think the latter is too strong.",
-    "caffeine": 200
-  },
-  {
     "id": "a9e5e9bb-26d1-4ee2-bd2a-c1f18a6d1798",
     "slug": "nos-grand-prix-guava",
-    "rank": 131,
+    "rank": 132,
     "name": "NOS Grand Prix Guava",
     "brand": "NOS",
     "date": "09/03/2026",
@@ -1728,9 +1728,22 @@
     "caffeine": 200
   },
   {
+    "id": "f6ea3e08-da39-4b80-a248-dfe915611df9",
+    "slug": "c4-midnight-cherry",
+    "rank": 133,
+    "name": "C4 Midnight Cherry",
+    "brand": "C4",
+    "date": "04/28/2024",
+    "redo": false,
+    "notes": [],
+    "msl": "MIDNIGHT.  Ok let’s go.  That’s a cherry drink.  I like it.  Feels more energy drinky than cherry flavor.  But it’s good.  It’s really, really hard for us to rank any cherry drinks at this point because the first thing we ever drank was the Starburst Cherry - and the amount of flavor that one had was insane.  But this is pretty damn good, and I like it a lot.",
+    "nf": "“Ooh. I like that.” - my first sip. It’s definitely not as good as the top ones, but it’s still something I’d drink if offered to me. It’s got a very good cherry flavor that isn’t too strong - might even be a smidge weak - but still hits the right notes. It’s missing the sour punch that the best have, but I like it. It’s almost like a Diet or Lite version of Starburst Cherry for people who think the latter is too strong.",
+    "caffeine": 200
+  },
+  {
     "id": "80e0a5cf-5d1f-407b-9cd8-a62db7ae1d1f",
     "slug": "full-throttle-original-citrus",
-    "rank": 133,
+    "rank": 134,
     "name": "Full Throttle Original Citrus",
     "brand": "Full Throttle",
     "date": "02/26/2026",
@@ -1741,9 +1754,22 @@
     "caffeine": 160
   },
   {
+    "id": "58df26f6-ab7f-489a-a8dd-02a1f3a10faa",
+    "slug": "el-jefe-zuma-watermelon",
+    "rank": 135,
+    "name": "El Jefe Zuma Watermelon",
+    "brand": "El Jefe",
+    "date": "09/05/2026",
+    "redo": false,
+    "notes": [],
+    "msl": "It’s Labor Day weekendddd!  We both chose this one.  This drink is clear and FIZZY.  Lots of bubbles at the top of this thing.  It smelled more like watermelon in the can, now that I have it in a glass it smells like…I don’t know.  Different.  The last El Jefe I thought was alright, I’m hoping this one is also!  Let’s go. <br><br>“Alright….oh…interesting”.  Those were the words that left my lips upon the first sip.  So, you do get hit with that wave of watermelon.  Like, that flavor is there.  It completely dissipates into something that feels completely different.  Let’s retain it a bit longer this time:  OK that does the trick.  The flavor at first does feel quite strong, not too strong, but honestly “just right”, but it doesn’t linger.  It feels more akin to a candy watermelon, than an actual watermelon.  There’s some bits of this where I think it’s pretty tasty, but I don’t think it’s strong enough that I’m all that gaga for it.  It starts strong, but falls short on the finish.  I don’t hate this, but I’m not crazy about it either.  Iiii….give this a square thumbs in the middle.  Better watermelon drinks out there.  Wouldn’t deny it if it was the only thing available.  I did finish. No major aftertaste.",
+    "nf": "I have a painless canker sore on my tongue, so drinking the energy drink that may have a bit of kick to it maybe will do something about it. Otherwise I’ll just nuke it with salt. This has a ton of froth on the top of it, to the point it almost looks like beer or something. Wwwweird! It has a slight watermelon scent to it, which is the style of these kinds of watermelon-flavored drinks. <br><br>Well the first sip was very frothy, as I imagine you…imagined. It’s a very weird package overall. You get that froth, and then a candy watermelon flavor, and then both disappear pretty quickly. I don’t think there’s as much kick as the Diablo Punch, if there is any at all, so there’s no points for character there. This is tough because the froth does add a little something unique, and the watermelon flavor when it lasts is pretty good. But it’s all just too fleeting for me to really endorse this. A drink for our modern attention spans, I suppose, but most people’s taste buds aren’t nearly as cooked.",
+    "caffeine": 200
+  },
+  {
     "id": "1b4583a6-4e56-4a31-8477-be600b829093",
     "slug": "reign-tbf-sour-gummy-worm",
-    "rank": 134,
+    "rank": 136,
     "name": "Reign TBF Sour Gummy Worm",
     "brand": "Reign",
     "date": "07/03/2024",
@@ -1756,7 +1782,7 @@
   {
     "id": "817ed0f0-5ee1-41ae-94f9-f445ea2f0750",
     "slug": "bang-energy-star-blast",
-    "rank": 135,
+    "rank": 137,
     "name": "bang Energy Star Blast",
     "brand": "bang",
     "date": "06/25/2024",
@@ -1769,7 +1795,7 @@
   {
     "id": "f3af31ef-c750-4fdb-b4df-3bfd1a388388",
     "slug": "c4-ultimate-wwe-ruthless-raspberry",
-    "rank": 136,
+    "rank": 138,
     "name": "C4 Ultimate WWE Ruthless Raspberry",
     "brand": "C4",
     "date": "04/02/2024",
@@ -1782,7 +1808,7 @@
   {
     "id": "d78853b2-f240-4f00-b797-22c1ba9c228d",
     "slug": "reign-tbf-white-gummy-bear",
-    "rank": 137,
+    "rank": 139,
     "name": "Reign TBF White Gummy Bear",
     "brand": "Reign",
     "date": "06/02/2024",
@@ -1795,7 +1821,7 @@
   {
     "id": "f2a3d631-3e11-4c93-b415-58c32041b9a3",
     "slug": "bucked-up-white-gummy-deer",
-    "rank": 138,
+    "rank": 140,
     "name": "BUCKED UP White Gummy Deer",
     "brand": "BUCKED UP",
     "date": "10/21/2024",
@@ -1808,7 +1834,7 @@
   {
     "id": "cd873345-5961-4ec3-b8c3-430a78d710b3",
     "slug": "bloom-sparkling-energy-shirley-temple",
-    "rank": 139,
+    "rank": 141,
     "name": "Bloom Sparkling Energy Shirley Temple",
     "brand": "Bloom",
     "date": "07/27/2026",
@@ -1821,7 +1847,7 @@
   {
     "id": "04de62ad-f95c-4beb-9084-a7c07d4102ef",
     "slug": "bang-energy-rainbow-unicorn",
-    "rank": 140,
+    "rank": 142,
     "name": "bang Energy Rainbow Unicorn",
     "brand": "bang",
     "date": "09/07/2024",
@@ -1834,7 +1860,7 @@
   {
     "id": "0b6118f1-868d-4ad7-8652-e9c3067a7dec",
     "slug": "goat-fuel-watermelon-fruit-punch",
-    "rank": 141,
+    "rank": 143,
     "name": "GOAT Fuel Watermelon Fruit Punch",
     "brand": "GOAT Fuel",
     "date": "10/22/2024",
@@ -1847,7 +1873,7 @@
   {
     "id": "f5c1fc65-292e-46fe-9733-ce8797c887bc",
     "slug": "gorilla-mind-patty-s-iced-tea",
-    "rank": 142,
+    "rank": 144,
     "name": "Gorilla Mind Patty's Iced Tea",
     "brand": "Gorilla Mind",
     "date": "02/23/2026",
@@ -1860,7 +1886,7 @@
   {
     "id": "5b788bfd-226b-4383-9ab7-637573e7e0ca",
     "slug": "ryse-fuel-cream-soda",
-    "rank": 143,
+    "rank": 145,
     "name": "RYSE Fuel Cream Soda",
     "brand": "RYSE",
     "date": "08/03/2026",
@@ -1873,7 +1899,7 @@
   {
     "id": "a43fd5b5-e7e6-45df-9503-b043e658f306",
     "slug": "el-jefe-energy-diablo-punch",
-    "rank": 144,
+    "rank": 146,
     "name": "El Jefe Energy Diablo Punch",
     "brand": "El Jefe",
     "date": "08/05/2026",
@@ -1886,7 +1912,7 @@
   {
     "id": "21c88b11-b462-4aff-8f35-fab4dce5b520",
     "slug": "bum-energy-citrus-blast",
-    "rank": 145,
+    "rank": 147,
     "name": "BUM Energy Citrus Blast",
     "brand": "BUM",
     "date": "10/28/2024",
@@ -1899,7 +1925,7 @@
   {
     "id": "72c1852a-fb9a-4c2a-8f02-538217459215",
     "slug": "bum-energy-orange-sunrise",
-    "rank": 146,
+    "rank": 148,
     "name": "BUM Energy Orange Sunrise",
     "brand": "BUM",
     "date": "10/23/2024",
@@ -1912,7 +1938,7 @@
   {
     "id": "0f59720e-5509-4169-bcf5-4da2d060c4b6",
     "slug": "monster-energy-ultra-fantasy-ruby-red",
-    "rank": 147,
+    "rank": 149,
     "name": "Monster Energy Ultra Fantasy Ruby Red",
     "brand": "Monster",
     "date": "09/18/2024",
@@ -1925,7 +1951,7 @@
   {
     "id": "364ba616-f4bc-41cf-90e6-d59bbd305e10",
     "slug": "c4-ultimate-freedom-ice",
-    "rank": 148,
+    "rank": 150,
     "name": "C4 Ultimate Freedom Ice",
     "brand": "C4",
     "date": "06/04/2024",
@@ -1938,7 +1964,7 @@
   {
     "id": "7bf3c60f-91fb-4bab-9caa-eb3b2c3c3650",
     "slug": "c4-grape-frost",
-    "rank": 149,
+    "rank": 151,
     "name": "C4 Grape Frost",
     "brand": "C4",
     "date": "04/09/2024",
@@ -1951,7 +1977,7 @@
   {
     "id": "9dabfe66-15bd-4624-83ec-7430ee66fc70",
     "slug": "reign-tbf-white-haze",
-    "rank": 150,
+    "rank": 152,
     "name": "Reign TBF White Haze",
     "brand": "Reign",
     "date": "03/26/2025",
@@ -1964,7 +1990,7 @@
   {
     "id": "da0cb35b-9ac4-48a0-8b23-ddf576bf6b96",
     "slug": "bucked-up-energy-pump-n-grind",
-    "rank": 151,
+    "rank": 153,
     "name": "BUCKED UP Energy Pump ‘n Grind",
     "brand": "BUCKED UP",
     "date": "08/26/2026",
@@ -1977,7 +2003,7 @@
   {
     "id": "ab11bb61-748b-4255-a7e6-9fe69244a8b6",
     "slug": "c4-ultimate-frost-bitten-citrus",
-    "rank": 152,
+    "rank": 154,
     "name": "C4 Ultimate Frost Bitten Citrus",
     "brand": "C4",
     "date": "03/09/2025",
@@ -1990,7 +2016,7 @@
   {
     "id": "cf11607c-9d07-4641-8750-32d7d69b32ad",
     "slug": "gorilla-mind-root-beer",
-    "rank": 153,
+    "rank": 155,
     "name": "Gorilla Mind Root Beer",
     "brand": "Gorilla Mind",
     "date": "08/01/2026",
@@ -2003,7 +2029,7 @@
   {
     "id": "b859501e-82b0-4462-9c47-6d0a33de4c09",
     "slug": "ghost-energy-bubblicious-cotton-candy",
-    "rank": 154,
+    "rank": 156,
     "name": "GHOST Energy Bubblicious Cotton Candy",
     "brand": "GHOST",
     "date": "07/05/2025",
@@ -2016,7 +2042,7 @@
   {
     "id": "1cd17068-cdae-4472-9ae8-b0e8f71d0dec",
     "slug": "celsius-retro-vibe",
-    "rank": 155,
+    "rank": 157,
     "name": "Celsius Retro Vibe",
     "brand": "Celsius",
     "date": "06/06/2025",
@@ -2029,7 +2055,7 @@
   {
     "id": "795b2176-1ca2-492e-a2df-5289a9101637",
     "slug": "red-bull-the-pink-edition-wild-berries",
-    "rank": 156,
+    "rank": 158,
     "name": "Red Bull The Pink Edition: Wild Berries",
     "brand": "Red Bull",
     "date": "06/17/2025",
@@ -2042,7 +2068,7 @@
   {
     "id": "4eff6438-5bcf-4021-9281-dc92476901ea",
     "slug": "bang-energy-cotton-candy",
-    "rank": 157,
+    "rank": 159,
     "name": "bang Energy Cotton Candy",
     "brand": "bang",
     "date": "11/30/2024",
@@ -2055,7 +2081,7 @@
   {
     "id": "4e09b724-66c0-4ce6-88c7-ac96d23afe6e",
     "slug": "redcon1-sour-gummy-blast",
-    "rank": 158,
+    "rank": 160,
     "name": "REDCON1 Sour Gummy Blast",
     "brand": "REDCON1",
     "date": "11/29/2024",
@@ -2068,7 +2094,7 @@
   {
     "id": "bb438e00-8d49-48c7-8ab9-58420d4a8469",
     "slug": "fusion-energy-paradise-pulse",
-    "rank": 159,
+    "rank": 161,
     "name": "Fusion Energy Paradise Pulse",
     "brand": "Fusion",
     "date": "10/06/2024",
@@ -2081,7 +2107,7 @@
   {
     "id": "1f8c9efa-f4e4-49fd-8127-a33d70563a8d",
     "slug": "monster-energy-ultra-blue-hawaiian",
-    "rank": 160,
+    "rank": 162,
     "name": "Monster Energy Ultra Blue Hawaiian",
     "brand": "Monster",
     "date": "05/10/2025",
@@ -2094,7 +2120,7 @@
   {
     "id": "955afddb-d143-4d8f-ad73-a036e2b66966",
     "slug": "goat-fuel-jerry-rice-tropical-berry",
-    "rank": 161,
+    "rank": 163,
     "name": "GOAT Fuel Jerry Rice Tropical Berry",
     "brand": "GOAT Fuel",
     "date": "05/08/2025",
@@ -2107,7 +2133,7 @@
   {
     "id": "487259b4-c0b1-44aa-9e0b-4132d093a68c",
     "slug": "c4-ultimate-tropical-tundra-frost",
-    "rank": 162,
+    "rank": 164,
     "name": "C4 Ultimate Tropical Tundra Frost",
     "brand": "C4",
     "date": "01/24/2025",
@@ -2120,7 +2146,7 @@
   {
     "id": "63b3787a-adc8-44aa-b459-e2c96f9b9e21",
     "slug": "alani-nu-tropsicle",
-    "rank": 163,
+    "rank": 165,
     "name": "Alani Nu Tropsicle",
     "brand": "Alani Nu",
     "date": "07/30/2024",
@@ -2133,7 +2159,7 @@
   {
     "id": "6c427b0d-a2d7-4b20-a9c5-0c6e6a767e8c",
     "slug": "c4-ultimate-cherry-bomb-frost",
-    "rank": 164,
+    "rank": 166,
     "name": "C4 Ultimate Cherry Bomb Frost",
     "brand": "C4",
     "date": "02/05/2025",
@@ -2146,7 +2172,7 @@
   {
     "id": "4ddd279b-019b-4bc7-8465-62cdea1cbf01",
     "slug": "monster-energy-ultra-red-white-and-blue-razz",
-    "rank": 165,
+    "rank": 167,
     "name": "Monster Energy Ultra Red White & Blue Razz",
     "brand": "Monster",
     "date": "08/13/2026",
@@ -2159,7 +2185,7 @@
   {
     "id": "c6100500-8b77-486c-a7b0-8eabae4ee711",
     "slug": "c4-jolly-rancher-watermelon",
-    "rank": 166,
+    "rank": 168,
     "name": "C4 Jolly Rancher Watermelon",
     "brand": "C4",
     "date": "11/03/2024",
@@ -2172,7 +2198,7 @@
   {
     "id": "f9a97d5a-6765-4af8-ab02-7f19e0aa95a0",
     "slug": "monster-energy-reserve-watermelon",
-    "rank": 167,
+    "rank": 169,
     "name": "Monster Energy Reserve Watermelon",
     "brand": "Monster",
     "date": "05/22/2025",
@@ -2185,7 +2211,7 @@
   {
     "id": "f0de31b9-610f-412c-9418-554eb2b60b4b",
     "slug": "beaver-buzz-energy-saskatoon-berry",
-    "rank": 168,
+    "rank": 170,
     "name": "Beaver Buzz Energy Saskatoon Berry",
     "brand": "Beaver Buzz",
     "date": "06/24/2025",
@@ -2198,7 +2224,7 @@
   {
     "id": "c6b63e98-65cb-459e-b08e-8e5b4f52c68e",
     "slug": "c4-cereal-killer",
-    "rank": 169,
+    "rank": 171,
     "name": "C4 Cereal Killer",
     "brand": "C4",
     "date": "08/14/2026",
@@ -2211,7 +2237,7 @@
   {
     "id": "a962e1c3-c05e-4e9f-99a6-afda8a39db66",
     "slug": "amin-o-mango-pineapple-limeade",
-    "rank": 170,
+    "rank": 172,
     "name": "Amin.O Mango Pineapple Limeade",
     "brand": "Amin.O",
     "date": "12/24/2024",
@@ -2224,7 +2250,7 @@
   {
     "id": "fdff814f-ab28-4aad-bffd-0d3bb44656e8",
     "slug": "rockstar-punched-pineapple",
-    "rank": 171,
+    "rank": 173,
     "name": "Rockstar PUNCHED Pineapple",
     "brand": "Rockstar",
     "date": "08/14/2025",
@@ -2237,7 +2263,7 @@
   {
     "id": "39f5ce70-2c37-427e-a25a-0e301c0ddac6",
     "slug": "ghost-energy-iced-tea-lemonade",
-    "rank": 172,
+    "rank": 174,
     "name": "GHOST Energy Iced Tea Lemonade",
     "brand": "GHOST",
     "date": "07/03/2025",
@@ -2250,7 +2276,7 @@
   {
     "id": "a824519a-4ff3-4cef-afdf-010407a7664f",
     "slug": "g-fuel-miami-nights",
-    "rank": 173,
+    "rank": 175,
     "name": "G FUEL Miami Nights",
     "brand": "G FUEL",
     "date": "12/12/2024",
@@ -2263,7 +2289,7 @@
   {
     "id": "9cae4872-60f3-4e45-a166-4ed624798c2b",
     "slug": "bum-energy-pink-lemonade",
-    "rank": 174,
+    "rank": 176,
     "name": "BUM Energy Pink Lemonade",
     "brand": "BUM",
     "date": "11/01/2024",
@@ -2276,7 +2302,7 @@
   {
     "id": "38f1dc0f-eb8d-45c6-bcb2-2e48442498c4",
     "slug": "3d-energy-lemonade",
-    "rank": 175,
+    "rank": 177,
     "name": "3D Energy Lemonade",
     "brand": "3D Energy",
     "date": "09/23/2025",
@@ -2289,7 +2315,7 @@
   {
     "id": "cea778d8-a0fd-48ed-80e3-64e5ca68c2ca",
     "slug": "alani-nu-kimade",
-    "rank": 176,
+    "rank": 178,
     "name": "Alani Nu Kimade",
     "brand": "Alani Nu",
     "date": "03/24/2025",
@@ -2302,7 +2328,7 @@
   {
     "id": "ee2892e3-1a79-4d2f-b15d-68bf5962cd55",
     "slug": "red-bull-the-sea-blue-edition-juneberry",
-    "rank": 177,
+    "rank": 179,
     "name": "Red Bull The Sea Blue Edition: Juneberry",
     "brand": "Red Bull",
     "date": "09/03/2024",
@@ -2315,7 +2341,7 @@
   {
     "id": "88b6e33b-381a-4451-8cf7-72970ab03876",
     "slug": "celsius-sparkling-astro-vibe",
-    "rank": 178,
+    "rank": 180,
     "name": "Celsius Sparkling Astro Vibe",
     "brand": "Celsius",
     "date": "06/12/2024",
@@ -2328,7 +2354,7 @@
   {
     "id": "d634feff-97f6-466b-b022-10c7151f0ae1",
     "slug": "reign-tbf-tropical-storm",
-    "rank": 179,
+    "rank": 181,
     "name": "Reign TBF Tropical Storm",
     "brand": "Reign",
     "date": "06/16/2024",
@@ -2341,7 +2367,7 @@
   {
     "id": "453a68f6-dfba-409e-a5ab-e3f5af0d9253",
     "slug": "gym-weed-candy-shop",
-    "rank": 180,
+    "rank": 182,
     "name": "GYM Weed Candy Shop",
     "brand": "GYM Weed",
     "date": "12/14/2024",
@@ -2354,7 +2380,7 @@
   {
     "id": "6aacf6d1-f03d-47e7-a815-4fa6ce8eaba9",
     "slug": "bang-energy-peach-mango",
-    "rank": 181,
+    "rank": 183,
     "name": "bang Energy Peach Mango",
     "brand": "bang",
     "date": "07/24/2024",
@@ -2367,7 +2393,7 @@
   {
     "id": "1a0c9c29-ea78-402c-857f-47ff24c942c9",
     "slug": "bum-energy-peach-mango",
-    "rank": 182,
+    "rank": 184,
     "name": "BUM Energy Peach Mango",
     "brand": "BUM",
     "date": "10/30/2024",
@@ -2380,7 +2406,7 @@
   {
     "id": "ba95e69c-e3f4-4d2c-9274-d2caeb21f64a",
     "slug": "alani-nu-winter-wonderland",
-    "rank": 183,
+    "rank": 185,
     "name": "Alani Nu Winter Wonderland",
     "brand": "Alani Nu",
     "date": "12/21/2024",
@@ -2393,7 +2419,7 @@
   {
     "id": "16e23bed-5fd9-4c28-a8e9-fcfee102b383",
     "slug": "monster-energy-ultra-strawberry-dreams",
-    "rank": 184,
+    "rank": 186,
     "name": "Monster Energy Ultra Strawberry Dreams",
     "brand": "Monster",
     "date": "04/18/2024",
@@ -2406,7 +2432,7 @@
   {
     "id": "5caf8cfd-a8d6-4b39-aed1-6c67ce3ef718",
     "slug": "monster-energy-ultra-sunrise",
-    "rank": 185,
+    "rank": 187,
     "name": "Monster Energy Ultra Sunrise",
     "brand": "Monster",
     "date": "06/03/2024",
@@ -2419,7 +2445,7 @@
   {
     "id": "02cda2c8-7e29-4354-9b95-a601a12c6701",
     "slug": "rockstar-original",
-    "rank": 186,
+    "rank": 188,
     "name": "Rockstar Original",
     "brand": "Rockstar",
     "date": "07/13/2025",
@@ -2432,7 +2458,7 @@
   {
     "id": "41908939-aaf3-4a2f-8846-d17984689dbb",
     "slug": "bucked-up-big-game-cotton-candy",
-    "rank": 187,
+    "rank": 189,
     "name": "BUCKED UP Big Game Cotton Candy",
     "brand": "BUCKED UP",
     "date": "09/06/2025",
@@ -2445,7 +2471,7 @@
   {
     "id": "c6f53fec-831e-491d-8625-5c92c5e1752f",
     "slug": "bucked-up-lightly-carbonated-protein-rainbow-candy",
-    "rank": 188,
+    "rank": 190,
     "name": "BUCKED UP Lightly Carbonated Protein Rainbow Candy",
     "brand": "BUCKED UP",
     "date": "05/23/2025",
@@ -2458,7 +2484,7 @@
   {
     "id": "6e23a08c-50e3-41ff-b2df-ae99a9d2f930",
     "slug": "ghost-energy-warheads-sour-watermelon",
-    "rank": 189,
+    "rank": 191,
     "name": "GHOST Energy Warheads Sour Watermelon",
     "brand": "GHOST",
     "date": "09/24/2024",
@@ -2471,7 +2497,7 @@
   {
     "id": "a134a6b3-50fa-4a88-a058-2ad6144a4f31",
     "slug": "bang-energy-sour-ropes",
-    "rank": 190,
+    "rank": 192,
     "name": "bang Energy Sour Ropes",
     "brand": "bang",
     "date": "03/05/2025",
@@ -2484,7 +2510,7 @@
   {
     "id": "f184252b-6d5d-4195-8b2f-b4b450928920",
     "slug": "bang-energy-wylin-watermelon",
-    "rank": 191,
+    "rank": 193,
     "name": "bang Energy Wylin Watermelon",
     "brand": "bang",
     "date": "01/31/2025",
@@ -2497,7 +2523,7 @@
   {
     "id": "6f07fafc-bab6-4e29-901c-ab08befe416b",
     "slug": "goat-fuel-blueberry-lemonade",
-    "rank": 192,
+    "rank": 194,
     "name": "GOAT Fuel Blueberry Lemonade",
     "brand": "GOAT Fuel",
     "date": "05/29/2025",
@@ -2510,7 +2536,7 @@
   {
     "id": "488865da-19c3-4f3b-bfc0-0126027b78fb",
     "slug": "mountain-dew-kickstart-black-cherry",
-    "rank": 193,
+    "rank": 195,
     "name": "Mountain Dew Kickstart Black Cherry",
     "brand": "Mountain Dew Kickstart",
     "date": "10/14/2024",
@@ -2523,7 +2549,7 @@
   {
     "id": "e4f0feaf-49a0-4bc5-8f74-fb1c7d90c821",
     "slug": "lucky-f-ck-tropical-thrill",
-    "rank": 194,
+    "rank": 196,
     "name": "Lucky F*ck Tropical Thrill",
     "brand": "Lucky F*ck",
     "date": "03/26/2025",
@@ -2536,7 +2562,7 @@
   {
     "id": "7afc0f38-e084-4abe-b1f7-fcc2c3d4c838",
     "slug": "redcon1-freedom-frost",
-    "rank": 195,
+    "rank": 197,
     "name": "REDCON1 Freedom Frost",
     "brand": "REDCON1",
     "date": "01/15/2025",
@@ -2549,7 +2575,7 @@
   {
     "id": "e201cb0b-9dac-4e0c-82d1-32a808b2b6ac",
     "slug": "bloom-sparkling-energy-juicy-orange",
-    "rank": 196,
+    "rank": 198,
     "name": "Bloom Sparkling Energy Juicy Orange",
     "brand": "Bloom",
     "date": "09/14/2025",
@@ -2562,7 +2588,7 @@
   {
     "id": "99e64173-c601-4725-b477-0a38cb2abab3",
     "slug": "zoa-energy-frosted-grape",
-    "rank": 197,
+    "rank": 199,
     "name": "ZOA Energy Frosted Grape",
     "brand": "ZOA",
     "date": "02/09/2025",
@@ -2575,7 +2601,7 @@
   {
     "id": "15ff0652-5d32-4af3-b1e0-cf84c04c28d3",
     "slug": "goat-fuel-gummy-bear",
-    "rank": 198,
+    "rank": 200,
     "name": "GOAT Fuel Gummy Bear",
     "brand": "GOAT Fuel",
     "date": "05/25/2025",
@@ -2588,7 +2614,7 @@
   {
     "id": "a654b307-7729-4779-8985-2434fccf3a0f",
     "slug": "redcon1-sour-peach-rings",
-    "rank": 199,
+    "rank": 201,
     "name": "REDCON1 Sour Peach Rings",
     "brand": "REDCON1",
     "date": "02/06/2025",
@@ -2601,7 +2627,7 @@
   {
     "id": "ce3a7246-f505-4b94-9921-e4495155f02a",
     "slug": "monster-energy",
-    "rank": 200,
+    "rank": 202,
     "name": "Monster Energy",
     "brand": "Monster",
     "date": "06/05/2025",
@@ -2614,7 +2640,7 @@
   {
     "id": "f0108614-744b-4248-93dc-7fc9670a797e",
     "slug": "lucky-f-ck-og-luck",
-    "rank": 201,
+    "rank": 203,
     "name": "Lucky F*ck OG Luck",
     "brand": "Lucky F*ck",
     "date": "05/19/2025",
@@ -2627,7 +2653,7 @@
   {
     "id": "3d573b4b-d6c5-46b8-b466-2a5346633bbd",
     "slug": "nos-gt-grape",
-    "rank": 202,
+    "rank": 204,
     "name": "NOS GT Grape",
     "brand": "NOS",
     "date": "08/29/2024",
@@ -2640,7 +2666,7 @@
   {
     "id": "9f4c8274-2b74-4b7c-a25d-94accf03d772",
     "slug": "c4-mango-foxtrot",
-    "rank": 203,
+    "rank": 205,
     "name": "C4 Mango Foxtrot",
     "brand": "C4",
     "date": "04/14/2024",
@@ -2653,7 +2679,7 @@
   {
     "id": "d1b5bf09-0e0d-4700-a144-583c2acbc820",
     "slug": "monster-energy-juice-pacific-punch",
-    "rank": 204,
+    "rank": 206,
     "name": "Monster Energy JUICE Pacific Punch",
     "brand": "Monster",
     "date": "04/30/2024",
@@ -2666,7 +2692,7 @@
   {
     "id": "88d08fb4-5531-4d92-86e3-7510f3a46372",
     "slug": "bloom-sparkling-energy-cherry-lime",
-    "rank": 205,
+    "rank": 207,
     "name": "Bloom Sparkling Energy Cherry Lime",
     "brand": "Bloom",
     "date": "11/24/2024",
@@ -2679,7 +2705,7 @@
   {
     "id": "510bf1c8-7e61-4a95-aac5-1cbec4a5c3c4",
     "slug": "bang-energy-black-cherry-vanilla",
-    "rank": 206,
+    "rank": 208,
     "name": "bang Energy Black Cherry Vanilla",
     "brand": "bang",
     "date": "07/04/2024",
@@ -2692,7 +2718,7 @@
   {
     "id": "61c9cb59-8d2f-4f12-b90b-677e0104256f",
     "slug": "ghost-energy-edc-electric-limeade",
-    "rank": 207,
+    "rank": 209,
     "name": "GHOST Energy EDC Electric Limeade",
     "brand": "GHOST",
     "date": "06/27/2024",
@@ -2705,7 +2731,7 @@
   {
     "id": "64e63d01-9468-47e2-a996-0e4a09974b71",
     "slug": "c4-starburst-lemon",
-    "rank": 208,
+    "rank": 210,
     "name": "C4 Starburst Lemon",
     "brand": "C4",
     "date": "09/26/2024",
@@ -2718,7 +2744,7 @@
   {
     "id": "3ed8e48e-d09d-454f-a676-9339a31d19c6",
     "slug": "lucky-f-ck-bodacious-berry",
-    "rank": 209,
+    "rank": 211,
     "name": "Lucky F*ck Bodacious Berry",
     "brand": "Lucky F*ck",
     "date": "10/05/2024",
@@ -2731,7 +2757,7 @@
   {
     "id": "691d6f8c-21ef-4f48-a4fc-1e22ddff82e8",
     "slug": "g-fuel-mega-man-blue-bomber-slushee",
-    "rank": 210,
+    "rank": 212,
     "name": "G FUEL Mega Man Blue Bomber Slushee",
     "brand": "G FUEL",
     "date": "09/03/2025",
@@ -2744,7 +2770,7 @@
   {
     "id": "37a50da0-624e-485f-ac62-b5b5b6d9a7cd",
     "slug": "gorilla-mind-blue-raspberry",
-    "rank": 211,
+    "rank": 213,
     "name": "Gorilla Mind Blue Raspberry",
     "brand": "Gorilla Mind",
     "date": "07/24/2025",
@@ -2757,7 +2783,7 @@
   {
     "id": "bd47fd00-7251-4b81-ba08-7d13199a04c7",
     "slug": "mountain-dew-amp",
-    "rank": 212,
+    "rank": 214,
     "name": "Mountain Dew Amp",
     "brand": "Mountain Dew Amp",
     "date": "07/06/2024",
@@ -2770,7 +2796,7 @@
   {
     "id": "107fa7de-5571-43c6-8f22-4f40115c58af",
     "slug": "mountain-dew-kickstart-orange-citrus",
-    "rank": 213,
+    "rank": 215,
     "name": "Mountain Dew Kickstart Orange Citrus",
     "brand": "Mountain Dew Kickstart",
     "date": "07/17/2025",
@@ -2783,7 +2809,7 @@
   {
     "id": "05303a28-0cdd-4c52-8dd9-e2ce56bd1029",
     "slug": "bum-energy-champion-mentality",
-    "rank": 214,
+    "rank": 216,
     "name": "BUM Energy Champion Mentality",
     "brand": "BUM",
     "date": "10/29/2024",
@@ -2796,7 +2822,7 @@
   {
     "id": "220d1534-4f2c-482a-9615-4714385b2a8a",
     "slug": "red-bull-the-winter-edition-iced-vanilla-berry",
-    "rank": 215,
+    "rank": 217,
     "name": "Red Bull The Winter Edition: Iced Vanilla Berry",
     "brand": "Red Bull",
     "date": "11/02/2024",
@@ -2809,7 +2835,7 @@
   {
     "id": "14ae9a85-6c00-4b56-978b-bdf1e7d8d6ae",
     "slug": "alani-nu-watermelon-wave",
-    "rank": 216,
+    "rank": 218,
     "name": "Alani Nu Watermelon Wave",
     "brand": "Alani Nu",
     "date": "08/10/2024",
@@ -2822,7 +2848,7 @@
   {
     "id": "38527956-edc1-4e0f-b779-837dce2dea2b",
     "slug": "red-bull-the-coconut-edition-coconut-berry",
-    "rank": 217,
+    "rank": 219,
     "name": "Red Bull The Coconut Edition: Coconut Berry",
     "brand": "Red Bull",
     "date": "09/12/2024",
@@ -2837,7 +2863,7 @@
   {
     "id": "7031d9c2-b7ef-42a5-9719-50c5f82c243e",
     "slug": "rockstar-pure-zero-fruit-punch",
-    "rank": 218,
+    "rank": 220,
     "name": "Rockstar PURE ZERO: Fruit Punch",
     "brand": "Rockstar",
     "date": "04/17/2024",
@@ -2850,7 +2876,7 @@
   {
     "id": "15ccf44a-b4e7-47bc-88b3-4be4052d643d",
     "slug": "c4-popsicle-grape",
-    "rank": 219,
+    "rank": 221,
     "name": "C4 Popsicle Grape",
     "brand": "C4",
     "date": "04/01/2024",
@@ -2863,7 +2889,7 @@
   {
     "id": "83c9c22d-9877-4d0b-ba52-0985e9675188",
     "slug": "red-bull-the-red-edition-watermelon",
-    "rank": 220,
+    "rank": 222,
     "name": "Red Bull The Red Edition: Watermelon",
     "brand": "Red Bull",
     "date": "08/20/2024",
@@ -2876,7 +2902,7 @@
   {
     "id": "75c5a2a3-94a9-4a90-80c9-f03b04db7f3a",
     "slug": "beaver-buzz-energy-citrus",
-    "rank": 221,
+    "rank": 223,
     "name": "Beaver Buzz Energy Citrus",
     "brand": "Beaver Buzz",
     "date": "06/26/2025",
@@ -2889,7 +2915,7 @@
   {
     "id": "6bd60730-acc1-4db7-9748-02c267c6dbff",
     "slug": "beaver-buzz-energy-original",
-    "rank": 222,
+    "rank": 224,
     "name": "Beaver Buzz Energy Original",
     "brand": "Beaver Buzz",
     "date": "06/21/2025",
@@ -2902,7 +2928,7 @@
   {
     "id": "f840b91f-b43e-43ab-913f-4eaacafb5d6e",
     "slug": "bang-energy-sour-heads",
-    "rank": 223,
+    "rank": 225,
     "name": "bang Energy Sour Heads",
     "brand": "bang",
     "date": "08/31/2024",
@@ -2915,7 +2941,7 @@
   {
     "id": "93a2ecee-5912-43bf-af05-55dde091ee7c",
     "slug": "lucky-f-ck-orange-drizzle",
-    "rank": 224,
+    "rank": 226,
     "name": "Lucky F*ck Orange Drizzle",
     "brand": "Lucky F*ck",
     "date": "09/27/2024",
@@ -2928,7 +2954,7 @@
   {
     "id": "731eea5d-9793-4304-a997-861706ed5a38",
     "slug": "bucked-up-blood-razz",
-    "rank": 225,
+    "rank": 227,
     "name": "BUCKED UP Blood Razz",
     "brand": "BUCKED UP",
     "date": "11/07/2024",
@@ -2941,7 +2967,7 @@
   {
     "id": "44049ca8-08ef-4c2d-82f6-4e60e867572b",
     "slug": "red-bull-the-summer-edition-curuba-elderflower",
-    "rank": 226,
+    "rank": 228,
     "name": "Red Bull The Summer Edition: Curuba Elderflower",
     "brand": "Red Bull",
     "date": "06/12/2025",
@@ -2954,7 +2980,7 @@
   {
     "id": "1d75e3b6-0331-4b56-8156-a9585787473f",
     "slug": "gorilla-mind-tiger-s-blood",
-    "rank": 227,
+    "rank": 229,
     "name": "Gorilla Mind Tiger's Blood",
     "brand": "Gorilla Mind",
     "date": "07/27/2024",
@@ -2967,7 +2993,7 @@
   {
     "id": "47dc2aa3-a563-4eba-9c07-64fbc4066e9b",
     "slug": "ryse-fuel-tiger-s-blood",
-    "rank": 228,
+    "rank": 230,
     "name": "RYSE Fuel Tiger's Blood",
     "brand": "RYSE",
     "date": "08/09/2024",
@@ -2980,7 +3006,7 @@
   {
     "id": "f674b6a1-982c-460b-b4b2-d6bceb090972",
     "slug": "goat-fuel-black-cherry-ginger-ale",
-    "rank": 229,
+    "rank": 231,
     "name": "GOAT Fuel Black Cherry Ginger Ale",
     "brand": "GOAT Fuel",
     "date": "11/05/2024",
@@ -2993,7 +3019,7 @@
   {
     "id": "339f99f0-de2d-44e2-8286-958d053c9bd0",
     "slug": "gorilla-mind-tropic-storm",
-    "rank": 230,
+    "rank": 232,
     "name": "Gorilla Mind Tropic Storm",
     "brand": "Gorilla Mind",
     "date": "07/11/2024",
@@ -3006,7 +3032,7 @@
   {
     "id": "5c7eeb81-1952-4bb5-8950-8ba9038a0c29",
     "slug": "celsius-sparkling-peach-vibe",
-    "rank": 231,
+    "rank": 233,
     "name": "Celsius Sparkling Peach Vibe",
     "brand": "Celsius",
     "date": "06/24/2024",
@@ -3019,7 +3045,7 @@
   {
     "id": "a5d66152-3fbd-41eb-a6a2-8117a2d44726",
     "slug": "c4-creamsicle",
-    "rank": 232,
+    "rank": 234,
     "name": "C4 Creamsicle",
     "brand": "C4",
     "date": "05/14/2024",
@@ -3032,7 +3058,7 @@
   {
     "id": "b71e0daa-0ef2-4241-99fe-13b39e90c064",
     "slug": "red-bull-the-blue-edition-blueberry",
-    "rank": 233,
+    "rank": 235,
     "name": "Red Bull The Blue Edition: Blueberry",
     "brand": "Red Bull",
     "date": "08/04/2024",
@@ -3045,7 +3071,7 @@
   {
     "id": "83a8e734-2170-4314-bf0c-6b06bc02ca5f",
     "slug": "red-bull-sugarfree",
-    "rank": 234,
+    "rank": 236,
     "name": "Red Bull Sugarfree",
     "brand": "Red Bull",
     "date": "06/07/2025",
@@ -3058,7 +3084,7 @@
   {
     "id": "50635b22-aa7e-4304-8c7f-4dc678bee4b1",
     "slug": "red-bull",
-    "rank": 235,
+    "rank": 237,
     "name": "Red Bull",
     "brand": "Red Bull",
     "date": "08/01/2024",
@@ -3071,7 +3097,7 @@
   {
     "id": "354dd6e3-b910-4ca6-824b-5ae6362c3512",
     "slug": "alani-nu-hawaiian-shaved-ice",
-    "rank": 236,
+    "rank": 238,
     "name": "Alani Nu Hawaiian Shaved Ice",
     "brand": "Alani Nu",
     "date": "07/28/2024",
@@ -3084,7 +3110,7 @@
   {
     "id": "c9d8ebc3-c9d8-4c6f-b006-c50fa0589969",
     "slug": "huel-energy-pineapple-and-mango",
-    "rank": 237,
+    "rank": 239,
     "name": "Huel Energy+ Pineapple & Mango",
     "brand": "Huel",
     "date": "01/29/2025",
@@ -3097,7 +3123,7 @@
   {
     "id": "023c8e09-90ec-4e9f-9a4c-c5cfe7dba704",
     "slug": "red-bull-the-amber-edition-strawberry-apricot",
-    "rank": 238,
+    "rank": 240,
     "name": "Red Bull The Amber Edition: Strawberry Apricot",
     "brand": "Red Bull",
     "date": "07/31/2025",
@@ -3110,7 +3136,7 @@
   {
     "id": "5967cfa9-95a3-402b-9bba-f9803b24f8e9",
     "slug": "jolt-cola",
-    "rank": 239,
+    "rank": 241,
     "name": "JOLT Cola",
     "brand": "REDCON1",
     "date": "06/19/2025",
@@ -3123,7 +3149,7 @@
   {
     "id": "20a82eb9-e257-4862-bd66-9839dd506dbb",
     "slug": "bum-energy-cola",
-    "rank": 240,
+    "rank": 242,
     "name": "Bum Energy Cola",
     "brand": "BUM",
     "date": "06/19/2026",
@@ -3136,7 +3162,7 @@
   {
     "id": "458c2c4a-4c78-4f18-9382-d1385aa97f69",
     "slug": "oxyshred-ultra-energy-guava-paradise",
-    "rank": 241,
+    "rank": 243,
     "name": "OxyShred Ultra Energy Guava Paradise",
     "brand": "OxyShred",
     "date": "09/15/2024",
@@ -3149,7 +3175,7 @@
   {
     "id": "90e3d803-caad-4636-b66c-7ddd1af92fbb",
     "slug": "nos-energy-original",
-    "rank": 242,
+    "rank": 244,
     "name": "NOS Energy Original",
     "brand": "NOS",
     "date": "08/19/2024",
@@ -3162,7 +3188,7 @@
   {
     "id": "856953ac-6445-4df3-b6fc-1d35b1feb907",
     "slug": "ghost-energy-citrus",
-    "rank": 243,
+    "rank": 245,
     "name": "GHOST Energy Citrus",
     "brand": "GHOST",
     "date": "07/26/2024",
@@ -3175,7 +3201,7 @@
   {
     "id": "1361b8d7-80a5-49c1-952c-452599b29826",
     "slug": "gorilla-mind-lucky-lemon",
-    "rank": 244,
+    "rank": 246,
     "name": "Gorilla Mind Lucky Lemon",
     "brand": "Gorilla Mind",
     "date": "07/10/2024",
@@ -3188,7 +3214,7 @@
   {
     "id": "fa22cd71-b40c-46fb-83de-46e39aebd024",
     "slug": "rockstar-recovery-berryade",
-    "rank": 245,
+    "rank": 247,
     "name": "Rockstar RECOVERY Berryade",
     "brand": "Rockstar",
     "date": "07/28/2025",
@@ -3201,7 +3227,7 @@
   {
     "id": "73fb3025-38d9-448c-94f2-e07930d1af7d",
     "slug": "ryse-fuel-country-time-lemonade",
-    "rank": 246,
+    "rank": 248,
     "name": "RYSE Fuel Country Time Lemonade",
     "brand": "RYSE",
     "date": "09/05/2024",
@@ -3214,7 +3240,7 @@
   {
     "id": "1ef2b1e2-1976-40ec-b738-99681fab8e89",
     "slug": "bang-energy-birthday-cake-bash",
-    "rank": 247,
+    "rank": 249,
     "name": "bang Energy Birthday Cake Bash",
     "brand": "bang",
     "date": "08/28/2024",
@@ -3227,7 +3253,7 @@
   {
     "id": "cfdc3640-1772-4f8a-b296-75b49b946726",
     "slug": "c4-orange-slice",
-    "rank": 248,
+    "rank": 250,
     "name": "C4 Orange Slice",
     "brand": "C4",
     "date": "04/23/2024",
@@ -3240,7 +3266,7 @@
   {
     "id": "40499afd-8926-47e2-b275-6bf607b9edd8",
     "slug": "c4-popsicle-hawaiian-pineapple",
-    "rank": 249,
+    "rank": 251,
     "name": "C4 Popsicle Hawaiian Pineapple",
     "brand": "C4",
     "date": "04/19/2024",
@@ -3253,7 +3279,7 @@
   {
     "id": "25e91055-d452-4c9d-8a41-50241ffa73f3",
     "slug": "ghost-energy-warheads-sour-green-apple",
-    "rank": 250,
+    "rank": 252,
     "name": "GHOST Energy Warheads Sour Green Apple",
     "brand": "GHOST",
     "date": "07/25/2024",
@@ -3266,7 +3292,7 @@
   {
     "id": "a8445570-ae5b-43aa-8923-67e5946b7303",
     "slug": "bucked-up-blue-raz",
-    "rank": 251,
+    "rank": 253,
     "name": "BUCKED UP Blue Raz",
     "brand": "BUCKED UP",
     "date": "08/13/2024",
@@ -3279,7 +3305,7 @@
   {
     "id": "0b403478-8340-4680-98be-2282e8aa727d",
     "slug": "celsius-sparkling-tropical-vibe",
-    "rank": 252,
+    "rank": 254,
     "name": "Celsius Sparkling Tropical Vibe",
     "brand": "Celsius",
     "date": "07/02/2024",
@@ -3292,7 +3318,7 @@
   {
     "id": "9509cef1-7b4e-4edf-a1ac-d41e537d472b",
     "slug": "ghost-energy-tropical-mango",
-    "rank": 253,
+    "rank": 255,
     "name": "GHOST Energy Tropical Mango",
     "brand": "GHOST",
     "date": "07/05/2024",
@@ -3305,7 +3331,7 @@
   {
     "id": "948dc480-d7ca-467f-b9f4-2ccba13aca90",
     "slug": "mountain-dew-kickstart-strawberry-start-up",
-    "rank": 254,
+    "rank": 256,
     "name": "Mountain Dew Kickstart Strawberry Start-Up",
     "brand": "Mountain Dew Kickstart",
     "date": "07/09/2024",
@@ -3318,7 +3344,7 @@
   {
     "id": "1a8f39a8-2567-4057-ba48-aaf5e6066180",
     "slug": "c4-arctic-snow-cone",
-    "rank": 255,
+    "rank": 257,
     "name": "C4 Arctic Snow Cone",
     "brand": "C4",
     "date": "04/10/2024",
@@ -3331,7 +3357,7 @@
   {
     "id": "63520099-c22f-40c4-a221-1b9aa6df3a37",
     "slug": "celsius-sparkling-cherry-cola",
-    "rank": 256,
+    "rank": 258,
     "name": "Celsius Sparkling Cherry Cola",
     "brand": "Celsius",
     "date": "11/20/2024",
@@ -3346,7 +3372,7 @@
   {
     "id": "7a7e7e91-7b9d-4963-8a30-9b7fc12b43e3",
     "slug": "celsius-sparkling-cola",
-    "rank": 257,
+    "rank": 259,
     "name": "Celsius Sparkling Cola",
     "brand": "Celsius",
     "date": "10/07/2024",
@@ -3359,7 +3385,7 @@
   {
     "id": "7e5de345-e282-43ff-884e-689280dd69e6",
     "slug": "beaver-buzz-energy-dr-buzz",
-    "rank": 258,
+    "rank": 260,
     "name": "Beaver Buzz Energy Dr. Buzz",
     "brand": "Beaver Buzz",
     "date": "06/25/2025",
@@ -3372,7 +3398,7 @@
   {
     "id": "f8b8741c-93aa-4777-89e0-4f5610eae31a",
     "slug": "oxyshred-ultra-energy-cali-cola",
-    "rank": 259,
+    "rank": 261,
     "name": "OxyShred Ultra Energy Cali Cola",
     "brand": "OxyShred",
     "date": "09/20/2024",
@@ -3385,7 +3411,7 @@
   {
     "id": "46ffa66b-7b68-4c05-92d5-be619ba401f9",
     "slug": "red-bull-the-yellow-edition-tropical",
-    "rank": 260,
+    "rank": 262,
     "name": "Red Bull The Yellow Edition: Tropical",
     "brand": "Red Bull",
     "date": "09/17/2024",
@@ -3398,7 +3424,7 @@
   {
     "id": "0e369af1-d810-41b4-ad58-4b1e810fed39",
     "slug": "g-fuel-power-pellet",
-    "rank": 261,
+    "rank": 263,
     "name": "G Fuel Power Pellet",
     "brand": "G FUEL",
     "date": "07/17/2024",
@@ -3411,7 +3437,7 @@
   {
     "id": "6a82a167-8b95-4b38-9f8b-c09f6d69f586",
     "slug": "oxyshred-ultra-energy-cotton-candy",
-    "rank": 262,
+    "rank": 264,
     "name": "Oxyshred Ultra Energy Cotton Candy",
     "brand": "OxyShred",
     "date": "06/28/2025",
@@ -3424,7 +3450,7 @@
   {
     "id": "5e8ecc9a-207b-4299-aad7-555a017b6d26",
     "slug": "bum-energy-dr-bum",
-    "rank": 263,
+    "rank": 265,
     "name": "BUM Energy Dr. Bum",
     "brand": "BUM",
     "date": "07/06/2026",
@@ -3437,7 +3463,7 @@
   {
     "id": "803ff71c-e3a0-49de-9e5c-77054095550c",
     "slug": "huel-energy-watermelon",
-    "rank": 264,
+    "rank": 266,
     "name": "Huel Energy+ Watermelon",
     "brand": "Huel",
     "date": "01/11/2025",
@@ -3450,7 +3476,7 @@
   {
     "id": "1304b30d-6674-48ac-832a-dca1f8af9350",
     "slug": "noob-energy-sweet-tooth",
-    "rank": 265,
+    "rank": 267,
     "name": "NOOB Energy Sweet Tooth",
     "brand": "NOOB",
     "date": "11/14/2024",
@@ -3463,7 +3489,7 @@
   {
     "id": "b4d96dd6-8bc6-4782-8093-402c73c05531",
     "slug": "monster-energy-ultra-violet",
-    "rank": 266,
+    "rank": 268,
     "name": "Monster Energy ULTRA Violet",
     "brand": "Monster",
     "date": "08/27/2024",
@@ -3476,7 +3502,7 @@
   {
     "id": "3a5ec32f-05a9-47ce-b56f-e7f14cd445f8",
     "slug": "gorilla-mind-sour-watermelon-candy",
-    "rank": 267,
+    "rank": 269,
     "name": "Gorilla Mind Sour Watermelon Candy",
     "brand": "Gorilla Mind",
     "date": "07/16/2024",
@@ -3489,7 +3515,7 @@
   {
     "id": "7b529c15-4d03-485f-afa9-4a9b65793c32",
     "slug": "alani-nu-breezeberry",
-    "rank": 268,
+    "rank": 270,
     "name": "Alani Nu Breezeberry",
     "brand": "Alani Nu",
     "date": "06/20/2024",
@@ -3502,7 +3528,7 @@
   {
     "id": "647163d3-8938-44c0-a862-72da04e466eb",
     "slug": "monster-energy-juice-aussie-style-lemonade",
-    "rank": 269,
+    "rank": 271,
     "name": "Monster Energy JUICE Aussie Style Lemonade",
     "brand": "Monster",
     "date": "06/05/2024",
@@ -3515,7 +3541,7 @@
   {
     "id": "3ab8cf61-8dba-4a5f-ac4d-f689060f619e",
     "slug": "huel-energy-blue-raspberry",
-    "rank": 270,
+    "rank": 272,
     "name": "Huel Energy+ Blue Raspberry",
     "brand": "Huel",
     "date": "12/28/2024",
@@ -3528,7 +3554,7 @@
   {
     "id": "b349a9f4-dd29-439d-b90c-25ba8a522133",
     "slug": "noob-energy-citrus-burst",
-    "rank": 271,
+    "rank": 273,
     "name": "NOOB Energy Citrus Burst",
     "brand": "NOOB",
     "date": "11/13/2024",
@@ -3541,7 +3567,7 @@
   {
     "id": "59fa6f61-1fa9-4976-b96b-75e51eecbbda",
     "slug": "eboost-super-fuel-sparkling-strawberry-lemonade",
-    "rank": 272,
+    "rank": 274,
     "name": "EBOOST SUPER FUEL Sparkling Strawberry Lemonade",
     "brand": "EBOOST",
     "date": "12/15/2025",
@@ -3554,7 +3580,7 @@
   {
     "id": "60f7ff73-7ae6-4ab1-bf16-5dce8cf050d1",
     "slug": "oxyshred-ultra-energy-frosty-big-apple",
-    "rank": 273,
+    "rank": 275,
     "name": "OxyShred Ultra Energy Frosty Big Apple",
     "brand": "OxyShred",
     "date": "05/14/2024",
@@ -3567,7 +3593,7 @@
   {
     "id": "89de0a69-5906-4f66-8e26-a52020837441",
     "slug": "oxyshred-ultra-energy-proton-plasma",
-    "rank": 274,
+    "rank": 276,
     "name": "OxyShred Ultra Energy Proton Plasma",
     "brand": "OxyShred",
     "date": "04/16/2024",
@@ -3580,7 +3606,7 @@
   {
     "id": "aa7e6bae-20d3-40b1-83ec-2c484896ed06",
     "slug": "eboost-super-fuel-sparkling-blue-raspberry",
-    "rank": 275,
+    "rank": 277,
     "name": "EBOOST SUPER FUEL Sparkling Blue Raspberry",
     "brand": "EBOOST",
     "date": "12/22/2024",
