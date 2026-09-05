@@ -1696,7 +1696,7 @@ function renderFull() {
   } else {
     // Rank order with tier dividers
     let curTier = null;
-    drinks.forEach(d => {
+    [...drinks].sort((a,b) => a.rank - b.rank).forEach(d => {
       const tier = getTier(d.rank);
       const wallNote = d.notes.find(n => ['stier','atier','btier','ctier','dtier'].includes(n));
       if(tier !== curTier && !wallNote) {
@@ -1731,6 +1731,13 @@ function showReview(drinkOrRank, skipPush = false) {
     ? drinkOrRank
     : drinks.find(x => x.rank === drinkOrRank);
   if(!d) return;
+  if(!skipPush) {
+    const activePage = document.querySelector('.page.active');
+    const originPage = activePage && activePage.id.replace('page-', '');
+    if(originPage && originPage !== 'review') {
+      reviewReturnState = {page: originPage, scrollY: window.scrollY};
+    }
+  }
   const rank = d.rank;
   const slug = getReviewSlug(d);
   const tier = getTier(rank);
@@ -1847,7 +1854,11 @@ function makeFootnote(className, text) {
 }
 }
 let prevPage = 'ranking';
-function nav(page) {
+let reviewReturnState = null;
+function nav(page, restoreReviewPosition = false) {
+  const returnScrollY = restoreReviewPosition && reviewReturnState && reviewReturnState.page === page
+    ? reviewReturnState.scrollY
+    : null;
   if(page !== 'review') {
     prevPage = page;
     document.title = "Matt & Nick's Stupid Adventure";
@@ -1865,13 +1876,27 @@ function nav(page) {
   pageEl.classList.add('active');
   const el = document.getElementById('nav-'+page);
   if(el) { el.classList.add('active'); el.setAttribute('aria-current', 'page'); }
-  window.scrollTo(0,0);
+  if(returnScrollY !== null) {
+    reviewReturnState = null;
+    requestAnimationFrame(() => window.scrollTo(0, returnScrollY));
+  } else {
+    window.scrollTo(0,0);
+  }
 }
-function goBack() { nav(prevPage); }
+function goBack() {
+  if(reviewReturnState && location.hash.startsWith('#review/')) {
+    history.back();
+    return;
+  }
+  const target = prevPage;
+  location.hash = target === 'home' ? '' : target;
+  nav(target);
+}
 
 
 function handleRouting() {
   const hash = location.hash.replace('#', '');
+  const returningFromReview = document.getElementById('page-review').classList.contains('active');
 
   // Review routes
   if(hash.startsWith('review/')) {
@@ -1898,17 +1923,17 @@ function handleRouting() {
 
   // Main pages
   if(hash === 'ranking') {
-    nav('ranking');
+    nav('ranking', returningFromReview);
     return;
   }
 
   if(hash === 'about') {
-    nav('about');
+    nav('about', returningFromReview);
     return;
   }
 
   // Default
-  nav('home');
+  nav('home', returningFromReview);
 }
 
 window.addEventListener('hashchange', handleRouting);
