@@ -240,19 +240,6 @@ nav a[aria-current="page"]{color:var(--accent)}
 .latest-list .rnum{display:none}
 .latest-list .rbody{padding-left:1.2rem}
 .latest-list .rdate{color:var(--fresh)}
-.newest-badge{
-  display:inline-block;
-  font-family:'DM Mono',monospace;
-  font-size:.58rem;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--accent);
-  border:1px solid var(--accent);
-  border-radius:2px;
-  padding:.1rem .35rem;
-  margin-right:.5rem;
-  vertical-align:middle;
-}
 @media(max-width:600px){
   .latest-list .rank-item{flex-wrap:wrap}
 }
@@ -1350,7 +1337,7 @@ html[data-retro-style="geo"] .retro-unlock{color:#0000ee;font:16px "Times New Ro
     <div class="retro-hit-counter">Visitors: 000247 and counting</div>
   </div>
   <div class="home-content">
-    <div class="sec-hdr latest-hdr"><h2>Latest Reviews</h2></div>
+    <div class="sec-hdr latest-hdr"><h2>Recent Reviews</h2></div>
     <ul class="rank-list" id="top10" aria-label="Top 10 ranked drinks"><li class="rank-item" role="button" tabindex="0" aria-label="#1 C4 Starburst Cherry — read review" data-srch="c4 starburst cherry c4"><div class="rnum" aria-hidden="true">1</div><div class="rbody"><div class="rtext"><div class="rname">C4 Starburst Cherry</div><div class="rdate">03/2024 &amp; 12/31/2024</div></div><div class="rmeta" aria-hidden="true"><div class="arr">→</div></div></div></li><li class="rank-item" role="button" tabindex="0" aria-label="#2 C4 Strawberry Burst (formerly Strawberry Starburst) — read review" data-srch="c4 strawberry burst (formerly cherry starburst) c4 c4 starburst strawberry c4 strawberry starburst"><div class="rnum" aria-hidden="true">2</div><div class="rbody"><div class="rtext"><div class="rname">C4 Strawberry Burst (formerly Strawberry Starburst)</div><div class="rdate">03/2024</div></div><div class="rmeta" aria-hidden="true"><div class="arr">→</div></div></div></li><li class="rank-item" role="button" tabindex="0" aria-label="#3 C4 Strawberry Watermelon Ice — read review" data-srch="c4 strawberry watermelon ice c4"><div class="rnum" aria-hidden="true">3</div><div class="rbody"><div class="rtext"><div class="rname">C4 Strawberry Watermelon Ice</div><div class="rdate">05/30/2024</div></div><div class="rmeta" aria-hidden="true"><div class="arr">→</div></div></div></li><li class="rank-item" role="button" tabindex="0" aria-label="#4 C4 Frozen Bombsicle — read review" data-srch="c4 frozen bombsicle c4"><div class="rnum" aria-hidden="true">4</div><div class="rbody"><div class="rtext"><div class="rname">C4 Frozen Bombsicle</div><div class="rdate">03/2024</div></div><div class="rmeta" aria-hidden="true"><div class="arr">→</div></div></div></li><li class="rank-item" role="button" tabindex="0" aria-label="#5 GHOST Energy Sour Patch Kids Redberry — read review" data-srch="ghost energy sour patch kids redberry ghost"><div class="rnum" aria-hidden="true">5</div><div class="rbody"><div class="rtext"><div class="rname">GHOST Energy Sour Patch Kids Redberry</div><div class="rdate">04/15/2024</div></div><div class="rmeta" aria-hidden="true"><div class="rflags"><span class="flag redo">^ Redo</span></div><div class="arr">→</div></div></div></li><li class="rank-item" role="button" tabindex="0" aria-label="#6 Reign TBF Razzleberry — read review" data-srch="reign tbf razzleberry reign"><div class="rnum" aria-hidden="true">6</div><div class="rbody"><div class="rtext"><div class="rname">Reign TBF Razzleberry</div><div class="rdate">05/16/2024</div></div><div class="rmeta" aria-hidden="true"><div class="arr">→</div></div></div></li><li class="rank-item" role="button" tabindex="0" aria-label="#7 Gorilla Mind Strawberry Candy — read review" data-srch="gorilla mind strawberry candy gorilla mind"><div class="rnum" aria-hidden="true">7</div><div class="rbody"><div class="rtext"><div class="rname">Gorilla Mind Strawberry Candy</div><div class="rdate">06/21/2024</div></div><div class="rmeta" aria-hidden="true"><div class="arr">→</div></div></div></li><li class="rank-item" role="button" tabindex="0" aria-label="#8 Reign TBF REIGNbow Sherbet — read review" data-srch="reign tbf reignbow sherbet reign"><div class="rnum" aria-hidden="true">8</div><div class="rbody"><div class="rtext"><div class="rname">Reign TBF REIGNbow Sherbet</div><div class="rdate">06/28/2024</div></div><div class="rmeta" aria-hidden="true"><div class="arr">→</div></div></div></li><li class="rank-item" role="button" tabindex="0" aria-label="#9 RYSE Fuel Pink Splash — read review" data-srch="ryse fuel pink splash ryse"><div class="rnum" aria-hidden="true">9</div><div class="rbody"><div class="rtext"><div class="rname">RYSE Fuel Pink Splash</div><div class="rdate">10/17/2024</div></div><div class="rmeta" aria-hidden="true"><div class="arr">→</div></div></div></li><li class="rank-item" role="button" tabindex="0" aria-label="#10 GHOST Energy Cherry Limeade — read review" data-srch="ghost energy cherry limeade ghost"><div class="rnum" aria-hidden="true">10</div><div class="rbody"><div class="rtext"><div class="rname">GHOST Energy Cherry Limeade</div><div class="rdate">07/22/2024</div></div><div class="rmeta" aria-hidden="true"><div class="arr">→</div></div></div></li></ul>
     <button class="cta-btn" onclick="nav('ranking')">See The Full List →</button>
   </div>
@@ -1397,12 +1384,12 @@ html[data-retro-style="geo"] .retro-unlock{color:#0000ee;font:16px "Times New Ro
     <p>What started as a curiosity inspired by <a href="https://guardbike.notion.site/ENERGY-DRINK-RANKINGS-e1a87312c63848eb8b9dd68bd3d09ab4" target="_blank" rel="noopener noreferrer">Jeff Gerstmann's own energy drink rankings</a> snowballed into this, a ranked list of 200+ energy drinks with what I wouldn't call reviews so much as I would say mildly interesting immediate reactions. All drinks are rated according to <strong>The Science</strong>, a proprietary algorithm using the latest AI models utilizing 18,000 GPUs. That or just a personal code and how we feel that day.</p>
     <p>No thought or review has been sponsored. We did once receive a case from C4 that was not requested after questioning the formula of one of their WWE-branded drinks. It's noted in the footnotes.</p>
     <div class="tier-key">
-      <div><div class="tk-badge" style="background:var(--s)">S</div><div class="tk-lbl">Elite (#1–10)</div></div>
-      <div><div class="tk-badge" style="background:var(--a)">A</div><div class="tk-lbl">Great (#11–40)</div></div>
-      <div><div class="tk-badge" style="background:var(--b)">B</div><div class="tk-lbl">Good (#41–92)</div></div>
-      <div><div class="tk-badge" style="background:var(--c)">C</div><div class="tk-lbl">Mid (#93–190)</div></div>
-      <div><div class="tk-badge" style="background:var(--d)">D</div><div class="tk-lbl">Skip (#191–228)</div></div>
-          <div><div class="tk-badge" style="background:var(--f)">F</div><div class="tk-lbl">Do Not Drink (#229+)</div></div>
+      <div><div class="tk-badge" style="background:var(--s)">S</div><div class="tk-lbl" data-tier-key="S">Elite</div></div>
+      <div><div class="tk-badge" style="background:var(--a)">A</div><div class="tk-lbl" data-tier-key="A">Great</div></div>
+      <div><div class="tk-badge" style="background:var(--b)">B</div><div class="tk-lbl" data-tier-key="B">Good</div></div>
+      <div><div class="tk-badge" style="background:var(--c)">C</div><div class="tk-lbl" data-tier-key="C">Mid</div></div>
+      <div><div class="tk-badge" style="background:var(--d)">D</div><div class="tk-lbl" data-tier-key="D">Skip</div></div>
+      <div><div class="tk-badge" style="background:var(--f)">F</div><div class="tk-lbl" data-tier-key="F">Do Not Drink</div></div>
     </div>
 
     <p style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--rule);font-size:.85rem"><strong>Reviewers:</strong> Matt (MSL) &amp; Nick (NF) — two people who probably drink too much caffeine.</p>
@@ -1512,6 +1499,7 @@ function initializeSite() {
   updateSocialDescriptions(n);
   document.getElementById('stat-count').textContent = n;
   updateCaffeineStat();
+  updateTierLabels();
 
   const btnCount = document.getElementById('btn-count');
   if (btnCount) btnCount.textContent = n;
@@ -1544,28 +1532,62 @@ function updateCaffeineStat() {
 }
 
 const tiers = {
-  S:{label:'S-Tier',desc:'The Elite — #1 to #10',range:[1,10],color:'var(--s)'},
-  A:{label:'A-Tier',desc:'The Great Wall — #11 to #40',range:[11,40],color:'var(--a)'},
-  B:{label:'B-Tier',desc:'Good — #41 to #92',range:[41,92],color:'var(--b)'},
-  C:{label:'C-Tier',desc:'Averageish — #93 to #190',range:[93,190],color:'var(--c)'},
-  D:{label:'D-Tier',desc:'Ehhhhhhhhh If You Insist — #191 to #228',range:[191,228],color:'var(--d)'},
-  F:{label:'F-Tier',desc:'Do Not Drink — #229+',range:[229,Infinity],color:'var(--f)'}
+  S:{label:'S-Tier',desc:'The Elite',range:[1,10],color:'var(--s)',short:'Elite'},
+  A:{label:'A-Tier',desc:'The Great Wall',range:[11,40],color:'var(--a)',short:'Great'},
+  B:{label:'B-Tier',desc:'Good',range:[41,92],color:'var(--b)',short:'Good'},
+  C:{label:'C-Tier',desc:'Averageish',range:[93,190],color:'var(--c)',short:'Mid'},
+  D:{label:'D-Tier',desc:'Ehhhhhhhhh If You Insist',range:[191,228],color:'var(--d)',short:'Skip'},
+  F:{label:'F-Tier',desc:'Do Not Drink',range:[229,Infinity],color:'var(--f)',short:'Do Not Drink'}
 };
 
-const tierWalls = {11:'S',40:'A',92:'B',190:'C'};
+const tierOrder = ['S','A','B','C','D','F'];
+const tierBoundaryNotes = {S:'stier',A:'atier',B:'btier',C:'ctier',D:'dtier'};
+
+function getTierRanges() {
+  const sorted = [...drinks].sort((a, b) => a.rank - b.rank);
+  const ranges = {};
+  let start = 1;
+  tierOrder.forEach(key => {
+    if(key === 'F') {
+      ranges[key] = [start, Infinity];
+      return;
+    }
+    const note = tierBoundaryNotes[key];
+    const marked = sorted.find(d => d.notes.includes(note));
+    const fallbackEnd = tiers[key].range[1];
+    const end = marked && marked.rank >= start ? marked.rank : Math.max(start, fallbackEnd);
+    ranges[key] = [start, end];
+    start = end + 1;
+  });
+  return ranges;
+}
+
+function formatTierRange(range) {
+  return range[1] === Infinity ? `#${range[0]}+` : `#${range[0]} to #${range[1]}`;
+}
+
+function updateTierLabels() {
+  const ranges = getTierRanges();
+  document.querySelectorAll('[data-tier-key]').forEach(el => {
+    const key = el.dataset.tierKey;
+    if(tiers[key]) el.textContent = `${tiers[key].short} (${formatTierRange(ranges[key])})`;
+  });
+}
 
 function getTier(rank) {
-  for(const[k,t] of Object.entries(tiers)) {
-    if(rank>=t.range[0]&&rank<=t.range[1]) return k;
+  const ranges = getTierRanges();
+  for(const key of tierOrder) {
+    if(rank >= ranges[key][0] && rank <= ranges[key][1]) return key;
   }
   return 'F';
 }
 
 function makeTierDiv(key) {
   const t = tiers[key];
+  const range = getTierRanges()[key];
   const d = document.createElement('div');
   d.className = 'tier-div';
-  d.innerHTML = `<div class="tier-badge ${key}">${key}</div><div class="tier-lbl"><strong>${t.label}</strong>${t.desc}</div>`;
+  d.innerHTML = `<div class="tier-badge ${key}">${key}</div><div class="tier-lbl"><strong>${t.label}</strong>${t.desc} — ${formatTierRange(range)}</div>`;
   return d;
 }
 
@@ -1625,20 +1647,13 @@ function makeItem(d) {
 
 function renderTop10() {
   const l = document.getElementById('top10');
-  l.setAttribute('aria-label', 'Latest energy drink reviews');
+  l.setAttribute('aria-label', 'Recent energy drink reviews, excluding the featured latest review');
   l.classList.add('latest-list');
   l.innerHTML = '';
   [...drinks]
     .sort((a,b) => parseDate(b.date) - parseDate(a.date) || b.rank - a.rank)
-    .slice(0,10)
-    .forEach((d, idx) => {
-      const item = makeItem(d);
-      if(idx === 0) {
-        const date = item.querySelector('.rdate');
-        if(date) date.insertAdjacentHTML('afterbegin', '<span class="newest-badge">Newest</span>');
-      }
-      l.appendChild(item);
-    });
+    .slice(1,11)
+    .forEach(d => l.appendChild(makeItem(d)));
   updateLatestChip();
 }
 
@@ -2249,6 +2264,11 @@ function adminLoadPersisted() {
     const added = adminGetPending();
     added.sort((a, b) => a.rank - b.rank).forEach(obj => {
       if(drinks.some(d => d.id === obj.id)) return;
+      Object.values(tierBoundaryNotes).forEach(note => {
+        if(obj.notes.includes(note)) {
+          drinks.forEach(d => { d.notes = d.notes.filter(n => n !== note); });
+        }
+      });
       drinks.forEach(d => { if(d.rank >= obj.rank) d.rank += 1; });
       drinks.push(obj);
     });
@@ -2297,6 +2317,7 @@ function adminRefreshAll() {
   updateSocialDescriptions(n);
   document.getElementById('stat-count').textContent = n;
   updateCaffeineStat();
+  updateTierLabels();
   const btnCount = document.getElementById('btn-count');
   if(btnCount) btnCount.textContent = n;
   document.getElementById('list-subtitle').textContent =
@@ -2392,7 +2413,17 @@ function adminUpdateList() {
 
 function adminDelete(id) {
   const idx = drinks.findIndex(d => d.id === id);
-  if(idx >= 0) drinks.splice(idx, 1);
+  if(idx >= 0) {
+    const removed = drinks[idx];
+    Object.values(tierBoundaryNotes).forEach(note => {
+      if(!removed.notes.includes(note)) return;
+      const previous = drinks
+        .filter(d => d.id !== id && d.rank < removed.rank)
+        .sort((a, b) => b.rank - a.rank)[0];
+      if(previous && !previous.notes.includes(note)) previous.notes.push(note);
+    });
+    drinks.splice(idx, 1);
+  }
   adminRenumber();
   try {
     adminWritePending(adminGetPending().filter(d => d.id !== id));
@@ -2442,6 +2473,43 @@ function adminWrapReviewSelection(textareaId, tag) {
   textarea.focus();
 }
 
+function adminGetTierBoundary(rank) {
+  const ranges = getTierRanges();
+  for(let i = 0; i < tierOrder.length - 1; i++) {
+    const upper = tierOrder[i];
+    const lower = tierOrder[i + 1];
+    if(rank === ranges[upper][1] + 1) {
+      return {upper, lower, note:tierBoundaryNotes[upper]};
+    }
+  }
+  return null;
+}
+
+function adminUpdateTierChoice() {
+  const rank = parseInt((document.getElementById('adm-rank') || {}).value);
+  const wrap = document.getElementById('adm-tier-choice-wrap');
+  const label = document.getElementById('adm-tier-choice-label');
+  const select = document.getElementById('adm-tier-choice');
+  if(!wrap || !label || !select) return;
+  const boundary = adminGetTierBoundary(rank);
+  if(!boundary) {
+    wrap.style.display = 'none';
+    select.value = '';
+    return;
+  }
+  label.textContent = `This rank is on the ${boundary.upper}/${boundary.lower} boundary. Which tier should the new drink be in?`;
+  select.innerHTML = '<option value="">Choose tier...</option>' +
+    `<option value="${boundary.upper}">End of ${boundary.upper}-Tier</option>` +
+    `<option value="${boundary.lower}">Beginning of ${boundary.lower}-Tier</option>`;
+  wrap.style.display = '';
+}
+
+function adminApplyTierChoice(drink, boundary, choice) {
+  if(!boundary || choice === boundary.lower) return;
+  drinks.forEach(d => { d.notes = d.notes.filter(n => n !== boundary.note); });
+  if(!drink.notes.includes(boundary.note)) drink.notes.push(boundary.note);
+}
+
 function adminSubmit() {
   const rank     = parseInt(document.getElementById('adm-rank').value);
   const name     = document.getElementById('adm-name').value.trim();
@@ -2452,9 +2520,15 @@ function adminSubmit() {
   const redo     = document.getElementById('adm-redo').value === 'true';
   const msl      = adminFormatReviewText(document.getElementById('adm-msl').value);
   const nf       = adminFormatReviewText(document.getElementById('adm-nf').value);
+  const tierBoundary = adminGetTierBoundary(rank);
+  const tierChoice = (document.getElementById('adm-tier-choice') || {}).value || '';
 
   if(!rank || !name || !brand) {
     adminMsg('Rank, Name, and Brand are required.', 'err');
+    return false;
+  }
+  if(tierBoundary && ![tierBoundary.upper, tierBoundary.lower].includes(tierChoice)) {
+    adminMsg('Choose which tier this boundary-ranked drink belongs in.', 'err');
     return false;
   }
 
@@ -2487,6 +2561,7 @@ function adminSubmit() {
 
   drinks.push(obj);
   adminRenumber();
+  adminApplyTierChoice(obj, tierBoundary, tierChoice);
   adminSyncPendingRanks();
   adminSaveAdded(obj);
   adminRefreshAll();
@@ -2510,6 +2585,7 @@ function adminClear() {
   if(de) { de.value = ''; de._formatted = ''; }
   const redo = document.getElementById('adm-redo');
   if(redo) redo.value = 'false';
+  adminUpdateTierChoice();
   adminToggleNewBrand();
 }
 
@@ -2702,7 +2778,13 @@ async function adminSendLocalRequest(path, publishing) {
       <div class="adm-grid">
         <div class="adm-field">
           <label for="adm-rank">Rank <span class="adm-req">*</span></label>
-          <input type="number" id="adm-rank" min="1" placeholder="e.g. 54">
+          <input type="number" id="adm-rank" min="1" placeholder="e.g. 54" oninput="adminUpdateTierChoice()">
+        </div>
+        <div class="adm-field full" id="adm-tier-choice-wrap" style="display:none">
+          <label for="adm-tier-choice" id="adm-tier-choice-label">Choose the tier for this boundary rank</label>
+          <select id="adm-tier-choice">
+            <option value="">Choose tier...</option>
+          </select>
         </div>
         <div class="adm-field">
           <label for="adm-date">Date Reviewed</label>
