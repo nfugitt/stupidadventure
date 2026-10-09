@@ -1392,7 +1392,7 @@ html[data-retro-style="geo"] .retro-unlock{color:#0000ee;font:16px "Times New Ro
       <div><div class="tk-badge" style="background:var(--f)">F</div><div class="tk-lbl" data-tier-key="F">Do Not Drink</div></div>
     </div>
 
-    <p style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--rule);font-size:.85rem"><strong>Reviewers:</strong> Matt (MSL) &amp; Nick (NF) — two people who probably drink too much caffeine.</p>
+    <p style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--rule);font-size:.85rem"><strong>Reviewers:</strong> Matt &amp; Nick — two people who probably drink too much caffeine.</p>
   </div>
 </div>
 
@@ -1788,8 +1788,8 @@ function showReview(drinkOrRank, skipPush = false) {
   if(hasMSL || hasNF) {
     const voices = document.createElement('div');
     voices.className = 'voices';
-    voices.appendChild(makeReviewVoice('MSL', hasMSL ? d.msl : ''));
-    voices.appendChild(makeReviewVoice('NF', hasNF ? d.nf : ''));
+    voices.appendChild(makeReviewVoice('Matt', hasMSL ? d.msl : ''));
+    voices.appendChild(makeReviewVoice('Nick', hasNF ? d.nf : ''));
     content.appendChild(voices);
   } else {
     const empty = document.createElement('div');
@@ -2820,7 +2820,7 @@ async function adminSendLocalRequest(path, publishing) {
     </div>
 
     <div class="adm-section">
-      <h3>MSL Review</h3>
+      <h3>Matt Review</h3>
       <div class="adm-field">
         <label for="adm-msl">Matt’s Notes</label>
         <div class="adm-format-toolbar" role="toolbar" aria-label="Format Matt’s notes">
@@ -2834,7 +2834,7 @@ async function adminSendLocalRequest(path, publishing) {
     </div>
 
     <div class="adm-section">
-      <h3>NF Review</h3>
+      <h3>Nick Review</h3>
       <div class="adm-field">
         <label for="adm-nf">Nick’s Notes</label>
         <div class="adm-format-toolbar" role="toolbar" aria-label="Format Nick’s notes">
