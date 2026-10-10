@@ -1876,7 +1876,7 @@ function nav(page, restoreReviewPosition = false) {
     : null;
   if(page !== 'review') {
     prevPage = page;
-    document.title = "Matt & Nick's Stupid Adventure";
+    document.title = page === 'admin' ? "Caffeine Quest Admin Page" : "Matt & Nick's Stupid Adventure";
   }
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('nav a').forEach(a => {
