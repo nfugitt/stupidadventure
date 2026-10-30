@@ -3459,9 +3459,22 @@
     "caffeine": 200
   },
   {
+    "id": "a11f6d5c-1fd2-4e7d-9547-1befd6a5dd35",
+    "slug": "monster-energy-juice-strawberry-lemonade",
+    "rank": 266,
+    "name": "Monster Energy JUICE Strawberry Lemonade",
+    "brand": "Monster",
+    "date": "10/30/2026",
+    "redo": false,
+    "notes": [],
+    "msl": "We added some weight to the wheel to give some older cans that have been sitting in our fridge a better chance, and we’ve hit another one that’s been there for a bit!  MONSTER is back, this time with Strawberry Lemonade.  The drink looks very pink.  It has a heavy scent.  Like, yeah that’s probably gonna be Strawberry Lemonade.  I hope this one isn’t as much of a DISGUISE as the last Monster we had.  Let’s give it a go! <br><br>OK so I took my first sip but I couldn’t even really decipher anything from it it because I watched NF recoil in horror and disgust.  Quite funny.  I can already tell this may be a DISPARITY ZONE drink.  I didn’t exactly think “Mmm!” at the sip I just had, but it wasn’t THAT level of disgust.  Anyway, sip #2.  OK so… It tastes like a heavy citrus lemony drink that has been overwhelmed with unripened strawberry juice?  Maybe?  This isn’t the fresh juicy strawberry flavor I hope for in strawberry flavored drinks, but it’s heavy, and it’s there. There’s SOMETHING in here that I want to say I enjoy, but I don’t really know what it is.  Actually, I do.  It’s the concept of strawberry lemonade: that’s good.  The way MONSTER doled it out here: it’s bad.  It’s just a not very satisfying combination.  MONSTER Base + The not very fresh strawberry flavor + a heavy citrus flavor just doesn’t feel all that complimentary.  Unfortunate!<br><br>I don’t hate this one, but this is a no for me.  I feel like I can finish my glass pretty easily, but why do that to myself?  I’m not gonna go the full thumbs down but I will say thumbs in the middle leaning down.  Not my thing.  I’m gonna get a water.",
+    "nf": "Much like our recent Pink Lemonade review, this is another one (with a few more incoming) that is clearly meant for the prime time of summer and not the day before Halloween. Monster Energy JUICE Strawberry Lemonade is covered in played-out ‘Merica iconography like a bald eagle with sunglasses and a trucker hat, a buff George Washington riding a hog with a giant American flag, a scantily clad Lady Liberty drinking some strawberry lemonade, and Uncle Sam in an inner tube at the pool. You can guess what time of year this was aimed to be consumed at, even if you can still find it in stores. Strawberry Lemonade is a good combo at any period of the year, but I’m not going into this one with forgotten info about Monster. I know this is Strawberry Lemonade plus Monster, so I’m not going to be taken off guard. Whether it’ll land better with these expectations remains to be seen.<br><br>That was a BAD first sip. Lord almighty. Super bitter, almost alcoholic. Wow. Giving it another shot, but saints and begorrah. <br><br>OK, sip two wasn’t great but not “what in god’s name just touched my tastebuds.” Along with the aforementioned over the top Americana crap on the can, it also has some wacky copy about the drink. It has a stupid little swipe about tiny European cans vs. big American ones, but I want to highlight the last paragraph: “Bursting with real juice, perfectly tart lemonade, and the sweet taste of strawberries, plus a full load of our energy blend.” When I saw “perfectly tart” I couldn’t help but laugh. That is QUITE the proclamation. Properly tart? OK, sure. <em>PERFECTLY </em> tart? Now that’s just inviting doom. And the point I’m getting to is that the drink we have here is two things to me: Monster Energy plus some unpleasant lemon tartness. Far from perfect, the tartness mixes pretty terribly with the “Monster blend.”. If there’s strawberry flavor in here, it’s being thoroughly smothered by its co-stars. There is nothing about this I can recommend. Get a regular Monster if you want that flavor, and get one of the many drinks we’ve recommended that have strawberry, lemonade, or some mixture of the two. <br><br>Oh yeah, and this was another one with 200 calories and 47 grams of sugar.",
+    "caffeine": 160
+  },
+  {
     "id": "9509cef1-7b4e-4edf-a1ac-d41e537d472b",
     "slug": "ghost-energy-tropical-mango",
-    "rank": 266,
+    "rank": 267,
     "name": "GHOST Energy Tropical Mango",
     "brand": "GHOST",
     "date": "07/05/2024",
@@ -3474,7 +3487,7 @@
   {
     "id": "948dc480-d7ca-467f-b9f4-2ccba13aca90",
     "slug": "mountain-dew-kickstart-strawberry-start-up",
-    "rank": 267,
+    "rank": 268,
     "name": "Mountain Dew Kickstart Strawberry Start-Up",
     "brand": "Mountain Dew Kickstart",
     "date": "07/09/2024",
@@ -3487,7 +3500,7 @@
   {
     "id": "1a8f39a8-2567-4057-ba48-aaf5e6066180",
     "slug": "c4-arctic-snow-cone",
-    "rank": 268,
+    "rank": 269,
     "name": "C4 Arctic Snow Cone",
     "brand": "C4",
     "date": "04/10/2024",
@@ -3500,7 +3513,7 @@
   {
     "id": "63520099-c22f-40c4-a221-1b9aa6df3a37",
     "slug": "celsius-sparkling-cherry-cola",
-    "rank": 269,
+    "rank": 270,
     "name": "Celsius Sparkling Cherry Cola",
     "brand": "Celsius",
     "date": "11/20/2024",
@@ -3515,7 +3528,7 @@
   {
     "id": "7a7e7e91-7b9d-4963-8a30-9b7fc12b43e3",
     "slug": "celsius-sparkling-cola",
-    "rank": 270,
+    "rank": 271,
     "name": "Celsius Sparkling Cola",
     "brand": "Celsius",
     "date": "10/07/2024",
@@ -3528,7 +3541,7 @@
   {
     "id": "7e5de345-e282-43ff-884e-689280dd69e6",
     "slug": "beaver-buzz-energy-dr-buzz",
-    "rank": 271,
+    "rank": 272,
     "name": "Beaver Buzz Energy Dr. Buzz",
     "brand": "Beaver Buzz",
     "date": "06/25/2025",
@@ -3541,7 +3554,7 @@
   {
     "id": "f8b8741c-93aa-4777-89e0-4f5610eae31a",
     "slug": "oxyshred-ultra-energy-cali-cola",
-    "rank": 272,
+    "rank": 273,
     "name": "OxyShred Ultra Energy Cali Cola",
     "brand": "OxyShred",
     "date": "09/20/2024",
@@ -3554,7 +3567,7 @@
   {
     "id": "46ffa66b-7b68-4c05-92d5-be619ba401f9",
     "slug": "red-bull-the-yellow-edition-tropical",
-    "rank": 273,
+    "rank": 274,
     "name": "Red Bull The Yellow Edition: Tropical",
     "brand": "Red Bull",
     "date": "09/17/2024",
@@ -3567,7 +3580,7 @@
   {
     "id": "0e369af1-d810-41b4-ad58-4b1e810fed39",
     "slug": "g-fuel-power-pellet",
-    "rank": 274,
+    "rank": 275,
     "name": "G Fuel Power Pellet",
     "brand": "G FUEL",
     "date": "07/17/2024",
@@ -3580,7 +3593,7 @@
   {
     "id": "6a82a167-8b95-4b38-9f8b-c09f6d69f586",
     "slug": "oxyshred-ultra-energy-cotton-candy",
-    "rank": 275,
+    "rank": 276,
     "name": "Oxyshred Ultra Energy Cotton Candy",
     "brand": "OxyShred",
     "date": "06/28/2025",
@@ -3593,7 +3606,7 @@
   {
     "id": "5e8ecc9a-207b-4299-aad7-555a017b6d26",
     "slug": "bum-energy-dr-bum",
-    "rank": 276,
+    "rank": 277,
     "name": "BUM Energy Dr. Bum",
     "brand": "BUM",
     "date": "07/06/2026",
@@ -3606,7 +3619,7 @@
   {
     "id": "803ff71c-e3a0-49de-9e5c-77054095550c",
     "slug": "huel-energy-watermelon",
-    "rank": 277,
+    "rank": 278,
     "name": "Huel Energy+ Watermelon",
     "brand": "Huel",
     "date": "01/11/2025",
@@ -3619,7 +3632,7 @@
   {
     "id": "1304b30d-6674-48ac-832a-dca1f8af9350",
     "slug": "noob-energy-sweet-tooth",
-    "rank": 278,
+    "rank": 279,
     "name": "NOOB Energy Sweet Tooth",
     "brand": "NOOB",
     "date": "11/14/2024",
@@ -3632,7 +3645,7 @@
   {
     "id": "b4d96dd6-8bc6-4782-8093-402c73c05531",
     "slug": "monster-energy-ultra-violet",
-    "rank": 279,
+    "rank": 280,
     "name": "Monster Energy ULTRA Violet",
     "brand": "Monster",
     "date": "08/27/2024",
@@ -3645,7 +3658,7 @@
   {
     "id": "3a5ec32f-05a9-47ce-b56f-e7f14cd445f8",
     "slug": "gorilla-mind-sour-watermelon-candy",
-    "rank": 280,
+    "rank": 281,
     "name": "Gorilla Mind Sour Watermelon Candy",
     "brand": "Gorilla Mind",
     "date": "07/16/2024",
@@ -3658,7 +3671,7 @@
   {
     "id": "7b529c15-4d03-485f-afa9-4a9b65793c32",
     "slug": "alani-nu-breezeberry",
-    "rank": 281,
+    "rank": 282,
     "name": "Alani Nu Breezeberry",
     "brand": "Alani Nu",
     "date": "06/20/2024",
@@ -3671,7 +3684,7 @@
   {
     "id": "647163d3-8938-44c0-a862-72da04e466eb",
     "slug": "monster-energy-juice-aussie-style-lemonade",
-    "rank": 282,
+    "rank": 283,
     "name": "Monster Energy JUICE Aussie Style Lemonade",
     "brand": "Monster",
     "date": "06/05/2024",
@@ -3684,7 +3697,7 @@
   {
     "id": "3ab8cf61-8dba-4a5f-ac4d-f689060f619e",
     "slug": "huel-energy-blue-raspberry",
-    "rank": 283,
+    "rank": 284,
     "name": "Huel Energy+ Blue Raspberry",
     "brand": "Huel",
     "date": "12/28/2024",
@@ -3697,7 +3710,7 @@
   {
     "id": "b349a9f4-dd29-439d-b90c-25ba8a522133",
     "slug": "noob-energy-citrus-burst",
-    "rank": 284,
+    "rank": 285,
     "name": "NOOB Energy Citrus Burst",
     "brand": "NOOB",
     "date": "11/13/2024",
@@ -3710,7 +3723,7 @@
   {
     "id": "59fa6f61-1fa9-4976-b96b-75e51eecbbda",
     "slug": "eboost-super-fuel-sparkling-strawberry-lemonade",
-    "rank": 285,
+    "rank": 286,
     "name": "EBOOST SUPER FUEL Sparkling Strawberry Lemonade",
     "brand": "EBOOST",
     "date": "12/15/2025",
@@ -3723,7 +3736,7 @@
   {
     "id": "60f7ff73-7ae6-4ab1-bf16-5dce8cf050d1",
     "slug": "oxyshred-ultra-energy-frosty-big-apple",
-    "rank": 286,
+    "rank": 287,
     "name": "OxyShred Ultra Energy Frosty Big Apple",
     "brand": "OxyShred",
     "date": "05/14/2024",
@@ -3736,7 +3749,7 @@
   {
     "id": "89de0a69-5906-4f66-8e26-a52020837441",
     "slug": "oxyshred-ultra-energy-proton-plasma",
-    "rank": 287,
+    "rank": 288,
     "name": "OxyShred Ultra Energy Proton Plasma",
     "brand": "OxyShred",
     "date": "04/16/2024",
@@ -3749,7 +3762,7 @@
   {
     "id": "aa7e6bae-20d3-40b1-83ec-2c484896ed06",
     "slug": "eboost-super-fuel-sparkling-blue-raspberry",
-    "rank": 288,
+    "rank": 289,
     "name": "EBOOST SUPER FUEL Sparkling Blue Raspberry",
     "brand": "EBOOST",
     "date": "12/22/2024",
