@@ -1295,6 +1295,22 @@ html[data-retro-style="geo"] .retro-unlock{color:#0000ee;font:16px "Times New Ro
   html[data-retro-style="web2"] .voices{grid-template-columns:1fr}
   html[data-retro-style="web2"] .voice:nth-child(odd){border-right:0}
 }
+/* GAIDEN */
+.gaiden-wrap{max-width:900px;margin:0 auto;padding:3rem 2rem 4rem}
+.gaiden-wrap h1{font-family:'Clash Display',sans-serif;font-size:clamp(2.5rem,7vw,4rem);letter-spacing:-.04em}
+.gaiden-intro{color:var(--mid);line-height:1.7;margin:.6rem 0 2rem}
+.gaiden-controls{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.gaiden-controls p,.gaiden-controls label{font: .8rem 'DM Mono',monospace;color:var(--mid)}
+.gaiden-controls select{margin-left:.5rem;padding:.5rem;background:var(--paper);color:var(--ink);border:1px solid var(--rule);font:inherit;max-width:100%}
+.gaiden-entry{padding:2rem 0;border-bottom:1px solid var(--rule);scroll-margin-top:100px}
+.gaiden-entry h2{font-size:1.4rem;overflow-wrap:anywhere;margin:.5rem 0 1rem}
+.gaiden-entry h2 a{color:inherit;text-decoration:none}
+.gaiden-entry h2 a:hover{color:var(--accent)}
+.gaiden-entry time{font:.75rem 'DM Mono',monospace;color:var(--mid)}
+.gaiden-empty{padding:3rem 0;color:var(--mid);line-height:1.7}
+.gaiden-entry .voices{margin-top:0}
+[hidden]{display:none!important}
+@media(max-width:600px){.gaiden-wrap{padding:2rem 1.25rem}.hdr{flex-wrap:wrap;padding-top:.65rem;padding-bottom:.65rem}.hdr>div{flex-wrap:wrap}nav{flex-wrap:wrap}.gaiden-entry .voices{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -1306,6 +1322,7 @@ html[data-retro-style="geo"] .retro-unlock{color:#0000ee;font:16px "Times New Ro
       <nav aria-label="Main navigation">
         <a onclick="location.hash=''; nav('home')" id="nav-home" class="active" aria-current="page">Home</a>
         <a onclick="location.hash='ranking'; nav('ranking')" id="nav-ranking">Rankings</a>
+        <a href="#gaiden" id="nav-gaiden">Gaiden</a>
         <a onclick="location.hash='about'; nav('about')" id="nav-about">About</a>
       </nav>
       <button id="theme-btn" onclick="toggleTheme()" aria-label="Override theme — currently following system preference" title="Toggle dark/light mode"><span class="theme-icon"><svg class="theme-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="2" width="14" height="10" rx="1.5"></rect><line x1="5" y1="14" x2="11" y2="14"></line><line x1="8" y1="12" x2="8" y2="14"></line></svg></span><span class="theme-label">Auto</span></button>
@@ -1391,6 +1408,26 @@ html[data-retro-style="geo"] .retro-unlock{color:#0000ee;font:16px "Times New Ro
   </div>
 </div>
 
+<!-- GAIDEN -->
+<div class="page" id="page-gaiden" role="main" aria-label="Gaiden reviews">
+  <div class="gaiden-wrap">
+    <h1>Gaiden</h1>
+    <p class="gaiden-intro">Side adventures in drinks. Miscellaneous non-energy drink reviews, without rankings.</p>
+    <div class="gaiden-controls">
+      <p id="gaiden-count" role="status" aria-live="polite"></p>
+      <div><label for="gaiden-sort">Sort by</label>
+        <select id="gaiden-sort" onchange="renderGaiden()">
+          <option value="newest">Date: newest first</option>
+          <option value="oldest">Date: oldest first</option>
+          <option value="name-asc">Name: A–Z</option>
+          <option value="name-desc">Name: Z–A</option>
+        </select>
+      </div>
+    </div>
+    <div id="gaiden-list"></div>
+  </div>
+</div>
+
 <!-- ABOUT -->
 <div class="page" id="page-about" role="main" aria-label="About">
   <div class="about-wrap">
@@ -1415,6 +1452,10 @@ html[data-retro-style="geo"] .retro-unlock{color:#0000ee;font:16px "Times New Ro
 
 <script>
 let drinks = [];
+let gaidenReviews = [];
+let gaidenLoadError = false;
+let localGaidenFileHash = '';
+const GAIDEN_ADMIN_KEY = 'stupidadventure_added_gaiden';
 let loadedDrinksSnapshot = '';
 let localAdminToken = '';
 let localAdminFileHash = '';
@@ -1475,6 +1516,7 @@ async function loadDrinks() {
     return;
   }
 
+  await loadGaiden();
   initializeSite();
 }
 
@@ -1525,6 +1567,7 @@ function initializeSite() {
   renderTop10();
   renderFull();
   adminPopulateBrands();
+  renderGaiden();
   handleRouting();
   handleAdminAccess();
 }
@@ -1856,6 +1899,8 @@ if(!skipPush && location.hash !== '#review/' + slug) {
   location.hash = 'review/' + slug;
 }
 
+}
+
 function appendSafeReviewHtml(target, source) {
   const template = document.createElement('template');
   template.innerHTML = String(source || '');
@@ -1905,7 +1950,6 @@ function makeFootnote(className, text) {
   footnote.className = className;
   footnote.textContent = text;
   return footnote;
-}
 }
 let prevPage = 'ranking';
 let reviewReturnState = null;
@@ -1975,6 +2019,16 @@ function handleRouting() {
     }
   }
 
+  if(hash === 'gaiden' || hash.startsWith('gaiden/')) {
+    nav('gaiden');
+    renderGaiden();
+    if(hash.startsWith('gaiden/')) {
+      const entry = gaidenReviews.find(r => r.slug === hash.slice(7));
+      if(entry) requestAnimationFrame(() => document.getElementById('gaiden-' + entry.id)?.scrollIntoView());
+    }
+    return;
+  }
+
   // Main pages
   if(hash === 'ranking') {
     nav('ranking', returningFromReview);
@@ -1999,6 +2053,7 @@ function handleAdminAccess() {
     localAdminToken = params.get('localToken') || '';
     nav('admin');
     adminUpdateList();
+    adminSetMode();
     adminLoadCreds();
     adminLoadLocalStatus();
     const cleanUrl = location.pathname + location.hash;
@@ -2293,10 +2348,148 @@ function updateThemeBtn() {
   }
 }
 
+
+// Gaiden is an independent collection: no rank, tier, brand, or caffeine fields.
+async function loadGaiden() {
+  try {
+    const response = await fetch('gaiden.json?v=' + Date.now(), {cache:'no-store'});
+    if(!response.ok) throw new Error('Could not load gaiden.json');
+    const records = await response.json();
+    if(!Array.isArray(records)) throw new Error('gaiden.json must contain an array');
+    gaidenReviews = records;
+  } catch(err) {
+    gaidenLoadError = true;
+    console.error('Gaiden data load error:', err);
+  }
+}
+
+function renderGaiden() {
+  const list = document.getElementById('gaiden-list');
+  const count = document.getElementById('gaiden-count');
+  if(!list) return;
+  list.replaceChildren();
+  count.textContent = gaidenLoadError ? 'Reviews unavailable' : gaidenReviews.length + (gaidenReviews.length === 1 ? ' review' : ' reviews');
+  if(gaidenLoadError || !gaidenReviews.length) {
+    const empty = document.createElement('p');
+    empty.className = 'gaiden-empty';
+    empty.textContent = gaidenLoadError ? 'Could not load Gaiden reviews. Please try reloading the page.' : 'No side adventures yet. Check back for our first Gaiden review.';
+    list.appendChild(empty);
+    return;
+  }
+  const sort = document.getElementById('gaiden-sort').value;
+  const byName = (a,b) => a.name.localeCompare(b.name, undefined, {sensitivity:'base', numeric:true});
+  const records = [...gaidenReviews].sort((a,b) => {
+    if(sort === 'name-asc') return byName(a,b) || a.date.localeCompare(b.date);
+    if(sort === 'name-desc') return -byName(a,b) || a.date.localeCompare(b.date);
+    return (sort === 'oldest' ? a.date.localeCompare(b.date) : b.date.localeCompare(a.date)) || byName(a,b);
+  });
+  records.forEach(r => {
+    const article = document.createElement('article');
+    article.className = 'gaiden-entry';
+    article.id = 'gaiden-' + r.id;
+    const time = document.createElement('time');
+    time.dateTime = r.date;
+    time.textContent = new Date(r.date + 'T12:00:00').toLocaleDateString(undefined, {year:'numeric',month:'long',day:'numeric'});
+    const title = document.createElement('h2');
+    const link = document.createElement('a');
+    link.href = '#gaiden/' + r.slug;
+    link.textContent = r.name;
+    title.appendChild(link);
+    const voices = document.createElement('div');
+    voices.className = 'voices';
+    if(r.msl) voices.appendChild(makeReviewVoice('Matt',r.msl));
+    if(r.nf) voices.appendChild(makeReviewVoice('Nick',r.nf));
+    article.append(time,title,voices);
+    list.appendChild(article);
+  });
+}
+
+function isGaidenMode() { return document.getElementById('adm-mode')?.value === 'gaiden'; }
+
+function adminSetMode() {
+  const gaiden = isGaidenMode();
+  ['adm-rank','adm-brand','adm-caffeine','adm-redo'].forEach(id => {
+    document.getElementById(id).closest('.adm-field').hidden = gaiden;
+  });
+  document.getElementById('adm-brand-new-wrap').hidden = gaiden;
+  document.getElementById('adm-tier-choice-wrap').hidden = gaiden;
+  document.getElementById('adm-date').required = gaiden;
+  document.getElementById('adm-title').textContent = gaiden ? 'Add a Gaiden Review' : 'Add a Drink';
+  document.getElementById('adm-submit').textContent = gaiden ? 'Submit Review' : 'Submit Drink';
+  document.getElementById('adm-name').placeholder = gaiden ? 'Name of the drink' : 'e.g. GHOST Energy Sour Patch Kids Lemonade';
+  adminUpdateList();
+}
+
+function gaidenPending() {
+  try {
+    const value = JSON.parse(localStorage.getItem(GAIDEN_ADMIN_KEY) || '[]');
+    return Array.isArray(value) ? value : [];
+  } catch(e) { return []; }
+}
+
+function adminSubmitGaiden() {
+  if(gaidenLoadError) { adminMsg('Reload to load Gaiden reviews before adding one.', 'err'); return false; }
+  const name = document.getElementById('adm-name').value.trim();
+  const date = document.getElementById('adm-date').value;
+  const msl = adminFormatReviewText(document.getElementById('adm-msl').value);
+  const nf = adminFormatReviewText(document.getElementById('adm-nf').value);
+  if(!name || !date || (!msl && !nf)) {
+    adminMsg('Name, date, and at least one review are required.', 'err'); return false;
+  }
+  if(gaidenReviews.some(r => r.name.trim().toLocaleLowerCase() === name.toLocaleLowerCase() && r.date === date)) {
+    adminMsg('This drink already has a Gaiden review for that date.', 'err'); return false;
+  }
+  const base = slugify(name) || 'gaiden';
+  let slug = base, suffix = 2;
+  while(gaidenReviews.some(r => r.slug === slug)) slug = base + '-' + suffix++;
+  const review = {id:crypto.randomUUID(),slug,name,date,msl,nf};
+  try { localStorage.setItem(GAIDEN_ADMIN_KEY, JSON.stringify([...gaidenPending(),review])); }
+  catch(e) { adminMsg('Could not keep the pending review in this browser. Please enable local storage.', 'err'); return false; }
+  gaidenReviews.push(review);
+  renderGaiden();
+  adminUpdateList();
+  adminClear();
+  adminMsg('✓ “' + name + '” added to Gaiden. Save locally or publish when ready.', 'ok');
+  return true;
+}
+
+function adminUpdateGaidenList() {
+  document.getElementById('adm-live-count').textContent = gaidenReviews.length;
+  const list = document.getElementById('adm-added-list');
+  list.replaceChildren();
+  const pending = gaidenPending();
+  if(!pending.length) { list.innerHTML = '<li class="adm-empty">No pending Gaiden reviews.</li>'; return; }
+  pending.forEach(r => {
+    const item = document.createElement('li');
+    item.className = 'adm-added-item';
+    const name = document.createElement('span');
+    name.className = 'adm-added-name';
+    name.textContent = r.name + ' · ' + r.date;
+    const remove = document.createElement('button');
+    remove.type = 'button';
+    remove.className = 'adm-del-btn';
+    remove.textContent = '×';
+    remove.setAttribute('aria-label','Remove ' + r.name);
+    remove.onclick = () => {
+      localStorage.setItem(GAIDEN_ADMIN_KEY, JSON.stringify(gaidenPending().filter(p => p.id !== r.id)));
+      gaidenReviews = gaidenReviews.filter(p => p.id !== r.id);
+      renderGaiden();
+      adminUpdateList();
+    };
+    item.append(name,remove);
+    list.appendChild(item);
+  });
+}
+
 // ── ADMIN ──────────────────────────────────────────────────
 const ADMIN_KEY = 'stupidadventure_added_drinks';
 
 function adminLoadPersisted() {
+  if(!gaidenLoadError) {
+    gaidenPending().forEach(r => {
+      if(!gaidenReviews.some(saved => saved.id === r.id)) gaidenReviews.push(r);
+    });
+  }
   try {
     const added = adminGetPending();
     added.sort((a, b) => a.rank - b.rank).forEach(obj => {
@@ -2413,6 +2606,7 @@ function escapeAttr(str) {
 }
 
 function adminUpdateList() {
+  if(isGaidenMode()) { adminUpdateGaidenList(); return; }
   const el = document.getElementById('adm-live-count');
   if(el) el.textContent = drinks.length;
   const list = document.getElementById('adm-added-list');
@@ -2548,6 +2742,7 @@ function adminApplyTierChoice(drink, boundary, choice) {
 }
 
 function adminSubmit() {
+  if(isGaidenMode()) return adminSubmitGaiden();
   const rank     = parseInt(document.getElementById('adm-rank').value);
   const name     = document.getElementById('adm-name').value.trim();
   const brand    = adminGetBrand();
@@ -2630,7 +2825,7 @@ function adminClear() {
 function adminDateFromPicker() {
   // type=date gives YYYY-MM-DD; convert to MM/DD/YYYY for the site
   const val = document.getElementById('adm-date').value;
-  if(!val) return;
+  if(!val) { document.getElementById('adm-date')._formatted = ''; return; }
   const [y, m, d] = val.split('-');
   // Store back as MM/DD/YYYY in the value so adminSubmit reads it correctly
   document.getElementById('adm-date')._formatted = m + '/' + d + '/' + y;
@@ -2697,6 +2892,7 @@ async function adminLoadLocalStatus() {
     const result = await resp.json();
     if(!resp.ok) throw new Error(result.error || 'Local admin server rejected the request.');
     localAdminFileHash = result.fileHash || '';
+    localGaidenFileHash = result.gaidenHash || '';
     const saved = JSON.parse(localStorage.getItem(CREDS_KEY) || '{}');
     if(!saved.owner && result.owner) document.getElementById('adm-owner').value = result.owner;
     if(!saved.repo && result.repo) document.getElementById('adm-repo').value = result.repo;
@@ -2736,10 +2932,12 @@ async function adminPublish() {
 }
 
 async function adminSendLocalRequest(path, publishing) {
+  const gaiden = isGaidenMode();
+  const dataFile = gaiden ? 'gaiden.json' : 'drinks.json';
   const owner = (document.getElementById('adm-owner') || {}).value || '';
   const repo = (document.getElementById('adm-repo') || {}).value || '';
   const branch = (document.getElementById('adm-branch') || {}).value || 'main';
-  if(!localAdminToken || !localAdminFileHash) {
+  if(!localAdminToken || !(gaiden ? localGaidenFileHash : localAdminFileHash) || (gaiden && gaidenLoadError)) {
     adminPublishMsg('The local admin server is not connected. Close this page and relaunch Start Local Admin.cmd.', 'err');
     return;
   }
@@ -2754,11 +2952,12 @@ async function adminSendLocalRequest(path, publishing) {
     btn.disabled = true;
     btn.classList.add('publishing');
   }
+  document.getElementById('adm-mode').disabled = true;
   if(lbl) lbl.textContent = publishing ? 'Publishing…' : 'Saving…';
   adminPublishMsg('', 'ok');
 
   try {
-    adminPublishMsg(publishing ? 'Saving locally and checking GitHub…' : 'Saving drinks.json locally…', 'ok');
+    adminPublishMsg(publishing ? 'Saving locally and checking GitHub…' : 'Saving ' + dataFile + ' locally…', 'ok');
     const resp = await fetch(path, {
       method: 'POST',
       headers: {
@@ -2766,18 +2965,22 @@ async function adminSendLocalRequest(path, publishing) {
         'X-Local-Admin-Token': localAdminToken
       },
       body: JSON.stringify({
-        expectedHash: localAdminFileHash,
-        drinks: normalizeDrinkRecords(drinks).sort((a, b) => a.rank - b.rank),
+        dataset: gaiden ? 'gaiden' : 'drinks',
+        expectedHash: gaiden ? localGaidenFileHash : localAdminFileHash,
+        drinks: gaiden ? gaidenReviews : normalizeDrinkRecords(drinks).sort((a, b) => a.rank - b.rank),
         owner,
         repo,
         branch
       })
     });
     const result = await resp.json();
-    if(result.fileHash) localAdminFileHash = result.fileHash;
+    if(result.fileHash) {
+      if(gaiden) localGaidenFileHash = result.fileHash;
+      else localAdminFileHash = result.fileHash;
+    }
     if(result.saved) {
-      localStorage.removeItem(ADMIN_KEY);
-      loadedDrinksSnapshot = canonicalDrinks(drinks);
+      localStorage.removeItem(gaiden ? GAIDEN_ADMIN_KEY : ADMIN_KEY);
+      if(!gaiden) loadedDrinksSnapshot = canonicalDrinks(drinks);
       adminUpdateList();
     }
     if(!resp.ok) {
@@ -2788,7 +2991,7 @@ async function adminSendLocalRequest(path, publishing) {
     }
     adminPublishMsg(publishing
       ? '✓ Saved, committed, and pushed. Netlify should deploy the new review automatically.'
-      : '✓ Saved to drinks.json. A timestamped backup was created.', 'ok');
+      : '✓ Saved to ' + dataFile + '. A timestamped backup was created.', 'ok');
   } catch(err) {
     adminPublishMsg('✗ ' + err.message, 'err');
     console.error('Local admin error:', err);
@@ -2797,6 +3000,7 @@ async function adminSendLocalRequest(path, publishing) {
       btn.disabled = false;
       btn.classList.remove('publishing');
     }
+    document.getElementById('adm-mode').disabled = false;
     if(lbl) lbl.textContent = 'Save & Publish';
   }
 }
@@ -2807,8 +3011,15 @@ async function adminSendLocalRequest(path, publishing) {
 <!-- ADMIN -->
 <div class="page" id="page-admin" role="main" aria-label="Admin panel">
   <div class="admin-page">
-    <h2>Add a Drink</h2>
-    <p class="admin-sub">This panel is available only through the local admin launcher. New drinks remain pending in this browser until you save them to drinks.json. Rankings below the inserted rank shift down automatically, and each drink receives a permanent ID and URL slug.</p>
+    <h2 id="adm-title">Add a Drink</h2>
+    <div class="adm-field" style="margin:1rem 0">
+      <label for="adm-mode">Review mode</label>
+      <select id="adm-mode" onchange="adminSetMode()">
+        <option value="energy">Energy drinks</option>
+        <option value="gaiden">Gaiden — other drinks</option>
+      </select>
+    </div>
+    <p class="admin-sub">Use Energy drinks for ranked reviews or Gaiden for other drinks. Reviews remain pending in this browser until saved. Gaiden reviews are stored separately and never affect the energy drink rankings.</p>
 
     <div class="adm-section">
       <h3>Drink Info</h3>
@@ -2885,7 +3096,7 @@ async function adminSendLocalRequest(path, publishing) {
     </div>
 
     <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">
-      <button class="adm-btn" onclick="adminSubmit()">Submit Drink</button>
+      <button class="adm-btn" id="adm-submit" onclick="adminSubmit()">Submit Drink</button>
       <button class="adm-btn" onclick="adminSubmitAndPublish()">Submit &amp; Publish</button>
       <button class="adm-btn secondary" onclick="adminClear()">Clear Form</button>
     </div>
@@ -2901,7 +3112,7 @@ async function adminSendLocalRequest(path, publishing) {
 
     <div class="adm-section adm-publish-section">
       <h3>Publish</h3>
-      <p class="admin-sub">Save creates an atomic local update and timestamped backup. Publish additionally checks that the GitHub branch has not advanced, commits only drinks.json, and pushes through Git Credential Manager. No GitHub token is entered into this page.</p>
+      <p class="admin-sub">Save creates an atomic local update and timestamped backup. Publish additionally checks GitHub, commits the selected mode’s data file (drinks.json or gaiden.json), and pushes through Git Credential Manager. No GitHub token is entered into this page.</p>
       <div class="adm-grid">
         <div class="adm-field">
           <label for="adm-owner">Owner</label>
