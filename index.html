@@ -1296,21 +1296,15 @@ html[data-retro-style="geo"] .retro-unlock{color:#0000ee;font:16px "Times New Ro
   html[data-retro-style="web2"] .voice:nth-child(odd){border-right:0}
 }
 /* GAIDEN */
-.gaiden-wrap{max-width:900px;margin:0 auto;padding:3rem 2rem 4rem}
+.gaiden-wrap{max-width:820px;margin:0 auto;padding:3rem 2rem 4rem}
 .gaiden-wrap h1{font-family:'Clash Display',sans-serif;font-size:clamp(2.5rem,7vw,4rem);letter-spacing:-.04em}
 .gaiden-intro{color:var(--mid);line-height:1.7;margin:.6rem 0 2rem}
 .gaiden-controls{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .gaiden-controls p,.gaiden-controls label{font: .8rem 'DM Mono',monospace;color:var(--mid)}
 .gaiden-controls select{margin-left:.5rem;padding:.5rem;background:var(--paper);color:var(--ink);border:1px solid var(--rule);font:inherit;max-width:100%}
-.gaiden-entry{padding:2rem 0;border-bottom:1px solid var(--rule);scroll-margin-top:100px}
-.gaiden-entry h2{font-size:1.4rem;overflow-wrap:anywhere;margin:.5rem 0 1rem}
-.gaiden-entry h2 a{color:inherit;text-decoration:none}
-.gaiden-entry h2 a:hover{color:var(--accent)}
-.gaiden-entry time{font:.75rem 'DM Mono',monospace;color:var(--mid)}
 .gaiden-empty{padding:3rem 0;color:var(--mid);line-height:1.7}
-.gaiden-entry .voices{margin-top:0}
 [hidden]{display:none!important}
-@media(max-width:600px){.gaiden-wrap{padding:2rem 1.25rem}.hdr{flex-wrap:wrap;padding-top:.65rem;padding-bottom:.65rem}.hdr>div{flex-wrap:wrap}nav{flex-wrap:wrap}.gaiden-entry .voices{grid-template-columns:1fr}}
+@media(max-width:600px){.gaiden-wrap{padding:2rem 1.25rem}.hdr{flex-wrap:wrap;padding-top:.65rem;padding-bottom:.65rem}.hdr>div{flex-wrap:wrap}nav{flex-wrap:wrap}}
 </style>
 </head>
 <body>
@@ -1424,7 +1418,15 @@ html[data-retro-style="geo"] .retro-unlock{color:#0000ee;font:16px "Times New Ro
         </select>
       </div>
     </div>
-    <div id="gaiden-list"></div>
+    <ul id="gaiden-list" class="rank-list" aria-label="Gaiden review list"></ul>
+  </div>
+</div>
+
+<!-- GAIDEN REVIEW -->
+<div class="page" id="page-gaiden-review" role="main" aria-label="Gaiden drink review">
+  <div class="rev-wrap">
+    <a class="back-btn" href="#gaiden" style="text-decoration:none;display:inline-block">← Back to Gaiden</a>
+    <div id="gaiden-rev-content"></div>
   </div>
 </div>
 
@@ -1454,6 +1456,7 @@ html[data-retro-style="geo"] .retro-unlock{color:#0000ee;font:16px "Times New Ro
 let drinks = [];
 let gaidenReviews = [];
 let gaidenLoadError = false;
+let gaidenReturnScrollY = null;
 let localGaidenFileHash = '';
 const GAIDEN_ADMIN_KEY = 'stupidadventure_added_gaiden';
 let loadedDrinksSnapshot = '';
@@ -1957,7 +1960,7 @@ function nav(page, restoreReviewPosition = false) {
   const returnScrollY = restoreReviewPosition && reviewReturnState && reviewReturnState.page === page
     ? reviewReturnState.scrollY
     : null;
-  if(page !== 'review') {
+  if(page !== 'review' && page !== 'gaiden-review') {
     prevPage = page;
     document.title = page === 'admin' ? "Caffeine Quest Admin Page" : "Matt & Nick's Stupid Adventure";
   }
@@ -1972,7 +1975,7 @@ function nav(page, restoreReviewPosition = false) {
     return;
   }
   pageEl.classList.add('active');
-  const el = document.getElementById('nav-'+page);
+  const el = document.getElementById('nav-' + (page === 'gaiden-review' ? 'gaiden' : page));
   if(el) { el.classList.add('active'); el.setAttribute('aria-current', 'page'); }
   if(returnScrollY !== null) {
     reviewReturnState = null;
@@ -2019,12 +2022,19 @@ function handleRouting() {
     }
   }
 
-  if(hash === 'gaiden' || hash.startsWith('gaiden/')) {
+  if(hash.startsWith('gaiden/')) {
+    showGaidenReview(gaidenReviews.find(r => r.slug === hash.slice(7)));
+    return;
+  }
+  if(hash === 'gaiden') {
+    const returning = document.getElementById('page-gaiden-review').classList.contains('active');
     nav('gaiden');
     renderGaiden();
-    if(hash.startsWith('gaiden/')) {
-      const entry = gaidenReviews.find(r => r.slug === hash.slice(7));
-      if(entry) requestAnimationFrame(() => document.getElementById('gaiden-' + entry.id)?.scrollIntoView());
+    document.title = "Gaiden — Matt & Nick's Stupid Adventure";
+    if(returning && gaidenReturnScrollY !== null) {
+      const scrollY = gaidenReturnScrollY;
+      gaidenReturnScrollY = null;
+      requestAnimationFrame(() => window.scrollTo(0, scrollY));
     }
     return;
   }
@@ -2370,7 +2380,7 @@ function renderGaiden() {
   list.replaceChildren();
   count.textContent = gaidenLoadError ? 'Reviews unavailable' : gaidenReviews.length + (gaidenReviews.length === 1 ? ' review' : ' reviews');
   if(gaidenLoadError || !gaidenReviews.length) {
-    const empty = document.createElement('p');
+    const empty = document.createElement('li');
     empty.className = 'gaiden-empty';
     empty.textContent = gaidenLoadError ? 'Could not load Gaiden reviews. Please try reloading the page.' : 'No side adventures yet. Check back for our first Gaiden review.';
     list.appendChild(empty);
@@ -2384,24 +2394,80 @@ function renderGaiden() {
     return (sort === 'oldest' ? a.date.localeCompare(b.date) : b.date.localeCompare(a.date)) || byName(a,b);
   });
   records.forEach(r => {
-    const article = document.createElement('article');
-    article.className = 'gaiden-entry';
-    article.id = 'gaiden-' + r.id;
-    const time = document.createElement('time');
-    time.dateTime = r.date;
-    time.textContent = new Date(r.date + 'T12:00:00').toLocaleDateString(undefined, {year:'numeric',month:'long',day:'numeric'});
-    const title = document.createElement('h2');
+    const item = document.createElement('li');
+    item.className = 'rank-item';
     const link = document.createElement('a');
+    link.className = 'rank-link';
     link.href = '#gaiden/' + r.slug;
-    link.textContent = r.name;
-    title.appendChild(link);
+    link.addEventListener('click', event => {
+      if(!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey && event.button === 0) {
+        gaidenReturnScrollY = window.scrollY;
+      }
+    });
+    const body = document.createElement('div');
+    body.className = 'rbody';
+    const text = document.createElement('div');
+    text.className = 'rtext';
+    const name = document.createElement('div');
+    name.className = 'rname';
+    name.textContent = r.name;
+    const time = document.createElement('time');
+    time.className = 'rdate';
+    time.style.display = 'block';
+    time.dateTime = r.date;
+    time.textContent = gaidenDisplayDate(r.date);
+    const arrow = document.createElement('span');
+    arrow.className = 'arr';
+    arrow.setAttribute('aria-hidden', 'true');
+    arrow.textContent = '→';
+    text.append(name,time);
+    body.append(text,arrow);
+    link.appendChild(body);
+    item.appendChild(link);
+    list.appendChild(item);
+  });
+}
+
+function gaidenDisplayDate(date) {
+  return new Date(date + 'T12:00:00').toLocaleDateString(undefined, {year:'numeric',month:'long',day:'numeric'});
+}
+
+function showGaidenReview(review) {
+  const content = document.getElementById('gaiden-rev-content');
+  content.replaceChildren();
+  nav('gaiden-review');
+  const header = document.createElement('div');
+  header.className = 'rev-hdr';
+  const title = document.createElement('h1');
+  title.className = 'rev-title';
+  title.textContent = review ? review.name : 'Review unavailable';
+  if(review) {
+    const eye = document.createElement('div');
+    eye.className = 'rev-eye';
+    const category = document.createElement('span');
+    category.className = 'rev-date';
+    category.textContent = 'Gaiden';
+    const date = document.createElement('time');
+    date.className = 'rev-date';
+    date.dateTime = review.date;
+    date.textContent = gaidenDisplayDate(review.date);
+    eye.append(category,date);
+    header.appendChild(eye);
+  }
+  header.appendChild(title);
+  content.appendChild(header);
+  if(review) {
     const voices = document.createElement('div');
     voices.className = 'voices';
-    if(r.msl) voices.appendChild(makeReviewVoice('Matt',r.msl));
-    if(r.nf) voices.appendChild(makeReviewVoice('Nick',r.nf));
-    article.append(time,title,voices);
-    list.appendChild(article);
-  });
+    if(review.msl) voices.appendChild(makeReviewVoice('Matt',review.msl));
+    if(review.nf) voices.appendChild(makeReviewVoice('Nick',review.nf));
+    content.appendChild(voices);
+  } else {
+    const message = document.createElement('p');
+    message.textContent = gaidenLoadError ? 'Could not load Gaiden reviews. Please try reloading the page.' : 'This Gaiden review could not be found. Use Back to Gaiden to browse the list.';
+    content.appendChild(message);
+  }
+  document.title = (review ? review.name + ' — Gaiden' : 'Gaiden review unavailable') + " — Matt & Nick's Stupid Adventure";
 }
 
 function isGaidenMode() { return document.getElementById('adm-mode')?.value === 'gaiden'; }
