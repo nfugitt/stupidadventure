@@ -1475,6 +1475,10 @@ function normalizeCaffeine(value) {
   return Number.isFinite(amount) && amount >= 0 ? amount : null;
 }
 
+function isValidCaffeineAmount(value) {
+  return Number.isInteger(value) && value >= 0 && value <= 1000;
+}
+
 function compareCaffeine(a, b, descending) {
   if(a.caffeine === null && b.caffeine !== null) return 1;
   if(b.caffeine === null && a.caffeine !== null) return -1;
@@ -2838,9 +2842,9 @@ function adminSubmit() {
   const _dateEl   = document.getElementById('adm-date');
   const date      = (_dateEl._formatted || _dateEl.value || '').trim();
   const caffeineInput = document.getElementById('adm-caffeine');
-  const caffeine = normalizeCaffeine(caffeineInput.value);
-  if(caffeineInput.validity.badInput || (caffeineInput.value !== '' && caffeine === null)) {
-    adminMsg('Enter a nonnegative caffeine amount, or leave it blank if unknown.', 'err');
+  const caffeine = caffeineInput.value === '' ? null : caffeineInput.valueAsNumber;
+  if(caffeineInput.validity.badInput || (caffeine !== null && !isValidCaffeineAmount(caffeine))) {
+    adminMsg('Enter a whole-number caffeine amount from 0 to 1,000 mg, or leave it blank if unknown.', 'err');
     return false;
   }
   const redo     = document.getElementById('adm-redo').value === 'true';
@@ -3039,7 +3043,7 @@ function validateReviewDataset(records, gaiden) {
         throw new Error('Invalid or duplicate rank: ' + r.name);
       }
       ranks.add(r.rank);
-      if(r.caffeine !== null && (typeof r.caffeine !== 'number' || !Number.isFinite(r.caffeine) || r.caffeine < 0)) {
+      if(r.caffeine !== null && !isValidCaffeineAmount(r.caffeine)) {
         throw new Error('Invalid caffeine amount: ' + r.name);
       }
       if(!Array.isArray(r.notes)) throw new Error('Invalid notes: ' + r.name);
@@ -3200,7 +3204,7 @@ async function adminSendLocalRequest(path, publishing) {
         </div>
         <div class="adm-field">
           <label for="adm-caffeine">Caffeine (mg)</label>
-          <input type="number" id="adm-caffeine" min="0" step="any" placeholder="Blank if unknown">
+          <input type="number" id="adm-caffeine" min="0" max="1000" step="1" placeholder="Blank if unknown">
         </div>
         <div class="adm-field">
           <label for="adm-redo">Re-review?</label>
