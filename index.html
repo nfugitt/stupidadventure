@@ -1463,6 +1463,7 @@ let gaidenReturnScrollY = null;
 let localGaidenFileHash = '';
 const GAIDEN_ADMIN_KEY = 'stupidadventure_added_gaiden';
 const REREVIEW_ADMIN_KEY = 'stupidadventure_rereviews';
+const RERANK_ADMIN_KEY = 'stupidadventure_rank_moves';
 let loadedDrinksSnapshot = '';
 let localAdminToken = '';
 let localAdminFileHash = '';
@@ -2542,36 +2543,190 @@ function showGaidenReview(review) {
 
 function isGaidenMode() { return document.getElementById('adm-mode')?.value === 'gaiden'; }
 function isRereviewMode() { return document.getElementById('adm-mode')?.value === 'rereview'; }
+function isRerankMode() { return document.getElementById('adm-mode')?.value === 'rerank'; }
 
 function adminSetMode() {
   const gaiden = isGaidenMode();
   const rereview = isRereviewMode();
-  const energy = !gaiden && !rereview;
+  const rerank = isRerankMode();
+  const energy = !gaiden && !rereview && !rerank;
   ['adm-rank','adm-brand','adm-caffeine','adm-redo'].forEach(id => {
     document.getElementById(id).closest('.adm-field').hidden = !energy;
   });
   document.getElementById('adm-brand-new-wrap').hidden = !energy;
   document.getElementById('adm-tier-choice-wrap').hidden = !energy;
-  document.getElementById('adm-date').required = !energy;
-  document.getElementById('adm-title').textContent = rereview ? 'Add a Re-review' : gaiden ? 'Add a Gaiden Review' : 'Add a Drink';
-  document.getElementById('adm-submit').textContent = rereview ? 'Submit Re-review' : gaiden ? 'Submit Review' : 'Submit Drink';
+  document.getElementById('adm-date').required = gaiden || rereview;
+  ['adm-review-date-field','adm-matt-review','adm-nick-review'].forEach(id => {
+    document.getElementById(id).hidden = rerank;
+  });
+  document.getElementById('adm-rerank-fields').hidden = !rerank;
+  document.getElementById('adm-drink-info').hidden = rerank;
+  document.getElementById('adm-rank-draft-actions').hidden = !rerank;
+  document.getElementById('adm-title').textContent = rerank ? 'Re-rank a Drink' : rereview ? 'Add a Re-review' : gaiden ? 'Add a Gaiden Review' : 'Add a Drink';
+  document.getElementById('adm-submit').textContent = rerank ? 'Queue Move' : rereview ? 'Submit Re-review' : gaiden ? 'Submit Review' : 'Submit Drink';
   const name = document.getElementById('adm-name');
-  name.closest('.adm-field').hidden = rereview;
+  name.closest('.adm-field').hidden = rereview || rerank;
   name.placeholder = gaiden ? 'Name of the drink' : 'e.g. GHOST Energy Sour Patch Kids Lemonade';
   document.getElementById('adm-rereview-drink').closest('.adm-field').hidden = !rereview;
-  if(rereview) adminPopulateRereviewDrinks();
+  if(rereview) adminPopulateExistingDrinks('adm-rereview-drink');
+  if(rerank) adminRefreshRerank();
   adminUpdateList();
 }
 
-function adminPopulateRereviewDrinks() {
-  const select = document.getElementById('adm-rereview-drink');
+function adminPopulateExistingDrinks(id, records = drinks) {
+  const select = document.getElementById(id);
   const selected = select.value;
   const saved = new Set(JSON.parse(loadedDrinksSnapshot).map(drink => drink.id));
   select.replaceChildren(new Option('Select a drink…', ''));
-  drinks.filter(drink => saved.has(drink.id))
+  records.filter(drink => saved.has(drink.id))
     .sort((a, b) => a.name.localeCompare(b.name) || a.rank - b.rank)
     .forEach(drink => select.add(new Option(drink.name + ' (#' + drink.rank + ')', drink.id)));
   if(saved.has(selected)) select.value = selected;
+}
+
+function adminReadRankDraft() {
+  const raw = localStorage.getItem(RERANK_ADMIN_KEY);
+  if(raw === null) return null;
+  const draft = JSON.parse(raw);
+  if(!draft || !/^[a-f0-9]{64}$/i.test(draft.fileHash) || !Array.isArray(draft.moves) ||
+     !draft.moves.every(move => move && typeof move.drinkId === 'string' && move.drinkId && Number.isInteger(move.rank))) {
+    throw new Error('The pending rank changes could not be read.');
+  }
+  return draft;
+}
+
+function adminWriteRankDraft(draft) {
+  if(draft?.moves.length) localStorage.setItem(RERANK_ADMIN_KEY, JSON.stringify(draft));
+  else localStorage.removeItem(RERANK_ADMIN_KEY);
+}
+
+function applyRankMoves(records, moves) {
+  if(!moves.length) return records;
+  const ordered = [...records].sort((a, b) => a.rank - b.rank);
+  const tierNotes = new Set(Object.values(tierBoundaryNotes));
+  const boundaries = new Map();
+  records.forEach(drink => {
+    const notes = drink.notes.filter(note => tierNotes.has(note));
+    if(notes.length) boundaries.set(drink.rank, notes);
+  });
+  for(const move of moves) {
+    const from = ordered.findIndex(drink => drink.id === move.drinkId);
+    if(from < 0 || move.rank < 1 || move.rank > ordered.length) {
+      throw new Error('A pending move no longer fits these rankings. Clear your pending moves and queue it again.');
+    }
+    const [drink] = ordered.splice(from, 1);
+    ordered.splice(move.rank - 1, 0, drink);
+  }
+  return ordered.map((drink, index) => {
+    const rank = index + 1;
+    const atDestination = boundaries.get(rank) || [];
+    const carried = drink.notes.filter(note => tierNotes.has(note));
+    const notes = carried.join() === atDestination.join()
+      ? drink.notes
+      : [...drink.notes.filter(note => !tierNotes.has(note)), ...atDestination];
+    return rank === drink.rank && notes === drink.notes ? drink : {...drink, rank, notes};
+  });
+}
+
+function adminRankDraftRecords(draft) {
+  if(!draft) return drinks;
+  if(draft.fileHash !== localAdminFileHash) {
+    throw new Error('The saved rankings changed since these moves were queued. Clear your pending moves and queue them again.');
+  }
+  return applyRankMoves(drinks, draft.moves);
+}
+
+function adminRerankPreview() {
+  const preview = document.getElementById('adm-rerank-preview');
+  preview.textContent = '';
+  if(!localAdminFileHash) return;
+  try {
+    const draft = adminReadRankDraft();
+    const records = adminRankDraftRecords(draft);
+    const drink = records.find(record => record.id === document.getElementById('adm-rerank-drink').value);
+    if(!drink) return;
+    const rank = document.getElementById('adm-rerank-position').valueAsNumber;
+    const current = '#' + drink.rank + ' (' + getTier(drink.rank) + '-Tier)';
+    const validMove = Number.isInteger(rank) && rank >= 1 && rank <= records.length && rank !== drink.rank;
+    preview.textContent = validMove
+      ? current + ' → #' + rank + ' (' + getTier(rank) + '-Tier)'
+      : (draft?.moves.length ? 'Position after queued moves ' : 'Current position ') + current;
+  } catch(e) {
+    preview.textContent = e.message;
+  }
+}
+
+function adminRefreshRerank() {
+  let records = drinks;
+  try { records = adminRankDraftRecords(adminReadRankDraft()); }
+  catch(e) { /* The preview reports stale or unreadable drafts. */ }
+  adminPopulateExistingDrinks('adm-rerank-drink', records);
+  document.getElementById('adm-rerank-position').max = records.length;
+  adminRerankPreview();
+}
+
+function adminSubmitRerank() {
+  if(!localAdminFileHash) {
+    adminMsg('Wait for Local Admin to connect before queuing a rank change.', 'err');
+    return false;
+  }
+  try {
+    const draft = adminReadRankDraft() || {fileHash:localAdminFileHash, moves:[]};
+    const records = adminRankDraftRecords(draft);
+    const drink = records.find(record => record.id === document.getElementById('adm-rerank-drink').value);
+    const rank = document.getElementById('adm-rerank-position').valueAsNumber;
+    if(!drink || !Number.isInteger(rank) || rank < 1 || rank > records.length || rank === drink.rank) {
+      adminMsg('Choose a drink and enter a different whole-number rank from 1 to ' + records.length + '.', 'err');
+      return false;
+    }
+    adminWriteRankDraft({...draft, moves:[...draft.moves, {drinkId:drink.id, rank}]});
+    document.getElementById('adm-rerank-position').value = '';
+    adminRefreshRerank();
+    adminUpdateList();
+    adminMsg(drink.name + ' queued for #' + rank + '. Save locally or publish when ready.', 'ok');
+    return true;
+  } catch(e) {
+    adminMsg('Could not queue the move. ' + e.message, 'err');
+    return false;
+  }
+}
+
+function adminUpdateRerankList() {
+  const list = document.getElementById('adm-added-list');
+  const count = document.getElementById('adm-live-count');
+  list.replaceChildren();
+  let draft;
+  try { draft = adminReadRankDraft(); }
+  catch(e) { /* An unreadable draft can still be cleared explicitly. */ }
+  const hasDraft = Boolean(draft?.moves.length);
+  count.textContent = draft?.moves.length ?? 0;
+  if(hasDraft) {
+    draft.moves.forEach(move => {
+      const item = document.createElement('li');
+      item.className = 'adm-added-item';
+      item.textContent = (drinks.find(drink => drink.id === move.drinkId)?.name || 'Unavailable drink') + ' → #' + move.rank;
+      list.appendChild(item);
+    });
+  } else {
+    const item = document.createElement('li');
+    item.className = 'adm-empty';
+    item.textContent = draft === undefined ? 'Pending moves could not be read.' : 'No pending rank changes.';
+    list.appendChild(item);
+  }
+  document.getElementById('adm-undo-rank').hidden = !hasDraft || draft.fileHash !== localAdminFileHash;
+  document.getElementById('adm-clear-ranks').hidden = !hasDraft && draft !== undefined;
+}
+
+function adminUndoRankMove(clearAll) {
+  if(document.getElementById('adm-mode').disabled) return;
+  try {
+    const draft = clearAll ? null : adminReadRankDraft();
+    adminWriteRankDraft(draft ? {...draft, moves:draft.moves.slice(0, -1)} : null);
+    adminRefreshRerank();
+    adminUpdateList();
+  } catch(e) {
+    adminMsg('Could not remove the pending rank change.', 'err');
+  }
 }
 
 function adminReadRereviews() {
@@ -2837,6 +2992,7 @@ function escapeAttr(str) {
 function adminUpdateList() {
   if(isGaidenMode()) { adminUpdateGaidenList(); return; }
   if(isRereviewMode()) { adminUpdateRereviewList(); return; }
+  if(isRerankMode()) { adminUpdateRerankList(); return; }
   const el = document.getElementById('adm-live-count');
   if(el) el.textContent = drinks.length;
   const list = document.getElementById('adm-added-list');
@@ -2997,6 +3153,7 @@ function adminSubmit() {
   if(document.getElementById('adm-mode').disabled) return false;
   if(isGaidenMode()) return adminSubmitGaiden();
   if(isRereviewMode()) return adminSubmitRereview();
+  if(isRerankMode()) return adminSubmitRerank();
   const rank     = parseInt(document.getElementById('adm-rank').value);
   const name     = document.getElementById('adm-name').value.trim();
   const brand    = adminGetBrand();
@@ -3079,6 +3236,12 @@ async function adminSubmitAndPublish() {
 }
 
 function adminClear() {
+  if(isRerankMode()) {
+    document.getElementById('adm-rerank-drink').value = '';
+    document.getElementById('adm-rerank-position').value = '';
+    adminRerankPreview();
+    return;
+  }
   ['adm-rank','adm-name','adm-brand','adm-brand-new','adm-rereview-drink','adm-date','adm-caffeine','adm-msl','adm-nf'].forEach(id => {
     const el = document.getElementById(id);
     if(el) el.value = '';
@@ -3163,6 +3326,10 @@ async function adminLoadLocalStatus() {
     if(!resp.ok) throw new Error(result.error || 'Local admin server rejected the request.');
     localAdminFileHash = result.fileHash || '';
     localGaidenFileHash = result.gaidenHash || '';
+    if(isRerankMode()) {
+      adminRefreshRerank();
+      adminUpdateList();
+    }
     const saved = JSON.parse(localStorage.getItem(CREDS_KEY) || '{}');
     if(!saved.owner && result.owner) document.getElementById('adm-owner').value = result.owner;
     if(!saved.repo && result.repo) document.getElementById('adm-repo').value = result.repo;
@@ -3263,8 +3430,11 @@ async function adminSendLocalRequest(path, publishing) {
   adminPublishMsg('', 'ok');
 
   try {
+    let rankDraft = null;
     let drinksToSave = drinks;
     if(!gaiden) {
+      rankDraft = adminReadRankDraft();
+      drinksToSave = adminRankDraftRecords(rankDraft);
       const drafts = adminReadRereviews();
       for(const draft of drafts) {
         const drink = drinks.find(record => record.id === draft.drinkId);
@@ -3273,7 +3443,7 @@ async function adminSendLocalRequest(path, publishing) {
         }
       }
       const draftDrinkIds = new Set(drafts.map(draft => draft.drinkId));
-      drinksToSave = drinks.map(drink => draftDrinkIds.has(drink.id) ? {...drink, rereviews:getRereviews(drink, drafts)} : drink);
+      drinksToSave = drinksToSave.map(drink => draftDrinkIds.has(drink.id) ? {...drink, rereviews:getRereviews(drink, drafts)} : drink);
     }
     validateReviewDataset(gaiden ? gaidenReviews : drinksToSave, gaiden);
     adminPublishMsg(publishing ? 'Saving locally and checking GitHub…' : 'Saving ' + dataFile + ' locally…', 'ok');
@@ -3304,8 +3474,15 @@ async function adminSendLocalRequest(path, publishing) {
         pendingRereviews = [];
         try { adminWriteRereviews(adminReadRereviews()); }
         catch(e) { adminMsg('Saved to disk. Pending re-reviews could not be cleared from browser storage.', 'err'); }
-        renderTop10();
-        if(isRereviewMode()) adminPopulateRereviewDrinks();
+        if(rankDraft) {
+          try {
+            if(JSON.stringify(adminReadRankDraft()) === JSON.stringify(rankDraft)) adminWriteRankDraft(null);
+          } catch(e) {
+            adminMsg('Saved to disk. Pending rank changes could not be cleared from browser storage.', 'err');
+          }
+        }
+        if(isRereviewMode()) adminPopulateExistingDrinks('adm-rereview-drink');
+        if(isRerankMode()) adminRefreshRerank();
       }
       try {
         localStorage.removeItem(gaiden ? GAIDEN_ADMIN_KEY : ADMIN_KEY);
@@ -3313,7 +3490,11 @@ async function adminSendLocalRequest(path, publishing) {
         console.error('Saved reviews, but could not clear pending browser storage:', e);
         adminMsg('Reviews saved to disk, but browser storage could not be cleared. Reload before making more changes.', 'err');
       }
-      adminUpdateList();
+      if(rankDraft?.moves.length) adminRefreshAll();
+      else {
+        if(!gaiden) renderTop10();
+        adminUpdateList();
+      }
     }
     if(!resp.ok) {
       const prefix = result.saved
@@ -3349,12 +3530,13 @@ async function adminSendLocalRequest(path, publishing) {
       <select id="adm-mode" onchange="adminSetMode()">
         <option value="energy">Energy drinks</option>
         <option value="rereview">Re-review an energy drink</option>
+        <option value="rerank">Re-rank an energy drink</option>
         <option value="gaiden">Gaiden — other drinks</option>
       </select>
     </div>
-    <p class="admin-sub">Reviews remain pending in this browser until saved.</p>
+    <p class="admin-sub">Changes remain pending in this browser until saved. Energy drink edits save together.</p>
 
-    <div class="adm-section">
+    <div class="adm-section" id="adm-drink-info">
       <h3>Drink Info</h3>
       <div class="adm-grid">
         <div class="adm-field">
@@ -3367,7 +3549,7 @@ async function adminSendLocalRequest(path, publishing) {
             <option value="">Choose tier...</option>
           </select>
         </div>
-        <div class="adm-field">
+        <div class="adm-field" id="adm-review-date-field">
           <label for="adm-date">Date Reviewed</label>
           <input type="date" id="adm-date" onchange="adminDateFromPicker()">
         </div>
@@ -3404,7 +3586,22 @@ async function adminSendLocalRequest(path, publishing) {
       </div>
     </div>
 
-    <div class="adm-section">
+    <div class="adm-section" id="adm-rerank-fields" hidden>
+      <div class="adm-grid">
+        <div class="adm-field full">
+          <label for="adm-rerank-drink">Existing Drink</label>
+          <select id="adm-rerank-drink" onchange="adminRerankPreview()"><option value="">Select a drink…</option></select>
+        </div>
+        <div class="adm-field">
+          <label for="adm-rerank-position">New Rank</label>
+          <input type="number" id="adm-rerank-position" min="1" step="1" oninput="adminRerankPreview()">
+        </div>
+      </div>
+      <p class="admin-sub" id="adm-rerank-preview" role="status"></p>
+      <p class="admin-sub">Moves are applied in order. Drinks between the old and new positions shift by one. Tier cutoffs stay at the same ranks.</p>
+    </div>
+
+    <div class="adm-section" id="adm-matt-review">
       <h3>Matt Review</h3>
       <div class="adm-field">
         <label for="adm-msl">Matt’s Notes</label>
@@ -3418,7 +3615,7 @@ async function adminSendLocalRequest(path, publishing) {
       </div>
     </div>
 
-    <div class="adm-section">
+    <div class="adm-section" id="adm-nick-review">
       <h3>Nick Review</h3>
       <div class="adm-field">
         <label for="adm-nf">Nick’s Notes</label>
@@ -3445,6 +3642,10 @@ async function adminSendLocalRequest(path, publishing) {
       <ul id="adm-added-list" style="list-style:none;margin:0;padding:0">
         <li class="adm-empty">No drinks added yet.</li>
       </ul>
+      <div id="adm-rank-draft-actions" hidden>
+        <button class="adm-btn secondary" id="adm-undo-rank" type="button" onclick="adminUndoRankMove(false)" hidden>Undo Last Move</button>
+        <button class="adm-btn secondary" id="adm-clear-ranks" type="button" onclick="adminUndoRankMove(true)" hidden>Clear Pending Moves</button>
+      </div>
     </div>
 
     <div class="adm-section adm-publish-section">
