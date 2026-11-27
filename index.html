@@ -4,7 +4,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:title" content="Matt &amp; Nick's Stupid Adventure">
 <meta property="og:description" content="Short pithy thoughts on energy drinks and a big list of 'em. Somehow still going since 2024.">
 <meta property="og:image" content="https://stupidadventure.netlify.app/og-image.png">
@@ -1468,6 +1467,26 @@ function makeLegacyDrinkId(d, fallbackIndex) {
   return 'drink-' + identity;
 }
 
+// A blank or invalid caffeine value is unknown, not a caffeine-free drink.
+function normalizeCaffeine(value) {
+  if(typeof value !== 'number' && typeof value !== 'string') return null;
+  if(typeof value === 'string' && !value.trim()) return null;
+  const amount = Number(value);
+  return Number.isFinite(amount) && amount >= 0 ? amount : null;
+}
+
+function isValidCaffeineAmount(value) {
+  return Number.isInteger(value) && value >= 0 && value <= 1000;
+}
+
+function compareCaffeine(a, b, descending) {
+  if(a.caffeine === null && b.caffeine !== null) return 1;
+  if(b.caffeine === null && a.caffeine !== null) return -1;
+  const diff = a.caffeine === null ? 0 :
+    (descending ? b.caffeine - a.caffeine : a.caffeine - b.caffeine);
+  return diff || a.name.localeCompare(b.name);
+}
+
 function normalizeDrinkRecords(records) {
   if(!Array.isArray(records)) throw new Error('drinks.json must contain an array');
   const usedIds = new Set();
@@ -1499,7 +1518,7 @@ function normalizeDrinkRecords(records) {
       notes: Array.isArray(d.notes) ? d.notes.map(String) : [],
       msl: String(d.msl || ''),
       nf: String(d.nf || ''),
-      caffeine: Number.isFinite(Number(d.caffeine)) ? Number(d.caffeine) : 0
+      caffeine: normalizeCaffeine(d.caffeine)
     };
   });
 }
@@ -1751,14 +1770,9 @@ function renderFull() {
     const sorted = [...drinks].sort((a,b) => parseDate(b.date) - parseDate(a.date));
     sorted.forEach(d => l.appendChild(makeItem(d)));
   } else if(sortMode === 'caffeine-desc' || sortMode === 'caffeine-asc') {
-    const dir = sortMode === 'caffeine-desc' ? -1 : 1;
-    const sorted = [...drinks].sort((a,b) => {
-      const diff = ((b.caffeine||0) - (a.caffeine||0)) * dir;
-      if(diff !== 0) return diff;
-      return a.name.localeCompare(b.name); // alpha secondary sort
-    });
+    const sorted = [...drinks].sort((a,b) => compareCaffeine(a, b, sortMode === 'caffeine-desc'));
     // Group by caffeine amount and inject caffeine headers between groups
-    let lastCaf = null;
+    let lastCaf;
     sorted.forEach(d => {
       const caf = d.caffeine !== undefined ? d.caffeine : null;
       if(caf !== lastCaf) {
@@ -1866,7 +1880,7 @@ function showReview(drinkOrRank, skipPush = false) {
   const dateEl = content.querySelector('.rev-date');
   if(d.date) dateEl.textContent = d.date; else dateEl.remove();
   const caffeineEl = content.querySelector('.rev-caffeine');
-  caffeineEl.textContent = d.caffeine > 0 ? d.caffeine + 'mg caffeine' : 'caffeine-free';
+  caffeineEl.textContent = d.caffeine === null ? 'caffeine unknown' : (d.caffeine > 0 ? d.caffeine + 'mg caffeine' : 'caffeine-free');
   content.querySelector('.rev-title').textContent = d.name;
   content.querySelector('.rev-brand').textContent = d.brand;
 
@@ -2570,37 +2584,28 @@ function adminLoadPersisted() {
     });
     adminRenumber();
     adminRefreshAll();
-  } catch(e) {}
+  } catch(e) {
+    console.error('Could not restore pending drinks:', e);
+    adminMsg('Could not restore pending drinks. Your saved browser data has not been overwritten.', 'err');
+  }
 }
 
 function adminGetPending() {
-  try {
-    const raw = localStorage.getItem(ADMIN_KEY);
-    const pending = raw ? JSON.parse(raw) : [];
-    return normalizeDrinkRecords(Array.isArray(pending) ? pending : []);
-  } catch(e) { return []; }
+  const raw = localStorage.getItem(ADMIN_KEY);
+  const pending = raw ? JSON.parse(raw) : [];
+  if(!Array.isArray(pending)) throw new Error('Pending drink data is not an array');
+  return normalizeDrinkRecords(pending);
 }
 
 function adminWritePending(pending) {
   localStorage.setItem(ADMIN_KEY, JSON.stringify(pending));
 }
 
-function adminSaveAdded(obj) {
-  try {
-    const existing = adminGetPending();
-    const idx = existing.findIndex(d => d.id === obj.id);
-    if(idx >= 0) existing[idx] = obj; else existing.push(obj);
-    adminWritePending(existing);
-  } catch(e) {}
-}
-
-function adminSyncPendingRanks() {
-  const pending = adminGetPending();
-  pending.forEach(saved => {
+function adminSyncPendingRanks(pending) {
+  return pending.map(saved => {
     const current = drinks.find(d => d.id === saved.id);
-    if(current) saved.rank = current.rank;
+    return current ? {...current, notes:[...current.notes]} : saved;
   });
-  adminWritePending(pending);
 }
 
 function adminRenumber() {
@@ -2695,7 +2700,7 @@ function adminUpdateList() {
       name.textContent = d.name;
       const caffeine = document.createElement('span');
       caffeine.className = 'adm-added-caf';
-      caffeine.textContent = d.caffeine > 0 ? d.caffeine + 'mg' : 'caffeine-free';
+      caffeine.textContent = d.caffeine === null ? 'unknown' : (d.caffeine > 0 ? d.caffeine + 'mg' : 'caffeine-free');
       const remove = document.createElement('button');
       remove.className = 'adm-del-btn';
       remove.type = 'button';
@@ -2705,10 +2710,26 @@ function adminUpdateList() {
       item.append(rank, name, caffeine, remove);
       list.appendChild(item);
     });
-  } catch(e) {}
+  } catch(e) {
+    console.error('Could not read pending drinks:', e);
+    list.textContent = 'Pending drinks could not be read from browser storage.';
+    adminMsg('Could not read pending drinks. Your saved browser data has not been overwritten.', 'err');
+  }
 }
 
 function adminDelete(id) {
+  let pending;
+  try {
+    pending = adminGetPending();
+    if(!pending.some(d => d.id === id)) {
+      adminMsg('Only pending drinks can be removed here.', 'err');
+      return;
+    }
+  } catch(e) {
+    adminMsg('Could not read pending drinks. Nothing was removed.', 'err');
+    return;
+  }
+  const before = drinks.map(d => ({...d, notes:[...d.notes]}));
   const idx = drinks.findIndex(d => d.id === id);
   if(idx >= 0) {
     const removed = drinks[idx];
@@ -2723,20 +2744,26 @@ function adminDelete(id) {
   }
   adminRenumber();
   try {
-    adminWritePending(adminGetPending().filter(d => d.id !== id));
-    adminSyncPendingRanks();
-  } catch(e) {}
+    adminWritePending(adminSyncPendingRanks(pending.filter(d => d.id !== id)));
+  } catch(e) {
+    drinks = before;
+    console.error('Could not save pending drinks:', e);
+    adminMsg('Could not save the removal to browser storage. Nothing was removed.', 'err');
+    return;
+  }
   adminRefreshAll();
   adminMsg('Drink removed.', 'ok');
 }
 
+let adminMsgTimer;
 function adminMsg(text, type) {
+  clearTimeout(adminMsgTimer);
   const el = document.getElementById('adm-msg');
   if(!el) return;
   el.textContent = text;
   el.className = 'adm-msg ' + type;
   el.style.display = 'block';
-  setTimeout(() => { el.style.display = 'none'; }, 4000);
+  if(type === 'ok') adminMsgTimer = setTimeout(() => { el.style.display = 'none'; }, 4000);
 }
 
 function adminFormatReviewText(text) {
@@ -2814,15 +2841,20 @@ function adminSubmit() {
   const brand    = adminGetBrand();
   const _dateEl   = document.getElementById('adm-date');
   const date      = (_dateEl._formatted || _dateEl.value || '').trim();
-  const caffeine = parseInt(document.getElementById('adm-caffeine').value);
+  const caffeineInput = document.getElementById('adm-caffeine');
+  const caffeine = caffeineInput.value === '' ? null : caffeineInput.valueAsNumber;
+  if(caffeineInput.validity.badInput || (caffeine !== null && !isValidCaffeineAmount(caffeine))) {
+    adminMsg('Enter a whole-number caffeine amount from 0 to 1,000 mg, or leave it blank if unknown.', 'err');
+    return false;
+  }
   const redo     = document.getElementById('adm-redo').value === 'true';
   const msl      = adminFormatReviewText(document.getElementById('adm-msl').value);
   const nf       = adminFormatReviewText(document.getElementById('adm-nf').value);
   const tierBoundary = adminGetTierBoundary(rank);
   const tierChoice = (document.getElementById('adm-tier-choice') || {}).value || '';
 
-  if(!rank || !name || !brand) {
-    adminMsg('Rank, Name, and Brand are required.', 'err');
+  if(!Number.isInteger(rank) || rank < 1 || rank > drinks.length + 1 || Number(document.getElementById('adm-rank').value) !== rank || !name || !brand) {
+    adminMsg('Enter a whole-number rank between 1 and ' + (drinks.length + 1) + ', a name, and a brand.', 'err');
     return false;
   }
   if(tierBoundary && ![tierBoundary.upper, tierBoundary.lower].includes(tierChoice)) {
@@ -2850,18 +2882,29 @@ function adminSubmit() {
     ? globalThis.crypto.randomUUID()
     : 'drink-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
 
-  if(drinks.find(d => d.rank === rank)) {
-    drinks.forEach(d => { if(d.rank >= rank) d.rank += 1; });
+  let pending;
+  try {
+    pending = adminGetPending();
+  } catch(e) {
+    adminMsg('Could not read pending drinks. Nothing was added; your form has been retained.', 'err');
+    return false;
   }
+  const before = drinks.map(d => ({...d, notes:[...d.notes]}));
+  drinks.forEach(d => { if(d.rank >= rank) d.rank += 1; });
 
-  const obj = {id, slug, rank, name, brand, date, redo, notes:[], msl, nf,
-               caffeine: isNaN(caffeine) ? 0 : caffeine};
+  const obj = {id, slug, rank, name, brand, date, redo, notes:[], msl, nf, caffeine};
 
   drinks.push(obj);
   adminRenumber();
   adminApplyTierChoice(obj, tierBoundary, tierChoice);
-  adminSyncPendingRanks();
-  adminSaveAdded(obj);
+  try {
+    adminWritePending(adminSyncPendingRanks([...pending, obj]));
+  } catch(e) {
+    drinks = before;
+    console.error('Could not save pending drink:', e);
+    adminMsg('Could not save to browser storage. Nothing was added; your form has been retained.', 'err');
+    return false;
+  }
   adminRefreshAll();
   adminClear();
   adminMsg('✓ #' + rank + ' “' + name + '” added and rankings updated!', 'ok');
@@ -2984,6 +3027,40 @@ function adminPublishMsg(text, type) {
   if(type === 'ok') setTimeout(() => { el.style.display = 'none'; }, 6000);
 }
 
+// Validate the actual records before normalization can hide malformed data.
+function validateReviewDataset(records, gaiden) {
+  if(!Array.isArray(records)) throw new Error('Review data must be an array.');
+  const ids = new Set(), slugs = new Set(), ranks = new Set();
+  for(const r of records) {
+    if(!r || typeof r !== 'object' || Array.isArray(r)) throw new Error('Invalid review record.');
+    for(const field of ['id','slug','name', ...(gaiden ? ['date'] : ['brand'])]) {
+      if(typeof r[field] !== 'string' || !r[field].trim()) throw new Error('Missing ' + field + ' in a review.');
+    }
+    if(ids.has(r.id) || slugs.has(r.slug)) throw new Error('Duplicate ID or slug: ' + r.name);
+    ids.add(r.id); slugs.add(r.slug);
+    if(!gaiden) {
+      if(!Number.isInteger(r.rank) || r.rank < 1 || r.rank > records.length || ranks.has(r.rank)) {
+        throw new Error('Invalid or duplicate rank: ' + r.name);
+      }
+      ranks.add(r.rank);
+      if(r.caffeine !== null && !isValidCaffeineAmount(r.caffeine)) {
+        throw new Error('Invalid caffeine amount: ' + r.name);
+      }
+      if(!Array.isArray(r.notes)) throw new Error('Invalid notes: ' + r.name);
+    }
+  }
+  if(!gaiden) {
+    let previous = 0;
+    for(const note of Object.values(tierBoundaryNotes)) {
+      const markers = records.filter(r => r.notes.includes(note));
+      if(markers.length !== 1 || markers[0].rank <= previous) {
+        throw new Error('Missing, duplicate, or out-of-order tier marker: ' + note);
+      }
+      previous = markers[0].rank;
+    }
+  }
+}
+
 function serializeDrinksJson() {
   const sorted = normalizeDrinkRecords(drinks).sort((a, b) => a.rank - b.rank);
   return JSON.stringify(sorted, null, 2) + '\n';
@@ -3023,6 +3100,7 @@ async function adminSendLocalRequest(path, publishing) {
   adminPublishMsg('', 'ok');
 
   try {
+    validateReviewDataset(gaiden ? gaidenReviews : drinks, gaiden);
     adminPublishMsg(publishing ? 'Saving locally and checking GitHub…' : 'Saving ' + dataFile + ' locally…', 'ok');
     const resp = await fetch(path, {
       method: 'POST',
@@ -3045,8 +3123,13 @@ async function adminSendLocalRequest(path, publishing) {
       else localAdminFileHash = result.fileHash;
     }
     if(result.saved) {
-      localStorage.removeItem(gaiden ? GAIDEN_ADMIN_KEY : ADMIN_KEY);
       if(!gaiden) loadedDrinksSnapshot = canonicalDrinks(drinks);
+      try {
+        localStorage.removeItem(gaiden ? GAIDEN_ADMIN_KEY : ADMIN_KEY);
+      } catch(e) {
+        console.error('Saved reviews, but could not clear pending browser storage:', e);
+        adminMsg('Reviews saved to disk, but browser storage could not be cleared. Reload before making more changes.', 'err');
+      }
       adminUpdateList();
     }
     if(!resp.ok) {
@@ -3121,7 +3204,7 @@ async function adminSendLocalRequest(path, publishing) {
         </div>
         <div class="adm-field">
           <label for="adm-caffeine">Caffeine (mg)</label>
-          <input type="number" id="adm-caffeine" min="0" placeholder="e.g. 200">
+          <input type="number" id="adm-caffeine" min="0" max="1000" step="1" placeholder="Blank if unknown">
         </div>
         <div class="adm-field">
           <label for="adm-redo">Re-review?</label>
